@@ -1,6 +1,5 @@
 patch*.php
 remove_emojis.php
-fetch_data.js
 *.stackdump
 *.zip
 sample_project/
