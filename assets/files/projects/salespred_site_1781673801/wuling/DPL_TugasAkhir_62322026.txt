@@ -1,0 +1,2933 @@
+DOKUMENTASI PERANGKAT LUNAK
+SISTEM MONITORING DAN PREDIKSI PENJUALAN UNIT KENDARAAN BERMOTOR MENGGUNAKAN METODE MOVING AVERAGE (MA)
+(Studi Kasus: PT Maju Global Motor)
+Untuk: Sekolah Vokasi Program Studi D-III Manajemen Informatika - Universitas Logistik dan Bisnis Internasional
+
+Dipersiapkan oleh:
+
+Kyla Nazwa Salsabila
+
+623220026
+
+Program Studi D-III Manajemen Informatika - Universitas Logistik
+
+dan Bisnis Internasional
+
+Jl. Sari Asih No. 54, Bandung 40151
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan
+Bisnis Internasional
+
+Nomor Dokumen
+
+D III-MI-TA-3A
+
+Revisi
+
+1.0
+
+Halaman
+1/83 Tanggal 22 Agustus 2025
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 1 dari 83 halaman
+
+Revisi 20
+
+DAFTAR PERUBAHAN
+Deskripsi Use Case
+
+INDEX TGL
+Ditulis oleh
+Diperiksa oleh
+Disetujui oleh
+
+A 22 Agustus 2025 Kyla Nazwa Salsabila
+Mubassiran, S.Si., M.T
+Supono, S.T., M.T.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 2 dari 83 halaman
+
+DAFTAR HALAMAN PERUBAHAN
+
+Halaman
+
+Revisi
+
+20
+
+Use Case
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 3 dari 83 halaman
+
+DAFTAR ISI
+
+DAFTAR ISI........................................................................................................... 4
+
+DAFTAR GAMBAR .............................................................................................. 8
+
+DAFTAR TABEL ................................................................................................... 9
+
+DAFTAR SIMBOL............................................................................................... 10
+
+1 PENDAHULUAN ........................................................................................ 11
+
+1.1 Tujuan Penulisan Dokumen......................................................................... 11 1.2 Lingkup Masalah ......................................................................................... 11 1.3 Definisi ........................................................................................................ 12 1.4 Aturan Penomoran ....................................................................................... 13 1.5 Referensi ...................................................................................................... 14 1.6 Deskripsi Umum Dokumen (Ikhtisar) ......................................................... 15 2 KEBUTUHAN PERANGKAT LUNAK...................................................... 19
+
+2.1 Deskripsi Umum Sistem .............................................................................. 19 2.2 Fitur Utama Perangkat Lunak...................................................................... 19
+2.2.1 Kebutuhan Fungsional .................................................................... 19 2.2.2 Kebutuhan Non Fungsional............................................................. 20 2.3 Model Use Case ........................................................................................... 20 2.3.1 Diagram Use Case........................................................................... 21 2.3.2 Definisi Aktor ................................................................................. 21 2.3.3 Definisi Use Case ............................................................................ 23 2.3.4 Skenario Use Case........................................................................... 24 2.4 Spesifikasi Tambahan .................................................................................. 33 2.5 Glossary ....................................................................................................... 34 3 MODEL ANALISIS ..................................................................................... 35
+
+3.1 Realisasi Use Case Tahap Analisis.............................................................. 35
+
+3.1.1 Sistem Sequence Diagram (SSD) ................................................... 35
+
+3.1.2 Conceptual Class Diagram .............................................................. 41
+
+3.2 Kelas Analisis .............................................................................................. 41
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 4 dari 83 halaman
+
+3.2.1 Tanggung Jawab dan Atribut .......................................................... 42 3.3 Paket Analisis .............................................................................................. 43
+3.3.1 Identifikasi Paket Analisis .............................................................. 43 3.3.2 Identifikasi Kelas Analisis Tiap Paket ............................................ 45 3.4 Prototipe Antarmuka.................................................................................... 45 3.4.1 Halaman Login................................................................................ 46 3.4.2 Halaman Dashboard ........................................................................ 47 3.4.3 Halaman Data Transaksi Penjualan ................................................ 48 3.4.4 Laporan Penjualan........................................................................... 49 3.4.5 Kelola Dokumen Penjualan............................................................. 50 3.4.6 Logout ............................................................................................. 51 3.5 Deskripsi Arsitektur..................................................................................... 51 3.6 Pedoman Perancangan ................................................................................. 51 4 MODEL PERANCANGAN ......................................................................... 52
+4.1 Realisasi Use Case Tahap Perancangan ...................................................... 52 4.1.1 Sequence Diagram .......................................................................... 52 4.1.2 Class Diagram ................................................................................. 56
+4.2 Kelas Perancangan....................................................................................... 57 4.3 Operasi dan Atribut...................................................................................... 58
+4.3.1 Nama Kelas: Entity Kelas LoginController .................................... 58 4.3.2 Nama Kelas: Entity Kelas UserController ...................................... 59 4.3.3 Nama Kelas: Entity Kelas TransaksiController .............................. 59 4.3.4 Nama Kelas: Entity Kelas Laporan KendaraanController .............. 60 4.3.5 Nama Kelas: Entity Kelas CustomerController .............................. 60 4.3.6 Nama Kelas: Entity Kelas Laporan................................................. 61 4.3.7 Nama Kelas: Entity Kelas Transaksi .............................................. 61 4.3.8 Nama Kelas: Entity Kelas Kendaraan............................................. 62 4.3.9 Nama Kelas: Entity Kelas Customer .............................................. 62 4.3.10 Nama Kelas: Entity Kelas Laporan Penjualan ............................ 62 4.3.11 Nama Kelas: Entity Kelas LaporanPenggunaController ............. 62 4.4 Algoritma & Query...................................................................................... 63 4.4.1 Kelas LoginController..................................................................... 63
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 5 dari 83 halaman
+
+4.4.2 Kelas userController........................................................................ 63 4.4.3 Kelas TransaksiController............................................................... 64 4.4.4 Kelas LaporanKendaraanController................................................ 65 4.4.5 Kelas Laporan CustomerController ................................................ 65 4.5 Perancangan Struktur Menu ........................................................................ 66 4.6 Perancangan Struktur Menu ........................................................................ 66 4.7 Antarmuka ................................................................................................... 66 5 IMPLEMENTASI ......................................................................................... 67
+
+5.1 Implementasi Antarmuka Halaman Login................................................... 67 5.2 Implementasi Antarmuka Halaman Dashboard Administator Head ........... 68 5.3 Implementasi Antarmuka Halaman Kelola Laporan ................................... 68 5.4 Implementasi Antarmuka Halaman Kelola Prediksi ................................... 69 5.5 Implementasi Antarmuka Halaman Kelola Transaksi Penjualan ................ 69 5.6 Implementasi Antarmuka Halaman Kelola Kendaraan ............................... 70 5.7 Implementasi Antarmuka Halaman Kelola User ......................................... 70 6 PENGUJIAN................................................................................................. 71
+
+6.1 Rencana dan Prosedur Pengujian................................................................. 71
+
+6.1.1 Pengenalan dan Latihan .................................................................. 72
+
+6.1.2 Persiapan Awal................................................................................ 73
+
+6.1.3 Persiapan Prosedural ....................................................................... 73
+
+6.1.4 Persiapan Perangkat Keras .............................................................. 73
+
+6.1.5 Persiapan Perangkat Lunak ............................................................. 73
+
+6.1.6 Pelaksanaan ..................................................................................... 73
+
+6.1.7 Pelaporan Penjualan Hasil .............................................................. 74
+
+6.1.8 Tim Pengembang ............................................................................ 74
+
+6.1.9 Penguji ............................................................................................ 74
+
+6.2 Kelas Uji ...................................................................................................... 75
+
+6.2.1 Pengujian Login .............................................................................. 75
+
+6.2.2 Pengujian Transaksi Penjualan ....................................................... 76
+
+6.2.3 Pengujian Laporan Penjualan.......................................................... 77
+
+6.2.4 Pengujian Dokumen ........................................................................ 78
+
+6.2.5 Pengujian Logout ............................................................................ 79
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 6 dari 83 halaman
+
+6.3 Evaluasi Pengujian....................................................................................... 80 7 Spesifikasi Produk Perangkat Lunak ............................................................ 80
+7.1 Perangkat Lunak Siap Eksekusi .................................................................. 80 7.2 Berkas Sumber ............................................................................................ 80 7.3 Syarat Pemaketan ........................................................................................ 81 7.4 Prosedur Konstruksi .................................................................................... 81 8 Panduan Instalasi........................................................................................... 81
+8.1 Instalasi Antar Domain ................................................................................ 81 8.2 Proses Instalasi............................................................................................. 81
+8.2.1 Instalasi Aplikasi ............................................................................. 82 9 PENUTUP..................................................................................................... 83
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 7 dari 83 halaman
+
+DAFTAR GAMBAR
+Gambar 2. 1 Use Case Sistem monitoring dan prediksi penjualan unit kendaraan bermotor ................................................................................................................ 21 Gambar 2. 2 Activity Diagram Login .................................................................. 25 Gambar 2. 3 Activity Diagram Data Transaksi.................................................... 27 Gambar 2. 4 Activity Diagram Pengolahan Data Penjualan................................ 29 Gambar 2. 5 Activity Diagram Kelola Pembuatan Laporan Penjualan ............... 31 Gambar 2. 6 Activity Diagram Kelola Prediksi ................................................... 33 Gambar 3. 1 Sistem Sequence Diagram Login ..................................................... 36 Gambar 3. 2 Sistem Sequence Diagram Kelola Data Transaksi ........................... 37 Gambar 3. 3 Sistem Sequence Diagram Pengolahan Data Penjualan................... 38 Gambar 3. 4 Sistem Sequence Diagram Pembuatan Laporan Penjualan .............. 39 Gambar 3. 5 Sistem Sequence Diagram Kelola Monitoring................................. 40 Gambar 3. 6 Sistem Sequence Diagram Logout ................................................... 41 Gambar 3. 7 Conceptual Class Diagram ............................................................... 41 Gambar 3. 8 Prototipe Halaman Login ................................................................. 46 Gambar 3. 9 Prototipe Halaman Dashobard ......................................................... 47 Gambar 3. 10 Prototipe Halaman Data Transaksi Penjualan ............................... 48 Gambar 3. 11 Prototipe Laporan Penjualan .......................................................... 49 Gambar 3. 12 Prototipe Dokumen Penjualan........................................................ 50 Gambar 3. 13 Prototipe Logout............................................................................. 51 Gambar 4. 1 Sequence Diagram Login ................................................................. 53 Gambar 4. 2 Sequence Diagram Register ............................................................. 54 Gambar 4. 3 Sequence Diagram Pengolahan Data Penjualan............................... 55 Gambar 4. 4 Sequence Diagram Pembuatan Laporan Penjualan.......................... 56 Gambar 4. 5 Sequence Diagram Review Laporan ................................................ 56 Gambar 4. 6 Class Diagram Sistem Monitoring Dan Prediksi Penjualan Unit Kendaraan Bermotor ............................................................................................. 57 Gambar 4. 7 Struktur Menu .................................................................................. 66 Gambar 5. 1 Implementasi Antarmuka Halaman Login ....................................... 67 Gambar 5. 2 Implementasi Antarmuka Halaman Administator Head .................. 68 Gambar 5. 3 Implementasi Antarmuka Halaman Kelola Laporan........................ 68 Gambar 5. 4 Implementasi Antarmuka Halaman Kelola Prediksi ........................ 69 Gambar 5. 5 Implementasi Antarmuka Halaman Kelola Transaksi Penjualan..... 69 Gambar 5. 6 Implementasi Antarmuka Halaman Kelola Kendaraan.................... 70 Gambar 5. 7 Implementasi Antarmuka Halaman Kelola User ............................. 70 Gambar 8. 1 Aplikasi XAMPP.............................................................................. 82 Gambar 8. 2 Akses Browser localhost/wuling ...................................................... 83
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 8 dari 83 halaman
+
+DAFTAR TABEL
+Tabel 1. 1 Istilah, Singkatan, dan Akronim .......................................................... 12
+Tabel 1. 2 Aturan Penomoran ............................................................................... 13
+Tabel 2. 1 Kebutuhan Fungsional ......................................................................... 19 Tabel 2. 2 Aktor Use Case .................................................................................... 22 Tabel 2. 3 Definisi Use Case................................................................................. 23 Tabel 2. 4 Skenario Use Case Login ..................................................................... 24 Tabel 2. 5 Skenario Use Case Kelola Data Transaksi........................................... 26 Tabel 2. 6 Skenario Use Case Pengolahan Data Penjualan .................................. 27 Tabel 2. 7 Skenario Use Case Kelola Pembuatan Laporan Penjualan .................. 29 Tabel 2. 8 Skenario Use Case Prediksi ................................................................. 32 Tabel 4. 1 Tabel Kelas Perancangan ..................................................................... 57 Tabel 4. 2 Operasi pada kelas LoginController .................................................... 58 Tabel 4. 3 Operasi pada kelas UserController ...................................................... 59 Tabel 4. 4 Operasi pada kelas TransaksiController .............................................. 59 Tabel 4. 5 Operasi pada kelas Laporan KendaraanController .............................. 60 Tabel 4. 6 Operasi pada kelas CustomerController .............................................. 60 Tabel 4. 7 Atribut pada kelas user......................................................................... 61 Tabel 4. 8 Atribut pada kelas Transaksi................................................................ 61 Tabel 4. 9 Atribut pada kelas Kendaraan .............................................................. 62 Tabel 4. 10 Atribut pada kelas Customer.............................................................. 62 Tabel 4. 11 Atribut pada kelas Laporan Penjualan ............................................... 62 Tabel 4. 12 Atribut pada kelas LaporanPenggunaController................................ 62 Tabel 4. 13 Antarmuka.......................................................................................... 66 Tabel 6. 1 Rencana dan Prosedur Pengujian ......................................................... 71 Tabel 6. 2 Pengujian Login ................................................................................... 75 Tabel 6. 3 Pengujian Transaksi Penjualan ............................................................ 76 Tabel 6. 4 Pengujian Laporan Penjualan............................................................... 77 Tabel 6. 5 Pengujian Dokumen ............................................................................. 78 Tabel 6. 6 Pengujian Logout ................................................................................. 79 Tabel 6. 7 Evaluasi Pengujian ............................................................................... 80
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 9 dari 83 halaman
+
+DAFTAR SIMBOL
+
+No. Simbol
+
+Keterangan
+
+Actor adalah elemen diluar sistem yang 1.
+berkepentingan secara langsung dengan sistem.
+
+Use Case adalah urutan interaksi antar aktor dengan 2.
+sistem.
+
+Include adalah relasi dari base use case kepada inclusion
+
+3.
+
+use case, menggambarkan bagaimana perilaku dari
+
+<<include>>
+
+inclusion use case disisipkan ke dalam base use case.
+
+Extends adalah hubungan dari extention use case,
+
+4.
+
+menerangkan bagaimana perilaku dari extension use
+
+<<extends>>
+
+case dapat disisipkan ke dalam perilaku base use case.
+
+Association adalah partisipasi aktor dalam suatu use case 5.
+yang saling berkomunikasi satu dengan yang lainnya.
+
+System boundary, untuk mereprensentasikan batasan 6.
+fisik sistem dengan aktor yang berinteraksi dengan sistem.
+
+Class adalah deskripsi dari kumpulan objek yang memiliki
+
+7.
+
+atribut, operation, method, relationship, dan semantics
+
+yang sama.
+
+Generalization adalah hubungan taksonomik antara
+
+8.
+
+use case yang lebih umum dan use case yang lebih
+
+spesifik.
+
+Start State adalah memperlihatkan dimana aliran kerja 9.
+berawal.
+
+End State adalah memperlihatkan dimana aliran kerja 10.
+berakhir.
+
+11.
+
+Activity merupakan aktivitas pada diagram activity.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 10 dari 83 halaman
+
+1 PENDAHULUAN Pada bab ini akan dijelaskan mengenai tujuan penulisan dokumen, lingkup
+masalah yang ditangani dalam pembangunan perangkat lunak, aturan penomoran, referensi serta deskripsi umum penulisan dokumen (ikhtisar). 1.1 Tujuan Penulisan Dokumen
+Dokumen ini secara keseluruhan mencakup dua bagian besar yaitu Spesifikasi Kebutuhan Perangkat Lunak (SKPL) dan Dokumentasi Perangkat Lunak (DPL). Tujuan penulisan dokumen SKPL ini adalah untuk mendefinisikan secara rinci kebutuhan perangkat lunak Sistem monitoring dan prediksi penjualan unit kendaraan bermotor sebagai media untuk memenuhi keinginan pemakai dalam memudahkan proses transaksi. Dokumen SKPL membantu pengembangan perangkat lunak yang fokus dan terarah. Tujuan penulisan DPL adalah untuk menggambarkan perancangan dari Sistem monitoring dan prediksi penjualan unit kendaraan bermotor berdasarkan spesifikasi yang dituliskan di SKPL. Penulisan DPL menggambarkan struktur sistem dengan perancangan menu dan perancangan antarmuka yang dijadikan sebagai bahan pertimbangan dan gambaran untuk pengembangan sistem selanjutnya. 1.2 Lingkup Masalah
+Sistem informasi yang akan dibangun memiliki beberapa lingkup masalah yaitu sebagai berikut:
+1. Fitur yang akan dibangun meliputi: a. Login dan otentikasi pengguna berdasarkan hak akses. b. Manajemen Data Transaksi Penjualan sebagai dasar analisis sistem. c. Monitoring dan Prediksi Penjualan menggunakan metode Moving Average (MA). d. Laporan Penjualan Real-Time, tersedia dalam format digital dan cetak.
+2. Database yang dibangun menggunakan MySQL.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 11 dari 83 halaman
+
+1.3 Definisi Definisi, istilah, dan singkatan yang digunakan dalam dokumen ini
+diantaranya:
+
+Tabel 1. 1 Istilah, Singkatan, dan Akronim
+
+Istilah dan No.
+Akronim 1. SKPL 2. SRS 3. Pengguna / User
+4. Sistem Operasi
+5. Basis Data / Database
+6. Use Case
+7. Tools 8. PC/Personal
+Computer 9. Create 10. Update 11. Delete
+
+Definisi
+Software Requirement Specification, Spesifikasi Kebutuhan Perangkat Lunak. Software Requirements Specification Seseorang atau sekelompok orang yang menggunakan beberapa fungsi yang disediakan oleh perangkat lunak yang bersangkutan Sistem operasi atau perangkat lunak dasar yang berperan sebagai jembatan penghubung antara aplikasi dengan hardware. Kumpulan data yang diorganisasikan menurut struktur tertentu. Use Case Diagram Merupakan suatu diagram yang menunjukkan aliran data antar proses yang terdapat pada perangkat lunak. Perangkat lunak yang dipakai sebagai alat bantu dalam pengembangan perangkat lunak lain. Komputer pribadi
+Proses menambah data ke dalam aplikasi yang disimpan dalam suatu basis data. Proses mengubah data di dalam aplikasi yang disimpan dalam suatu basis data Proses menghapus data dari aplikasi yang disimpan dalam sustu basis data.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 12 dari 83 halaman
+
+Istilah dan No.
+Akronim 12. Read
+13. Availability
+14. Reliability
+15. Ergonomy 16. Memory 17. Response Time 18. Safety
+19. Security
+
+Definisi
+Proses melihat atau menampilkan data yang dismpan dalam basis data (database). Ketersediaan aplikasi (apakah terus menerus dipakai atau beberapa jam saja). Keandalan perangkat lunak (tidak pernah gagal atau memiliki beberapa persen toleransi terhadap kegagalan). Kenyamanan pakai bagi pengguna. Kebutuhan penyimpanan perangkat lunak. Batasan waktu yang harus dipenuhi. Kebutuhan perangkat lunak yang menyangkut keselamatan manusia. Tingkat keamanan perangkat lunak.
+
+1.4 Aturan Penomoran
+
+Tabel 1. 2 Aturan Penomoran
+
+Format
+
+Arti
+
+SRS Id fungsional yang diturunkan dari fungsi produk X, YY SRS-F-XYY
+adalah nomor urut.
+
+SRS-NFYYY
+
+SRS Id nonfungsional, YYY adalah nomor urut.
+
+Tabel B.X Tabel bab B nomor X
+
+Gambar B.X Gambar bab B nomor X
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 13 dari 83 halaman
+
+1.5 Referensi Dalam penulisan dokumen pembangunan Sistem monitoring dan prediksi
+penjualan unit kendaraan bermotor ini merujuk pada struktur penulisan yang digunakan dalam pembuatan dokumen berdasarkan template dokumen yang telah dikeluarkan oleh Prodi D-III Manajemen Informatika Universitas Logistik dan Bisnis Internasional.
+Adapun buku teks dan referensi yang digunakan sebagai bahan acuan dalam proses pembangunan Sistem monitoring dan prediksi penjualan unit kendaraan bermotor ini adalah sebagai berikut: [1] R. Julyan and A. D. Wahyudi, "Perancangan Sistem Informasi Monitoring
+Penjualan Motor Pada Divisi Digital Marketing," J. Artif. Intell. Technol. Inf., vol. 1, no. 3, pp. 116­122, 2023, doi: 10.58602/jaiti.v1i3.63.
+
+[2] E. Purwanto, B. P. C. Utomo, and H. Permatasari, "Prototype Sistem Informasi Monitoring Penjualan," J. Teknol. Inf. dan Ilmu Komput., vol. 9, no. 4, p. 761, 2022, doi: 10.25126/jtiik.2022944880.
+
+[3] A. Dennis, B. Wixom, and D. Tergaden, Object-Oriented Systems Analysis and Design: An MDA Approach with UML. 2013.
+
+[4] Maraya, "METODE PROTOTYPE: Kelebihan, Kekurangan & Tahapan Model," Jun 28, 2021.
+
+[5] Hendrik, "Prototype Adalah: Pengertian, Manfaat, Tujuan, dan Contohnya."
+
+[6] H. Mulachela, "Sistem Adalah Suatu Kesatuan, Berikut Teori dan Cirinya," 28 Jan 2022.
+
+[7] 1999 Zainun, "Zainun, 1999," Zainun, vol. 2, pp. 5­17, 2018.
+
+[8] "Prinsip Perancangan Sistem beserta Penjelasan Konsepnya," 22 Dec 23.
+
+[9] R. Juliarto, "Apa itu UML? Beserta Pengertian dan Contohnya - Dicoding Blog," May 12.
+
+[10] A. Singh, "The Kano Model: Driving customer experience improvement."
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 14 dari 83 halaman
+
+[11] E. Didik, "Kano Model," 18 Dec 2018.
+[12] E. Novarida, Y. Purnamasari Pasrun, and M. N. Sutoyo, "Implementasi Metode Time Series Simple Moving Average untuk Prediksi Penjualan Multi-Produk," J. Inf. Syst. Technol., vol. 1, no. 1, pp. 1­6, 2024, [Online]. Available: https://journal.patin.or.id/index.php/JISTech
+[13] Salmaa, "Populasi dan Sampel: Pengertian, Perbedaan, dan Contoh," Deepublish.
+[14] "MEMAHAMI SKALA LIKERT DALAM PENELITIAN ILMIAH ­ Accounting."
+[15] E. Santi, "VSCODE Adalah: Pengertian, Fitur, dan Cara Menggunakannya."
+[16] M. A. Maksum, "Pengertian XAMPP, Fungsi, dan Cara Menggunakannya."
+[17] M. A. Maksum, "Apa itu Laravel? Pengertian, Fitur dan Kelebihannya."
+[18] I. Taufik, "Pengertian phpMyAdmin."
+1.6 Deskripsi Umum Dokumen (Ikhtisar) Isi dari deskripsi umum dokumen (ikhtisar) merupakan rincian dari penulisan
+dokumen dan rincian kebutuhan perangkat lunak yang akan dikembangkan. Struktur dari Dokumen Pembangunan Perangkat Lunak ini terdiri dari: 1. Pendahuluan Bab ini berisi tentang gambaran umum dari seluruh Spesifikasi Kebutuhan Perangkat Lunak yang akan dirancang. 1.1 Tujuan Penulisan Dokumen
+Mengetahui tujuan pembuatan Dokumentasi Perangkat Lunak (DPL). 1.2 Lingkup Masalah.
+Berisi penjelasan mengenai apa yang akan dilakukan dan apa yang tidak dilakukan oleh perangkat lunak. 1.3 Referensi
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 15 dari 83 halaman
+
+Berisi daftar lengkap dan dokumen yang direferensikan, identifikasi dari
+
+setiap dokumen berdasarkan judul, pengarang, tanggal dan penerbit serta
+
+sumber-sumber referensi yang didapat.
+
+1.4 Aturan Penomoran
+
+Berisi tabel yang menjelaskan format pemberian nomor dan artinya.
+
+1.5 Deskripsi Umum Dokumen (Ikhtisar)
+
+Menjelaskan isi DPL dan organisasi dari DPL.
+
+2. Kebutuhan Perangkat Lunak
+
+2.1 Deskripsi Umum Sistem
+
+Berisi sistem overview, dalam bentuk gambar dan narasi yang dapat
+
+memberikan gambaran tentang aplikasi dan konteksnya serta batasan dan
+
+keterkaitan antara sistem yang akan dibangun dengan sistem lain diluarnya.
+
+2.2 Fitur Utama Perangkat Lunak
+
+Sistem informasi ini berisi fungsi-fungsi sistem utama yang akan diberikan
+
+langsung ke pengguna atau sistem lain yang terkait.
+
+2.2.1 Kebutuhan Fungsional
+
+Berisi tentang fungsi ­ fungsi utama dari sistem yang dibangun.
+
+2.2.2 Kebutuhan Non Fungsional
+
+Berisi tentang kebutuhan ­ kebutuhan lain yang terdapat dalam
+
+sistem ini.
+
+2.3 Model Use Case
+
+Berisi diagram use case, definisi actor, definisi use case, dan scenario use
+
+case.
+
+2.3.1 Diagram Use Case
+
+Merupakan diagram use case versi awal dalam UML. Lengkap dengan
+
+uraian yang menjelaskan diagram tersebut.
+
+2.3.2 Definisi Actor
+
+Berisi daftar actor dan deskripsi role untuk actor tersebut.
+
+2.3.3 Definisi Use Case
+
+Berisi daftar use case dan deskripsi singkat mengenai use case
+
+tersebut.
+
+2.3.4 Skenario Use Case
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 16 dari 83 halaman
+
+Berisi penjelasan atau petunjuk dari setiap use case. 2.4 Spesifikasi Tambahan
+Berisi informasi tambahan mengenai setiap atau seluruh use case, terutama mengenai kebutuhan non fungsional. 2.5 Glossary Berisi daftar istilah yang digunakan, terutama istilah yang spesifik terhadap domain problem. 3. Model Analisis 3.1 Realisasi Use Case tahap Analisis Menggambarkan interaksi setiap objek dari kelas analisis yang terlibat di dalam setiap use case. 3.1.1 Sistem Sequence Diagram (SSD)
+Sistem sequence diagram menggambarkan pesan-pesan diantara garis­garis hidup, objek-objek atau objek dengan dirinya sendiri. 3.1.2 Conceptual Class Conceptual Class menggambarkan hubungan antar kelas dengan atribut kelas. 3.2 Kelas Analisis 3.2.1 Tanggung Jawab dan Atribut Berisi daftar tanggung jawab dan atribut dari realisasi use case setiap kelas yang telah dibuat sebelumnya. 3.3 Paket Analisis 3.3.1 Identifikasi Paket Analisis 3.3.2 Identifikasi kelas Analisis Tiap Paket 3.4 Prototipe Anatarmuka Menggambarkan struktur tampilan (interface) dari sistem 3.5 Deskripsi Arsitektur Merupakan gambaran dari sistem yang dbangun 3.6 Pedoman Perancangan Merupakan pedoman dalam melakukan perancangan system
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 17 dari 83 halaman
+
+4. Model Perancangan
+
+4.1 Realisasi Use Case Tahap Perancangan
+
+Bagian ini diisi dengan diagram kelas untuk setiap use case. Selanjutnya,
+
+untuk setiap use case dibuat sequence diagram yang menggambarkan
+
+interaksi setiap objek dari kelas perancangan yang terlibat di dalam use case
+
+tersebut.
+
+4.1.1 Sequence Diagram
+
+4.1.2 Class Diagram
+
+4.2 Kelas Perancangan
+
+Bagian ini diisi dengan versi final dari daftar kelas perancangan dan hasil
+
+perancangan detil setiap kelas.
+
+4.2.1 Operasi Atribut
+
+Bagian ini diisi dengan daftar operasi dan atribut untuk setiap kelas
+
+telah dibuat.
+
+4.2.2 Algoritma/Query
+
+Bagian ini diisi dengan algoritma/query yang terdapat pada setiap
+
+aksi yang diberikan oleh pengguna pada setiap button yang ada di
+
+sistem.
+
+4.3 Perancangan Subsistem
+
+4.3.1 Identifikasi Subsistem Pendukung
+
+4.3.3 Identifikasi Kelas Perancangan
+
+4.4 Perancangan Antarmuka
+
+4.5 Deployment Diagram
+
+5. Implementasi
+
+Bagian ini diisi pemaparan implementasi dari perancangan yang telah dibuat.
+
+5.1 I Implementasi Antarmuka
+
+6. Pengujian
+
+Bagian ini berisi rencana dan prosedur untuk pengujian sistem dengan kasus uji
+
+berdasarkan use case.
+
+6.1 Rencana dan Prosedur Pengujian
+
+7. Penutup
+
+Penutup dari penulisan dokumen sekaligus saran untuk pengembangan sistem.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 18 dari 83 halaman
+
+2 KEBUTUHAN PERANGKAT LUNAK Pada bab ini akan dijelaskan mengenai deskripsi umum sistem, fitur utama
+perangkat lunak, model use case, spesifikasi tambahan dan glossary. 2.1 Deskripsi Umum Sistem
+Sistem yang akan dibangun adalah sistem monitoring dan prediksi penjualan unit kendaraan bermotor menggunakan metode moving average (ma) untuk membantu memudahkan pengaduan masalah dalam lingkup multi aplikasi. Sistem berbasis web ini dibangun dengan menggunakan bahasa pemograman PHP yang dibantu framework CI 3, serta kode editor yaitu Visual Studio Code dan MySQL sebagai databasenya. 2.2 Fitur Utama Perangkat Lunak
+
+Fitur utama berisi fungsi-fungsi sistem utama yang akan diberikan langsung kepada pengguna maupun sistem terkait. 2.2.1 Kebutuhan Fungsional Kebutuhan fungsional merupakan pernyataan layanan sistem yang harus disediakan, bagaimana interaksi sistem pada suatu masukan. Sistem monitoring dan prediksi penjualan unit kendaraan bermotor ini memiliki fungsi-fungsi utama yaitu sebagai berikut: Tabel 2. 1 Kebutuhan Fungsional
+
+No SKPL SRS-F-01 SRS-F-02
+SRS-F-03
+SRS-F-04
+
+Deskripsi Login dan otentikasi pengguna berdasarkan hak akses. Manajemen Data Transaksi Penjualan sebagai dasar analisis sistem. Monitoring dan Prediksi Penjualan menggunakan metode Moving Average (MA). Laporan Penjualan Real-Time, tersedia dalam format digital dan cetak.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 19 dari 83 halaman
+
+2.2.2 Kebutuhan Non Fungsional Kebutuhan non fungsional adalah batasan layanan atau fungsi yang
+ditawarkan oleh sistem. Kebutuhan non fungsional dari Sistem monitoring dan prediksi penjualan unit kendaraan bermotor adalah sebagai berikut: 1. Keamanan (Security)
+Keamanan sistem informasi lebih terjaga dengan adanya pembagian hak akses untuk masing-masing user. 2. Kehandalan (Reliability)
+Sistem mampu menampung data-data dalam satu database terpusat sehingga memudahkan dalam penyusunan Laporan Penjualan. 3. Kecepatan transaksi
+Sistem mampu melakukan proses pengolahan data secara valid dengan waktu yang cepat. 4. Bahasa dan tampilan layar (User Interface)
+Antarmuka dan bahasa yang digunakan didesain secara user friendly. 5. Pemeliharaan (Maintenance)
+Sistem yang dibangun tidak memerlukan perawatan khusus untuk menjaga fungsi operasionalnya.
+2.3 Model Use Case Pada model use case ini akan dijelaskan mengenai diagram use case, definisi
+aktor, definisi use case dan skenario use case.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 20 dari 83 halaman
+
+2.3.1 Diagram Use Case Diagram use case dari Sistem monitoring dan prediksi penjualan unit
+kendaraan bermotor menggunakan metode moving average adalah sebagai berikut:
+uc Use Case Model
+
+Sales Admin Sales
+
+Login Kelola Data Transaksi
+Kelola Laporan
+
+ADH OM
+
+Prediksi
+
+Admin BPKB
+
+Pengolahan Data Penjualan
+
+C- Level
+
+Logout
+Gambar 2. 1 Use Case Sistem monitoring dan prediksi penjualan unit kendaraan bermotor
+2.3.2 Definisi Aktor Definisi aktor adalah penjelasan dari siapa saja dan apa saja yang dilakukan
+aktor yang terlibat dalam perangkat lunak yang dirancang. Adapun deskripsi dari aktor yang terlibat dalam sistem monitoring dan prediksi penjualan unit kendaraan bermotor menggunakan metode moving average (ma) adalah sebagai berikut.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 21 dari 83 halaman
+
+Tabel 2. 2 Aktor Use Case
+
+No
+
+Nama Aktor
+
+1. Sales
+
+2. Admin Sales
+
+3. Admin BPKB
+
+4.
+
+ADH (Administration Head)
+
+5.
+
+OM (Operation Manager)
+
+Deskripsi Aktor yang memiliki hak akses untuk Login, Kelola Data Transaksi, Kelola Data Customer, dan Logout. Sales bertugas mencatat transaksi penjualan kendaraan ke dalam sistem dan memastikan data pelanggan yang terkait dengan transaksi terinput dengan benar. Aktor yang memiliki hak akses untuk Login, Kelola Data Transaksi, Kelola Data Customer, dan Logout. Admin Sales menangani pencatatan transaksi penjualan dari tim sales, memvalidasi data customer, serta memastikan kelengkapan informasi sebelum masuk tahap administrasi lebih lanjut. Aktor yang memiliki hak akses untuk Login, Review Data Transaksi, Review Data Customer, Kelola Laporan Penjualan, dan Logout. Admin BPKB bertanggung jawab memverifikasi data transaksi dan data customer, mengelola laporan penjualan, serta menyiapkan dokumen BPKB bagi kendaraan yang telah terjual. Aktor yang memiliki hak akses untuk Login, Review Data Transaksi, Review Laporan Penjualan, Kelola Prediksi Penjualan, dan Logout. ADH mengawasi seluruh data transaksi dan laporan penjualan, serta mengelola fitur prediksi penjualan untuk mendukung perencanaan strategi administrasi. Aktor yang memiliki hak akses untuk Login, Review Data Transaksi, Review Laporan
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 22 dari 83 halaman
+
+6. C-Level
+
+Penjualan, Review Prediksi Penjualan, dan Logout. OM memanfaatkan data transaksi, laporan, dan hasil prediksi untuk memantau kinerja penjualan serta mengambil keputusan operasional. Aktor yang memiliki hak akses untuk Login, Review Data Transaksi, Review Laporan Penjualan, Review Prediksi Penjualan, dan Logout. C-Level menggunakan akses ini untuk melihat gambaran menyeluruh dari kinerja perusahaan, memantau tren penjualan, dan menentukan arah kebijakan strategis.
+
+2.3.3 Definisi Use Case
+
+Definisi use case adalah definisi yang menggambarkan kebutuhan fungsional sistem. Kemudian dibuat skenario (flow of event) yang menggambarkan urutan interaksi aktor dengan sistem tersebut dalam setiap use case utama. Daftar dan deskripsi singkat use case tersebut dapat dijelaskan di bawah ini. Tabel 2. 3 Definisi Use Case
+
+No
+
+Use Case
+
+1 Login
+
+2
+
+Kelola Data Transaksi
+
+3
+
+Review Data Transaksi
+
+4
+
+Kelola Data Customer
+
+Deskripsi Proses verifikasi akun aktor sebelum masuk ke dalam sistem. Proses aktor untuk menambah, mengubah, menghapus, dan memvalidasi data transaksi penjualan kendaraan. Proses aktor untuk melihat dan memeriksa detail data transaksi penjualan yang telah tersimpan di sistem. Proses aktor untuk menambah, mengubah, dan menghapus data pelanggan (customer) yang terkait transaksi penjualan.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 23 dari 83 halaman
+
+5
+
+Review Data Customer
+
+6
+
+Kelola Laporan Penjualan
+
+7
+
+Review Laporan Penjualan
+
+8 Prediksi
+
+9 Review Prediksi 10 Logout
+
+Proses aktor untuk melihat dan memeriksa data pelanggan yang tersimpan di sistem. Proses aktor untuk membuat, mengekspor, mengarsipkan, dan mengelola laporan penjualan kendaraan. Proses aktor untuk melihat dan menganalisis laporan penjualan yang tersedia di sistem. Proses aktor untuk mengelola perhitungan prediksi penjualan menggunakan metode Moving Average, termasuk input parameter dan pembaruan data prediksi. Proses aktor untuk melihat dan mengevaluasi hasil prediksi penjualan yang telah dihitung oleh sistem. Proses aktor keluar dari sistem untuk mengakhiri sesi penggunaannya.
+
+2.3.4 Skenario Use Case Skenario (flow of event) untuk masing-masing use case dari perancangan
+Sistem monitoring dan prediksi penjualan unit kendaraan bermotor adalah sebagai berikut: a. Skenario Use Case Login Tabel 2. 4 Skenario Use Case Login
+
+Actor Precondition Postcondition Main Flow of Event Actor Actions
+
+: Sales, Admin Sales, Admin BPKB, ADH, OM, CLevel
+: Masing-masing aktor sudah memiliki email dan password yang telah terdaftar di dalam sistem.
+: Masing-masing aktor berhasil login ke dalam sistem dan diarahkan ke halaman dashboard sesuai peran mereka.
+Respon Sistem
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 24 dari 83 halaman
+
+1. Masuk ke aplikasi
+
+2. Menampilkan form login
+
+3. Mengisi form login
+
+4. Validasi form
+
+5. Validasi login
+
+6. Masuk ke dashboard
+
+Exceptional Flow of Event
+
+4a. Jika pengguna memasukan format isian yang salah pada form, maka sistem
+akan menampilkan pesan kesalahan.
+5a. Jika sistem tidak menemukan data yang sesuai dengan form, maka sistem akan menampilkan pesan kesalahan.
+
+Activity Diagram
+
+act Login User
+
+Sistem
+
+Mulai input Username dan Password
+
+Validasi Form
+
+Valid
+
+Tidak?
+
+Iya?
+
+Menampilkan Pesan Kesalahan
+
+Validasi Login
+
+Validasi
+
+Tidak? Iya?
+
+Menampilkan pesan kesalahan
+
+Masuk ke Dashboard
+
+Final
+
+Gambar 2. 2 Activity Diagram Login
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 25 dari 83 halaman
+
+b. Skenario Use Case Kelola Data Transaksi Tabel 2. 5 Skenario Use Case Kelola Data Transaksi
+
+Actor Precondition
+
+: Sales, Admin Sales
+: Aktor telah berhasil login dan memiliki hak akses untuk mengelola data transaksi.
+
+Postcondition
+
+: Data transaksi penjualan kendaraan tersimpan, diperbarui, atau dihapus sesuai input aktor.
+
+Main Flow of Event Actor Actions
+
+Respon Sistem
+
+1. Memilih menu kelola data transaksi.
+3. Mengisi atau memperbarui data transaksi. 5. Menghapus data transaksi jika diperlukan. Exceptional Flow of Event
+
+2. Menampilkan form kelola transaksi. 4. Menyimpan atau memperbarui data ke database.
+6. Menghapus data dari database.
+
+4a. Jika data tidak lengkap, sistem menampilkan pesan kesalahan. 4b. Jika format data salah, sistem meminta perbaikan input.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 26 dari 83 halaman
+
+Activity Diagram
+
+act Kelola Data Transaksi Sales
+
+Sistem
+
+Mulai
+
+Pilih Menu "Data Transaksi"
+
+Mengisi dan mengirim data Transaksi
+
+Menampilkan form input data transaksi
+Menyimpan data sementara dan mengirim ke Admin Sales
+
+Memeriksa kelengkapan dan keakuratan data
+Tidak Lengkap Menampilkan Pesan Kesalahan
+Melakukan rekap berdasarkan kategori dan periode
+Menampilkan status pengiriman ke samsat
+
+Admin Sales
+
+Admin BPKB
+
+Verifikasi kelengkapan dan keakuratan
+Data Lengkap?
+Lengkap Menyimpan data transaksi
+
+Validasi?
+
+Mengirim data untuk proses BPKB ke samsat
+
+Gambar 2. 3 Activity Diagram Data Transaksi
+
+c. Skenario Use Case Pengolahan Data Penjualan Tabel 2. 6 Skenario Use Case Pengolahan Data Penjualan
+
+Actor Precondition Postcondition
+
+: Sales, Admin Sales, Admin BPKB
+: Data penjualan sudah terverifikasi dan siap diproses untuk rekap Laporan Penjualan
+: Data telah dikelompokkan, tervalidasi, direkap, dan digunakan untuk peLaporan Penjualan dealer
+
+Main Flow of Event
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 27 dari 83 halaman
+
+Actor Actions
+
+Respon Sistem
+
+1. Admin Sales menerima data yang sudah 2. Sistem menyimpan data ke dalam daftar
+
+terverifikasi
+
+pemrosesan
+
+3. Admin Sales mengelompokkan data berdasarkan jenis, metode, dan waktu 5. Admin Sales memeriksa ulang hasil pengelompokan untuk kesalahan atau duplikasi 7. Jika data valid Admin Sales membuat rekap harian/mingguan/bulanan 8. Admin BPKB menggunakan data hasil rekap untuk Laporan Penjualan dealer
+Exceptional Flow of Event
+
+4. Sistem menyimpan hasil pengelompokan 6. Sistem menampilkan status validasi
+9. Sistem mengakhiri proses dan menyimpan hasil rekap untuk digunakan
+
+6a. Jika ditemukan kesalahan atau duplikasi saat validasi, maka sistem meminta perbaikan data
+
+6b. Admin Sales memperbaiki data, lalu sistem mengembalikan ke proses validasi ulang
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 28 dari 83 halaman
+
+Activity Diagram
+
+act Activity
+
+Admin Sales
+
+Verifikasi data penjualan
+
+Kelompokkan data berdasarkan jenis, metode, dan waktu
+Periksa ulang hasil pengelompokan
+Ya? Buat rekap harian/mingguan/bulanan
+
+Sistem
+Simpan data ke daftar pemrosesan
+Simpan hasil pengelompokan
+Tampilkan status validasi Tidak? Minta perbaikan data
+
+Admin BPKB
+
+Perbaiki data
+
+Gunakan data rekap untuk laporan dealer
+Simpan hasil rekap dan akhiri proses
+
+Gambar 2. 4 Activity Diagram Pengolahan Data Penjualan
+
+c. Skenario Use Case Kelola Pembuatan Laporan Penjualan Tabel 2. 7 Skenario Use Case Kelola Pembuatan Laporan Penjualan
+
+Actor Precondition
+
+: Admin BPKB, ADM, OM, C-Level
+: Data rekap telah tersedia dan siap disusun dalam bentuk Laporan Penjualan
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 29 dari 83 halaman
+
+Postcondition
+
+: Laporan Penjualan final tervalidasi dan diterima oleh C-Level untuk dianalisis lebih lanjut
+
+Main Flow of Event
+
+Actor Actions
+
+Respon Sistem
+
+1. Admin BPKB menyusun Laporan Penjualan berdasarkan data rekap.
+3. ADM melakukan validasi Laporan Penjualan awal.
+
+2. Sistem menyimpan hasil penyusunan awal Laporan Penjualan.
+4. Sistem mengecek apakah Laporan Penjualan valid.
+
+5. Jika Laporan Penjualan valid, proses 6. Sistem meminta penyusunan ulang
+
+dilanjutkan.
+
+dengan format HQ/XLSX/WW.
+
+7. OM melakukan pemeriksaan akhir Laporan Penjualan. 9. Jika Laporan Penjualan valid, Laporan Penjualan diteruskan ke CLevel.
+Exceptional Flow of Event
+
+8. Sistem melakukan validasi akhir Laporan Penjualan.
+10. C-Level menerima Laporan Penjualan dan melakukan analisis terhadap Laporan Penjualan final.
+
+4a. Jika validasi Laporan Penjualan awal oleh ADM gagal, maka ADM meminta Admin BPKB memperbaiki Laporan Penjualan. 6a. Jika terdapat kesalahan format atau isi, maka OM meminta perbaikan dan Laporan Penjualan disusun ulang. 8a. Jika pemeriksaan akhir oleh OM tidak valid, maka Laporan Penjualan dikembalikan untuk perbaikan. 10a. Jika Laporan Penjualan belum layak untuk dianalisis, maka C-Level meminta revisi Laporan Penjualan final.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 30 dari 83 halaman
+
+Activity Diagram
+act Pembuatan Laporan Admin BPKB
+Menyiapkan laporan dealer berdasarkan data rekap
+Mengirim laporan dealer untuk digunakan oleh dealer
+
+Sistem
+Menyimpan hasil penyusunan laporan dealer
+Menyimpan laporan dealer untuk tujuan dealer
+
+Mengecek apakah laporan dealer valid
+
+Memperbaki Laporan Dealer
+
+Kembali ke validasi laporan dealer
+
+Menyimpan hasil penyusunan laporan untuk SGMW dan HO
+Menyimpan laporan untuk SGMW dan HO
+Mengecek apakah laporan untuk SGMW dan HO valid
+Validasi Proses dilanjutkan
+Meminta ADH memperbaiki laporan untuk SGMW dan HO
+Kembali ke validasi laporan SGMW dan HO
+Melakukan validasi akhir laporan
+
+ADH
+
+OM
+
+Melakukan validasi laporan dealer
+Validasi? Tidak diperbaiki? Proses dilanjutkan
+Perbaiki? Meminta Admin BPKB memperbaiki laporan dealer
+Menyiapkan laporan untuk SGMW dan HO berdasarkan data rekap
+Mengirim laporan ke SGMW dan HO
+Melakukan validasi laporan untuk SGMW dan HO
+Memperbaiki laporan untuk SGMW dan HO
+Melakukan pemeriksaan akhir laporan dealer, SGMW,
+dan HO
+
+C-Level
+
+Memperbaiki laporan
+
+Kembali ke pemeriksaan akhir laporan
+
+Laporan diteruskan ke C-Level untuk analisis
+
+Meminta perbaikan laporan
+
+Menerima laporan dan melakukan analisis terhadap
+laporan final
+
+Gambar 2. 5 Activity Diagram Kelola Pembuatan Laporan Penjualan
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 31 dari 83 halaman
+
+f. Skenario Use Case Prediksi Tabel 2. 8 Skenario Use Case Prediksi
+
+Actor
+
+: ADH, OM, C-Level
+
+Precondition
+Postcondition Main Flow of Event Actor Actions
+
+: Data laporan penjualan periode sebelumnya tersedia di sistem.
+: Aktor dapat melihat hasil prediksi penjualan kendaraan untuk periode berikutnya.
+Respon Sistem
+
+1. Memilih menu prediksi.Respon Sistem Exceptional Flow of Event
+
+2. Mengambil data historis penjualan.
+3. Menghitung prediksi menggunakan metode Moving Average 4. Menampilkan hasil prediksi dalam bentuk tabel dan grafik.
+
+2a. Jika data historis tidak tersedia, sistem menampilkan pesan bahwa prediksi tidak dapat dilakukan.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 32 dari 83 halaman
+
+Activity Diagram
+
+Gambar 2. 6 Activity Diagram Kelola Prediksi
+2.4 Spesifikasi Tambahan Spesifikasi tambahan menjabarkan kebutuhan non-fungsional sistem.
+Kebutuhan non-fungsional menjabarkan kebutuhan yang diperlukan agar sistem dapat menjalankan fungsionalitas dengan efektif dan efisien. Item terkait kebutuhan non-fungsional ini menggunakan atribut kualitas perangkat lunak yang biasa digunakan dalam standar pembangunan perangkat lunak. Spesifikasi tambahan dalam pembangunan Sistem monitoring dan prediksi penjualan unit kendaraan bermotor ini adalah sebagai berikut:
+1. Keamanan (Security) Keamanan sistem informasi lebih terjaga dengan adanya pembagian hak akses untuk masing-masing user.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 33 dari 83 halaman
+
+2. Kehandalan (Reliability) Sistem mampu menampung data-data dalam satu database terpusat sehingga memudahkan dalam penyusunan Laporan Penjualan.
+3. Kecepatan transaksi Sistem mampu melakukan proses pengolahan data secara valid dengan waktu yang cepat.
+4. Bahasa dan tampilan layar (User Interface) Antarmuka dan bahasa yang digunakan didesain secara user friendly.
+5. Pemeliharaan (Maintenance) Sistem yang dibangun tidak memerlukan perawatan khusus untuk menjaga fungsi operasionalnya.
+2.5 Glossary Glossary berisi daftar istilah yang digunakan, terutama istilah yang spesifik
+terhadap domain problem. Daftar istilah tersebut dapat dilihat pada tabel berikut.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 34 dari 83 halaman
+
+3 MODEL ANALISIS Pada bab ini akan dijelaskan mengenai analis sistem yang akan dirancang
+meliputi realisasi use case tahap analisis, kelas analisis, paket analisis, prototipe antarmuka, deskripsi arsitektur dan pedoman perancangan 3.1 Realisasi Use Case Tahap Analisis
+Realisasi use case tahap analisis terdiri dari domain model yang dijelaskan dalam use case. Dari use case kemudian digambarkan interaksi sistem dengan aktor berdasarkan kelas dan use case tersebut dalam bentuk sequence diagram dan conceptual class diagram, yang mendeskripsikan objek dan kelas apa saja dan mana saja yang berhubungan dengan sistem dan menampilkan operasi apa saja yang digunakan dalam setiap objek. 3.1.1 Sistem Sequence Diagram (SSD)
+Sistem Sequence Diagram merupakan penggambaran keterhubungan atau interaksi antar objek dalam suatu jangka waktu. Sistem Sequence Diagram terutama menampilkan interaksi antara pengguna (user) dengan sistem, berikut ini adalah Sistem Sequence Diagram dari Sistem monitoring dan prediksi penjualan unit kendaraan bermotor . 3.1.1.1 Sistem Sequence Diagram Login Urutan langkah dalam proses login adalah sebagai berikut:
+1. Aktor menginputkan data login seperti email dan password 2. Sistem memvalidasi formulir yang telah diisi 3. Jika validasi form tidak valid, maka sistem menampilkan pesan kesalahan 4. Jika validasi form valid, maka sistem melakukan aksi login 5. Jika aksi login gagal (data tidak ditemukan), maka sistem menampilkan pesan
+kesalahan 6. Jika aksi login berhasil, maka sistem mengambil data user dan mengarahkan
+ke dashboard
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 35 dari 83 halaman
+
+sd Login
+
+Pengguna
+
+alt Validasi [Form Tidak Valid]
+
+Input email dan password()
+
+Sistem
+
+[Form Valid]
+
+Validasi Form Login()
+
+Tampilkan pesan kesalahan()
+
+alt [Login Gagal]
+[Login Berhasil]
+
+Tampilkan pesan kesalahan()
+
+Proses Login() Ambil data user()
+
+Arahkan ke dashboard()
+
+Gambar 3. 1 Sistem Sequence Diagram Login 3.1.1.2 Sistem Sequence Diagram Kelola Data Transaksi Urutan langkah dalam proses Kelola Data Transaksi adalah sebagai berikut:
+1. Sales memilih menu "Data Transaksi" 2. Sistem menampilkan form input data transaksi 3. Sales mengisi dan mengirim form data transaksi 4. Sistem memvalidasi format isian 5. Jika format salah, sistem menampilkan pesan kesalahan 6. Jika valid, sistem menyimpan data dan meneruskannya ke Admin Sales 7. Admin Sales memverifikasi kelengkapan dan keakuratan data 8. Jika tidak lengkap, sistem menandai dan meminta perbaikan 9. Jika data lengkap, Admin Sales menyimpan data final 10. Sistem melakukan rekap berdasarkan kategori dan periode
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 36 dari 83 halaman
+
+11. Admin BPKB mencetak dokumen 12. Sistem menampilkan dokumen cetak
+sd Kelola Data Transaksi
+
+Sales
+
+Admin Sales
+
+Admin BPKB Pilih menu Data Transaksi()
+Tampilkan form input() Kirim form transaksi()
+
+alt [Form Tidak Valid] [Form Valid]
+alt [Data Tidak Lengkap]
+[Data Lengkap]
+
+Tampilkan pesan kesalahan() Kirim data untuk verifikasi() Verifikasi data()
+Tampilkan status "Perlu revisi"() Simpan data transaksi()
+
+Cetak dokumen() Tampilkan dokumen()
+
+Sistem Validasi Form()
+Rekap kategori & periode()
+
+Gambar 3. 2 Sistem Sequence Diagram Kelola Data Transaksi
+
+3.1.1.3 Sistem Sequence Diagram Pengaduan Masalah Urutan langkah dalam proses Pengaduan Masalah adalah sebagai berikut:
+
+1. Admin Sales menerima data yang sudah terverifikasi
+
+2. Sistem menyimpan dan menampilkan data untuk pengelompokan
+
+3. Admin Sales mengelompokkan data berdasarkan jenis, metode, dan waktu
+
+4. Sistem menyimpan hasil pengelompokan
+
+5. Admin Sales memeriksa ulang untuk kesalahan atau duplikasi
+
+6. Jika ada kesalahan, sistem menandai dan Admin Sales memperbaiki data
+
+7. Jika valid, Admin Sales membuat rekap harian/mingguan/bulanan
+
+8. Sistem menyimpan dan menyiapkan data rekap
+
+9. Admin BPKB menggunakan data untuk Laporan Penjualan dealer
+
+10. Sistem menandai proses selesai
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 37 dari 83 halaman
+
+sd Pengolahan Data Penjualan
+
+Admin Sales
+
+Terima data terverifikasi() Tampilkan data()
+Kelompokkan data()
+
+Sistem Simpan Hasil Pengelompokkan ()
+
+alt [Data Tidak Valid]
+
+Periksa Ulang Data()
+Tampilkan Notifikasi Kesahalahan() Perbaiki Data()
+Buat rekap data (harian/mingguan/bulanan)
+
+Validasi hasil pengelompokan() Simpan rekap data()
+
+Gambar 3. 3 Sistem Sequence Diagram Pengolahan Data Penjualan
+
+3.1.1.4 Sistem Sequence Diagram Kelola Pembuatan Laporan Penjualan
+Urutan langkah dalam proses Kelola Pembuatan Laporan Penjualan adalah sebagai berikut:
+
+1. Admin BPKB menyusun Laporan Penjualan berdasarkan data rekap 2. Sistem menyimpan draft Laporan Penjualan 3. ADM memvalidasi Laporan Penjualan awal 4. Jika tidak valid, sistem meminta perbaikan Laporan Penjualan 5. Jika valid, sistem meminta penyusunan ulang dalam format
+HQ/XLSX/WW 6. OM memeriksa Laporan Penjualan akhir 7. Sistem melakukan validasi akhir 8. Jika tidak valid, OM meminta perbaikan 9. Jika valid, C-Level menerima Laporan Penjualan 10. C-Level menganalisis Laporan Penjualan 11. Sistem menandai Laporan Penjualan sebagai final
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 38 dari 83 halaman
+
+sd Pembuatan Laporan
+
+Admin BPKB
+
+ADH
+
+alt [Tidak Valid]
+alt [Laporan Valid]
+
+OM
+
+C - Level
+
+Susun laporan dari data rekap()
+
+Kirim laporan awal() Validasi laporan()
+
+Minta perbaikan() Kirim ulang laporan()
+Validasi ulang()
+
+Sistem
+
+Kirim Laporan dealer() Periksa Laporan dealer() menyusun ulang laporan berdasarkan dengan format laporan ke C-Level() Kirim ulang laporan versi C- Level()
+Pengecekan akhir() Kirim Laporan versi C-Level()
+Analisis strategis berdasarkan laporan()
+
+Gambar 3. 4 Sistem Sequence Diagram Pembuatan Laporan Penjualan 3.1.1.5 Sistem Sequence Diagram Kelola Monitoring Penjualan Urutan langkah dalam proses Kelola Monitoring Penjualan adalah sebagai berikut:
+1. OM/C-Level masuk ke menu Kelola Monitoring 2. Sistem menampilkan form filter periode/kategori 3. OM/C-Level memilih filter 4. Sistem menampilkan daftar Laporan Penjualan 5. OM/C-Level memilih salah satu Laporan Penjualan 6. Sistem menampilkan detail Laporan Penjualan
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 39 dari 83 halaman
+
+sd Review Laporan
+
+OM C- Level
+
+Sistem
+
+Masuk ke menu Review Laporan() Pilih filter periode/kategori()
+
+Tampilkan daftar laporan()
+Pilih laporan() Tampilkan detail laporan()
+
+Gambar 3. 5 Sistem Sequence Diagram Kelola Monitoring 3.1.1.6 Sistem Sequence Diagram Logout Urutan langkah dalam proses Logout adalah sebagai berikut:
+1. Pengguna menekan tombol "Logout" 2. Sistem memproses permintaan logout 3. Sistem menghapus sesi aktif pengguna 4. Sistem mengarahkan pengguna ke halaman login
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 40 dari 83 halaman
+
+sd logout
+
+Pengguna
+
+Klik tombol Logout()
+
+Sistem Proses keluar()
+
+Arahkan ke halaman login()
+
+Gambar 3. 6 Sistem Sequence Diagram Logout
+
+3.1.2 Conceptual Class Diagram
+
+Struktur kelas untuk Sistem monitoring dan prediksi penjualan unit
+
+kendaraan bermotor digambarkan dengan Conceptual Class Diagram dibawah ini:
+
+class Domain Model
+Customer - customerID: int - nama: char - alamat: char - noHP: int - noKTP: int
+
+Kendaraan
+- kendaraanID: int - merk: char - type: char - model: char - tahun: int - isiSilinder: int - warna: char - noRangka: char - noMesin: char - bahanBakar: char - harga: double
+
+Sales
+- salesID: int - Nama: char - SPV: char
+
+Pembayaran
+- pembayaranID: int - dpAmount: double - tanggalPembayaran: int - leasingAmount: double - statusPembayaran: char
+
+Penjualan
+- penjualanID: int - tanggal: int - tenor: char - statusDO: char
+
+Leasing
+- leasingID: int - nama: char
+
+Laporan
+- laporanID: int - tanggalCetak: int - periode: char - totalPenjualan: double - jenisLaporan: char - totalUnit: int
+
+Faktur
+- fakturID: int - tglFaktur: int - harga: double - hargaTerbilang: char
+
+Gambar 3. 7 Conceptual Class Diagram
+
+3.2 Kelas Analisis
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 41 dari 83 halaman
+
+Kelas analisis merupakan penjabaran dari identifikasi kelas-kelas yang terdapat pada sistem yang dikembangkan. Kelas analisis yang terdapat pada Sistem monitoring dan prediksi penjualan unit kendaraan bermotor adalah sebagai berikut. Tabel 3. 1 Kelas Analisis
+
+No.
+
+Nama Kelas
+
+1. customer 2. kendaraan 3. sales 4. leasing 5. penjualan
+
+6. pembayaran 7. faktur 8. laporan
+
+Jenis Entity Entity Entity Entity Entity Entity Entity Entity
+
+3.2.1 Tanggung Jawab dan Atribut
+
+Tabel 3. 2 Tanggung Jawab dan Atribut
+
+No. Nama Kelas 1. customer
+2. kendaraan
+3. sales 4. leasing 5. penjualan
+6. pembayaran
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Tanggung Jawab
+
+Atribut
+
+addCustomer,
+
+customerID,
+
+searchCustomer,
+
+nama_customer,
+
+viewCustomer,
+
+alamat, noHP, noKTP
+
+updateCustomer,
+
+deleteCustomer
+
+addKendaraan,
+
+kendaraanID, merk,
+
+deleteKendaraan,
+
+type, model, tahun,
+
+updateKendaraan,
+
+isiSilinder, warna,
+
+viewKendaraan,
+
+noRangka, noMesin,
+
+searchKendaraan
+
+bahanBakar, harga
+
+addSales, viewSales,
+
+salesID, nama_sales,
+
+assignSPV, searchSales SPV
+
+addLeasing, viewLeasing, leasingID, nama_sales
+
+searchLeasing
+
+addPenjualan,
+
+penjualanID, tanggal,
+
+viewPenjualan,
+
+metodePembayaran,
+
+updateStatusDO,
+
+tenor, statusDO
+
+getTransaksiByCustomer,
+
+filterByTanggal,
+
+getDetailPenjualan
+
+addPembayaran,
+
+pembayaranID,
+
+viewPembayaran,
+
+dpAmount,
+
+leasingAmount,
+
+Dokumentasi Perangkat Lunak
+
+Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+
+Halaman 42 dari 83 halaman
+
+Kendaraan Bermotor
+
+7. faktur 8. laporan
+9. customer
+
+searchPembayaran, checkStatusPembayaran addFaktur, viewFaktur, searchFaktur, cetakFaktur cetakLaporan, filterPeriode, getTotalPenjualan, getTotalUnit, getLaporanPerJenis addCustomer, searchCustomer, viewCustomer, updateCustomer, deleteCustomer
+
+statusPembayaran, tanggalPembayaran fakturID, tglFaktur, harga, hargaTerbilang laporanID, tanggalCetak, periode, totalPenjualan, totalUnit, jenisLaporan
+customerID, nama_customer, alamat, noHP, noKTP
+
+3.3 Paket Analisis
+
+Pada sub bab ini berisi identifikasi paket analisis dan identifikasi kelas analisis tiap paket. 3.3.1 Identifikasi Paket Analisis
+
+Tabel 3. 3 Identifikasi Paket Analisis
+
+No. Nama Paket 1. Sales
+
+Use Case Terkait
+1. Login 2. Input Transaksi Penjualan 3. Lihat Status Transaksi 4. Lihat Ringkasan Penjualan
+
+2. Admin Sales
+
+1. Login 2. Verifikasi Data Transaksi 3. Pengelompokan Data 4. Rekap Data Penjualan 5. Kelola Laporan Penjualan
+
+3. Admin BPKB
+
+1. Login 2. Input Data BPKB
+
+Keterangan
+Sales dapat melakukan login ke sistem, menginput data transaksi penjualan, memantau status transaksi, dan melihat ringkasan penjualan berdasarkan periode. Admin Sales dapat melakukan login, memverifikasi transaksi dari Sales, mengelompokkan dan merekap data, serta menyusun laporan internal penjualan. Admin BPKB dapat menginput
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 43 dari 83 halaman
+
+4. ADH
+5. Operational Manager (OM)
+6. C-Level
+
+3. Kelola Dokumen BPKB 4. Susun Laporan untuk Dealer
+1. Login 2. Validasi Laporan 3. Susun Ulang Laporan
+HO/SGMW 4. Manajemen Pengguna
+1. Login 2. Pemeriksaan Laporan Final 3. Memberi Feedback Format 4. Approve untuk HO/SGMW
+1. 1. Login 2. Analisis Strategis dari Laporan 3. Kelola Monitoring Final
+
+dan mengelola data/dokumen BPKB dan menyusun laporan penjualan tingkat dealer berdasarkan data yang telah direkap oleh Admin Sales. ADH dapat memvalidasi laporan dealer, menyusun ulang laporan dengan format HO/SGMW, serta mengelola pengguna pada sistem. OM bertanggung jawab atas evaluasi dan persetujuan laporan akhir sebelum dikirim ke pusat serta memberi umpan balik untuk perbaikan format laporan. C-Level bertugas menerima laporan final dari OM, melakukan analisis strategis, dan menggunakannya untuk pengambilan keputusan manajerial berbasis data.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 44 dari 83 halaman
+
+3.3.2 Identifikasi Kelas Analisis Tiap Paket
+
+Tabel 3. 4 Identifikasi Kelas Analisis Tiap Paket
+
+No. Nama Paket 1. Paket Sales
+2. Paket Admin Sales
+3. Paket Admin BPKB
+4. Paket ADH
+5. Paket Operational Manager (OM)
+6. Paket C-Level
+
+Nama Kelas 1. User 2. Pelanggan 3. Transaksi 4. Kendaraan 5. Laporan 1. User 2. Transaksi 3. Kendaraan 4. Pelanggan 5. Laporan 1. User 2. Kendaraan 3. Transaksi 4. Laporan 5. Faktur 1. User 2. Laporan 3. Transaksi 4. Kendaraan 5. Pelanggan 1. User 2. Laporan 3. Transaksi 1. User 2. Laporan
+
+Jenis Kelas Entity Entity Entity Entity Entity Entity Entity Entity Entity Entity Entity Entity Entity Entity Entity Entity Entity Entity Entity Entity Entity Entity Entity Entity Entity
+
+3.4 Prototipe Antarmuka Prototipe antarmuka menggambarkan tampilan antarmuka Sistem monitoring
+dan prediksi penjualan unit kendaraan bermotor yang akan dibangun. Antarmuka yang dibangun terdiri dari tampilan tampilan backend, dibawah ini merupakan
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 45 dari 83 halaman
+
+prototipe antamuka dari Sistem monitoring dan prediksi penjualan unit kendaraan bermotor . 3.4.1 Halaman Login
+
+Gambar 3. 8 Prototipe Halaman Login
+Keterangan: Berdasarkan gambar 3.9 pengguna diharuskan mengisi form yang terdiri
+dari field username dan password. Jika kombinasi yang dimasukkan salah atau field kosong, sistem akan menampilkan pesan error. Setelah login berhasil, pengguna akan diarahkan ke halaman utama (dashboard) sesuai dengan perannya masing-masing.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 46 dari 83 halaman
+
+3.4.2 Halaman Dashboard
+
+Gambar 3. 9 Prototipe Halaman Dashobard
+Keterangan: Berdasarkan gambar 3. 10 setelah login berhasil pengguna diarahkan ke
+tampilan utama sistem. Pada halaman ini ditampilkan ringkasan data penjualan secara visual, seperti grafik penjualan mingguan, total penjualan hari ini, bulan ini, dan tahun ini. Selain itu, terdapat grafik performa per model dan status pencapaian target bulanan. Halaman ini ditujukan untuk memberikan insight cepat bagi pengguna terhadap performa penjualan.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 47 dari 83 halaman
+
+3.4.3 Halaman Data Transaksi Penjualan
+
+Gambar 3. 10 Prototipe Halaman Data Transaksi Penjualan
+Keterangan: Berdasarkan gambar halaman Data Transaksi Penjualan, pengguna dapat melihat, menambah, mengedit, atau menghapus data transaksi penjualan kendaraan. Tersedia fitur pencarian dan filter berdasarkan nama pelanggan atau tanggal transaksi. Tabel yang ditampilkan memuat informasi penting seperti nama pelanggan, model kendaraan, metode pembayaran, dan status transaksi. Halaman ini mendukung kelancaran proses pencatatan dan validasi transaksi oleh Sales maupun Admin Sales.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 48 dari 83 halaman
+
+3.4.4 Laporan Penjualan
+
+Gambar 3. 11 Prototipe Laporan Penjualan
+Keterangan:
+Berdasarkan gambar halaman Laporan Penjualan, pengguna dapat memfilter data berdasarkan periode penjualan tertentu. Terdapat tombol untuk mencetak laporan dalam format PDF dan ekspor ke Excel. Di bagian atas ditampilkan statistik ringkasan seperti total unit terjual, total pendapatan, dan performa harian. Tabel laporan berisi detail transaksi seperti nama pelanggan, model kendaraan, metode pembayaran, dan nominal pembayaran. Halaman ini ditujukan untuk keperluan monitoring dan pelaporan resmi.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 49 dari 83 halaman
+
+3.4.5 Kelola Dokumen Penjualan
+
+Gambar 3. 12 Prototipe Dokumen Penjualan
+Keterangan: Berdasarkan gambar halaman Dokumen Penjualan, pengguna dapat melihat daftar dokumen penjualan yang telah terdata di sistem seperti SPK, Faktur, STNK, DO, dan lainnya. Masing-masing dokumen memiliki status dan opsi tindakan seperti melihat detail, mencetak, atau memverifikasi. Halaman ini digunakan untuk memantau kelengkapan dokumen dan mendukung proses administrasi kendaraan bermotor secara efisien.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 50 dari 83 halaman
+
+3.4.6 Logout
+
+Gambar 3. 13 Prototipe Logout
+Keterangan: Berdasarkan gambar popup Logout, sistem akan menampilkan konfirmasi saat pengguna menekan tombol logout. Terdapat dua pilihan: tombol "Logout" untuk keluar dari sistem dan tombol "Batal" untuk membatalkan proses. Setelah logout berhasil, pengguna akan diarahkan kembali ke halaman login untuk mengakhiri sesi.
+3.5 Deskripsi Arsitektur Perangkat lunak SISTEM MONITORING DAN PREDIKSI PENJUALAN
+UNIT KENDARAAN BERMOTOR ini hanya dapat dijalankan di web browser. Perangkat lunak ini hanya dapat dijalankan pada komputer yang telah melakukan instal browser terlebih dahulu. Perangkat keras yang digunakan sistem adalah Personal Computer/Laptop, Monitor & Mouse, dan Mobile Smartphone. 3.6 Pedoman Perancangan
+Dalam perancangan perangkat lunak ini penulis berpedoman pada referensireferensi yang terdapat pada daftar pustaka.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 51 dari 83 halaman
+
+4 MODEL PERANCANGAN Pada bab ini akan dijelaskan mengenai perancangan sistem yang akan
+dikembangkan meliputi realisasi usecase tahap perancangan dan kelas perancangan. 4.1 Realisasi Use Case Tahap Perancangan
+Pada penjelasan use case tahap perancangan, sistem yang akan dibangun digambarkan melalui sequence diagram dengan tujuan untuk mendeskripsikan aktifitas aktor terhadap sistem secara teknis dan respon sistem dalam memenuhi perintah aktor dari pesan atau method ke setiap object atau class. Relasi yang terdapat di usecase kemudian dapat digambarkan ke dalam class diagram untuk menampilkan struktur dari sistem yaitu hubungan antar kelas, atribut dan operasi tersebut. 4.1.1 Sequence Diagram
+Berikut ini adalah beberapa model perancangan SISTEM MONITORING DAN PREDIKSI PENJUALAN UNIT KENDARAAN BERMOTOR menggunakan sequence diagram :
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 52 dari 83 halaman
+
+4.1.1.1 Sequence Diagram Login
+
+Gambar 4. 1 Sequence Diagram Login
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 53 dari 83 halaman
+
+4.1.1.2 Sequence Diagram Kelola Data Transaksi
+sd Data Transaksi
+
+Sales
+alt [Data Tidak Lengkap] [Data Lengkap]
+
+Admin Sales
+
+Admin BPKB
+
+Input Data transaksi Penjualan() Kirim data untuk verifikasi() Verifikasi kelengkapan data()
+
+Sistem
+
+Kembalikan data untuk di perbaiki() Simpan data terverifikasi() Notifikasi input dokumen BPKB() Input dan simpan surat permohonan BPKB()
+
+Gambar 4. 2 Sequence Diagram Register
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 54 dari 83 halaman
+
+4.1.1.3 Sequence Diagram Pengolahan Data Penjualan
+sd Data Penjualan
+
+Admin Sales
+
+Admin BPKB
+
+Pilih data yang telah diverifikasi() Kelompokkan berdasarkan kategori()
+Simpan hasil pengelompokkan() periksa duplikasi / kesalahan() Rekap data Harian/Mingguan/Bulanan() Kirim data untuk pembuatan laporan dealer()
+
+Sistem
+
+Gambar 4. 3 Sequence Diagram Pengolahan Data Penjualan
+
+4.1.1.4 Sequence Diagram Pembuatan Laporan Penjualan
+sd Pembuatan Laporan
+
+Admin BPKB
+
+ADH
+
+alt [Laporan Tidak Valid] [Laporan Valid]
+
+Susun Laporan Berdasarkan Rekap Data() Kirim Laporan untuk Validasi()
+Kembalikan Laporan untuk diperbaiki()
+
+Simpan Laporan Valid()
+
+Sistem
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 55 dari 83 halaman
+
+Gambar 4. 4 Sequence Diagram Pembuatan Laporan Penjualan
+
+4.1.1.5 Sequence Diagram Review Laporan
+sd Review Laporan
+
+ADH
+
+Operation Manager
+
+C-Level
+
+Kirim Laporan yang sudah di validasi()
+
+alt [Perlu perbaikan]
+
+Kembalikan laporan untuk di perbaiki()
+
+Periksa dan beri masukkan()
+
+Sistem
+
+[Laporan Akurat]
+
+Susun ulang dengan format untuk C-Level()
+
+Lakukan Pengecekan akhir() Kirim Laporan final()
+Lakukan analisis strategi()
+
+Gambar 4. 5 Sequence Diagram Review Laporan
+4.1.2 Class Diagram Class diagram Sistem monitoring dan prediksi penjualan unit kendaraan bermotor adalah sebagai berikut:
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 56 dari 83 halaman
+
+class Class Model Sistem Informasi Laporan Penjualan
+FormLogin
+Dashboard
+
+LoginController
++ direct(): void + getDataUser(): void + loginAction(): void + tampilForm(): void + validasiForm(): void
+
+Kelola User
+UserController + deleteUser(): void + editUser(): void + getIdLevel(): void + getIdUser(): void + requestDelete(): void + requestEdit(): void + requestSearch(): void + searchData(): void + tambahUser(): void + tampilDataPencarian(): void + tampilForm(): void + tampilMenu(): void + tampilPesan(): void + validasiForm(): void
+user - UserId: int - username: char - Password: char - role: char
+Customer - CustomerID: int - NamaCustomer: char - Alamat: char - NoKTP: int - NoHP: int
+
+KelolaDataTransaksi
+TransaksiController + inputTransaksi(): void + ubahTransaksi(): void + hapusTransaksi(): void + validasiTransaksi(): void
+
+KelolaLaporanPenjualan
+LaporanController + buatLaporan(): void + distribusiLaporan(): void + arsipkanLaporan(): void
+Faktur - FakturID: int - TglFaktur: int - Harga: int - HargaTerbilang: char
+Leasing - LeasingID: int - NamaLeasing: char
+Sales - SalesID: int - NamaSales: char - SPV: char
+
+Laporan - LaporanID: int - TanggalCetak: int - Periode: char - TotalPenjualan: double - TotalUnit: int - JenisLaporan: char
+Pembayaran - PembayaranID: int - DPAmount: int - LeasingAmount: int - TanggalPembayaran: int
+Penjualan - PenjualanID: int - Tanggal: int - MetodePembayaran: char - Tenor: int - StatusDO: char
+
+Kendaraan
+- KendaraanID: int - Merk: char - Type: char - IsiSilinder: char - Warna: char - NoRangka: int - NoMesin: int - BahanBakar: char - Harga: int
+
+Gambar 4. 6 Class Diagram Sistem Monitoring Dan Prediksi Penjualan Unit Kendaraan Bermotor
+
+4.2 Kelas Perancangan
+
+Kelas-kelas yang terbentuk dalam tahap analisis akan diterapkan ke dalam kelas-kelas tahap perancangan. Kelas-kelas tersebut adalah : Tabel 4. 1 Tabel Kelas Perancangan
+
+No Nama Kelas Analisis
+1. loginController 2. userController 3. laporanController 4. transaksiController 5. kendaraanController 6. customerController
+
+Nama Kelas Perancangan loginController userController laporanController transaksiController kendaraanController customerController
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 57 dari 83 halaman
+
+7. pembayaranController 8. laporanPenggunaController 9. laporan 10. transaksi 11. kendaraan 12. customer 13. pembayaran 14. user
+
+pembayaranController laporanPenggunaController laporan transaksi kendaraan customer pembayaran user
+
+4.3 Operasi dan Atribut Setiap class yang terbentuk dalam sistem ini memiliki operasi sebagai fungsi yang menerangkan apa saja yang bisa dilakukan object dan atau class, serta atribut sebagai identitas dari suatu class.
+
+4.3.1 Nama Kelas: Entity Kelas LoginController Tabel 4. 2 Operasi pada kelas LoginController
+
+Nama Operasi direct()
+getDataUser()
+loginAction() tampilForm() tampilPesan()
+validasiForm()
+
+Visibility Public
+Public
+Public Public Public
+Public
+
+Keterangan Mengarahkan pada halaman tujuan Mengambil data dari tabel user Melakukan aksi login
+Menampilkan form login
+Menampilkan pesan yang berisi respon dari sistem Proses mengautentikasi inputan data dari formulir
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 58 dari 83 halaman
+
+4.3.2 Nama Kelas: Entity Kelas UserController
+
+Tabel 4. 3 Operasi pada kelas UserController
+
+Nama Operasi
+
+Visibility
+
+index()
+
+Public
+
+create()
+
+Public
+
+store()
+
+Public
+
+edit()
+
+Public
+
+update()
+
+Public
+
+delete()
+
+Public
+
+Keterangan Menampilkan daftar user
+Menampilkan form tambah user Menyimpan data user baru ke database Menampilkan form edit user Menyimpan perubahan data user Menghapus user dari sistem
+
+4.3.3 Nama Kelas: Entity Kelas TransaksiController
+
+Tabel 4. 4 Operasi pada kelas TransaksiController
+
+Nama Operasi
+
+Visibility
+
+Keterangan
+
+index() create() store() show() update()
+
+Public Public Public Public Public
+
+Menampilkan daftar transaksi penjualan Menampilkan form input transaksi Menyimpan data transaksi ke dalam sistem Menampilkan detail transaksi Mengubah data transaksi
+
+index() create()
+
+Public Public
+
+Menampilkan daftar transaksi penjualan Menampilkan form input transaksi
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 59 dari 83 halaman
+
+store() show()
+
+Public Public
+
+Menyimpan data transaksi ke dalam sistem Menampilkan detail transaksi
+
+4.3.4 Nama Kelas: Entity Kelas Laporan KendaraanController
+
+Tabel 4. 5 Operasi pada kelas Laporan KendaraanController
+
+Nama Operasi
+
+Visibility
+
+Keterangan
+
+index() create() store() edit() update() delete()
+
+Public Public Public Public Public Public
+
+Menampilkan daftar kendaraan Menampilkan form input kendaraan Menyimpan data kendaraan ke sistem Menampilkan form edit kendaraan Mengubah data kendaraan Menghapus data kendaraan
+
+4.3.5 Nama Kelas: Entity Kelas CustomerController
+
+Tabel 4. 6 Operasi pada kelas CustomerController
+
+Nama Operasi
+
+Visibility
+
+Keterangan
+
+index() create() store()
+
+Public Public Public
+
+Menampilkan daftar pelanggan Menampilkan form input pelanggan Menyimpan data pelanggan ke sistem
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 60 dari 83 halaman
+
+edit() update() delete()
+
+Public Public Public
+
+4.3.6 Nama Kelas: Entity Kelas Laporan
+
+Tabel 4. 7 Atribut pada kelas user
+
+Nama Atribut generate()
+
+Visibility Public
+
+print()
+
+Public
+
+export()
+
+Public
+
+4.3.7 Nama Kelas: Entity Kelas Transaksi Tabel 4. 8 Atribut pada kelas Transaksi
+
+Nama Operasi simpanData()
+
+Visibility Public
+
+ambilData()
+
+Public
+
+validasiInput()
+
+Public
+
+Menampilkan form edit data pelanggan Menyimpan perubahan data pelanggan Menghapus data pelanggan
+
+Tipe Data Menghasilkan laporan penjualan otomatis Mencetak laporan penjualan Mengekspor laporan dalam format tertentu
+
+Keterangan
+
+Menyimpan
+
+data
+
+transaksi
+
+Mengambil
+
+data
+
+transaksi berdasarkan ID
+
+Validasi data transaksi
+
+sebelum disimpan
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 61 dari 83 halaman
+
+4.3.8 Nama Kelas: Entity Kelas Kendaraan Tabel 4. 9 Atribut pada kelas Kendaraan
+
+Nama Atribut getInfo()
+
+Visibility Public
+
+listKendaraan()
+
+Public
+
+Tipe Data
+Mengambil data detail kendaraan tertentu Menampilkan semua data kendaraan
+
+4.3.9 Nama Kelas: Entity Kelas Customer Tabel 4. 10 Atribut pada kelas Customer
+
+Nama Atribut getProfile()
+
+Visibility Public
+
+updateProfile()
+
+Public
+
+Tipe Data
+Mengambil profil pelanggan Mengubah data pelanggan
+
+4.3.10 Nama Kelas: Entity Kelas Laporan Penjualan
+
+Tabel 4. 11 Atribut pada kelas Laporan Penjualan
+
+Nama Atribut Id_Laporan Penjualan Laporan Penjualan_path Nama_Laporan Penjualan Tgl_cetak Id_user
+
+Visibility Private Private Private
+Private Private
+
+Tipe Data Integer Varchar Varchar
+Date Integer
+
+4.3.11 Nama Kelas: Entity Kelas LaporanPenggunaController Tabel 4. 12 Atribut pada kelas LaporanPenggunaController
+
+Nama Atribut tampilLaporan() filterData()
+
+Visibility
+
+Tipe Data
+
+Public Menampilkan laporan khusus pengguna
+
+Public
+
+Memfilter data laporan berdasarkan pengguna
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 62 dari 83 halaman
+
+4.4 Algoritma & Query Algoritma berisi kerangka algoritma untuk proses-proses yang dianggap cukup penting dalam perangkat lunak yang dibangun. Berikut ini algoritma dari Sistem monitoring dan prediksi penjualan unit kendaraan bermotor . 4.4.1 Kelas LoginController Nama Operasi: LoginAction()
+SELECT * FROM users WHERE user_email = '$email' LIMIT 1;
+Nama Operasi: GetdataUser() SELECT * FROM users WHERE user_id = '$id';
+4.4.2 Kelas userController Nama Operasi: store()
+INSERT INTO users (user_name, user_email, user_password, user_role) VALUES ('$name', '$email', '$password', '$role');
+Nama Operasi: Update() UPDATE users SET user_name = '$name', user_email = '$email', user_password = '$password', user_role = '$role' WHERE user_id = '$id';
+Nama Operasi: Delete() DELETE FROM users WHERE user_id = '$id';
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 63 dari 83 halaman
+
+Nama Operasi: Index() SELECT * FROM users;
+4.4.3 Kelas TransaksiController Nama Operasi: store()
+INSERT INTO transactions (customer_id, kendaraan_id, tanggal_transaksi, jumlah_unit, total_harga) VALUES ('$customer_id', '$kendaraan_id', '$tanggal', '$jumlah', '$total');
+Nama Operasi: update() UPDATE transactions SET customer_id = '$customer_id', kendaraan_id = '$kendaraan_id', tanggal_transaksi = '$tanggal', jumlah_unit = '$jumlah', total_harga = '$total' WHERE transaksi_id = '$id';
+Nama Operasi: show() SELECT t.*, c.nama_customer, k.nama_kendaraan FROM transactions t JOIN customers c ON t.customer_id = c.customer_id JOIN kendaraan k ON t.kendaraan_id = k.kendaraan_id WHERE t.transaksi_id = '$id';
+Nama Operasi: index() SELECT t.*, c.nama_customer, k.nama_kendaraan FROM transactions t JOIN customers c ON t.customer_id = c.customer_id JOIN kendaraan k ON t.kendaraan_id = k.kendaraan_id;
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 64 dari 83 halaman
+
+4.4.4 Kelas LaporanKendaraanController Nama Operasi: store()
+INSERT INTO kendaraan (nama_kendaraan, tipe, harga, stok) VALUES ('$nama', '$tipe', '$harga', '$stok');
+Nama Operasi: Update() UPDATE kendaraan SET nama_kendaraan = '$nama', tipe = '$tipe', harga = '$harga', stok = '$stok' WHERE kendaraan_id = '$id';
+Nama Operasi: delete() DELETE FROM kendaraan WHERE kendaraan_id = '$id';
+Nama Operasi: index() SELECT * FROM kendaraan;
+4.4.5 Kelas Laporan CustomerController Nama Operasi: store()
+INSERT INTO customers (nama_customer, alamat, no_telepon) VALUES ('$nama', '$alamat', '$telepon');
+Nama Operasi: update() UPDATE customers SET nama_customer = '$nama', alamat = '$alamat', no_telepon = '$telepon' WHERE customer_id = '$id';
+Nama Operasi: delete() DELETE FROM customers WHERE customer_id = '$id';
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 65 dari 83 halaman
+
+Nama Operasi: index() SELECT * FROM customers;
+
+4.5 Perancangan Struktur Menu Struktur menu menggambarkan fitur-fitur yang akan dirancang untuk
+membangun aplikasi berbasis web.
+4.6 Perancangan Struktur Menu
+Login
+
+Review Prediksi
+
+Kelola User
+
+Kelola Produk
+
+Kelola Laporan Penjualan
+
+Dashboard
+
+Kelola Data Transaksi
+
+Ringkasan Penjualan
+
+Keterangan:
+Administration Head (ADH) Sales, Admin Sales, Admin BPKB Admin BPKB
+
+Operation Manager (OM), C-Level ADH, Admin BPKB Semua Business User
+
+ADH
+
+Gambar 4. 7 Struktur Menu
+
+4.7 Antarmuka
+
+Antarmuka mendeskripsikan rancangan antarmuka berdasarkan Use Case Diagram dan Class Diagram serta prototipe antamuka yang sudah dijelaskan pada sub bab 3.4. Tabel 4. 13 Antarmuka
+
+No Use Case
+
+Antarmuka
+
+Nama Kelas
+
+1. Login
+
+Gambar 3. 9 prototipe Halaman Login
+
+Login
+
+2. Dashboard
+
+Gambar 3. 10 Prototipe
+
+Ringkasan Penjualan Halaman Dashboard
+
+Dashboard Ringkasan
+
+Penjualan
+
+3. Kelola Data Transaksi
+
+Gambar 3. 11 Prototipe Data Transaksi Penjualan
+
+transaksi, pelanggan, kendaraan, sales,
+
+pembayaran
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 66 dari 83 halaman
+
+4. Kelola Dokumen Penjualan
+
+Gambar 3. 12 Laporan Penjualan
+
+5. Kelola Laporan Penjualan
+
+Gambar 3. 13 Prototipe Dokumen Penjualan
+
+6. Logout
+
+Gambar 3. 14 Prototipe Logout
+
+dokumen, bpkb, spk, faktur, kendaraan laporan, sales, model, transaksi, periode
+user, session, akses
+
+5 IMPLEMENTASI 5.1 Implementasi Antarmuka Halaman Login
+
+Gambar 5. 1 Implementasi Antarmuka Halaman Login
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 67 dari 83 halaman
+
+5.2 Implementasi Antarmuka Halaman Dashboard Administator Head
+Gambar 5. 2 Implementasi Antarmuka Halaman Administator Head 5.3 Implementasi Antarmuka Halaman Kelola Laporan
+
+Gambar 5. 3 Implementasi Antarmuka Halaman Kelola Laporan
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 68 dari 83 halaman
+
+5.4 Implementasi Antarmuka Halaman Kelola Prediksi
+
+Gambar 5. 4 Implementasi Antarmuka Halaman Kelola Prediksi 5.5 Implementasi Antarmuka Halaman Kelola Transaksi Penjualan
+
+Gambar 5. 5 Implementasi Antarmuka Halaman Kelola Transaksi Penjualan
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 69 dari 83 halaman
+
+5.6 Implementasi Antarmuka Halaman Kelola Kendaraan
+
+Gambar 5. 6 Implementasi Antarmuka Halaman Kelola Kendaraan 5.7 Implementasi Antarmuka Halaman Kelola User
+
+Gambar 5. 7 Implementasi Antarmuka Halaman Kelola User
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 70 dari 83 halaman
+
+6 PENGUJIAN Bab ini berisi pengujian perangkat lunak sistem monitoring dan prediksi
+
+penjualan unit kendaraan bermotor sub bab yang akan dibahas meliputi rencana dan prosedur pengujian, kasus uji dari setiap usecase dan evaluasi pengujian.
+
+6.1 Rencana dan Prosedur Pengujian
+
+Rencana pengujian yang digunakan dalam perangkat lunak ini adalah dengan teknik pengujian black box. Pengujian ini berfokus pada persyaratan
+
+fungsional perangkat lunak. Pengujian ini memungkinkan perekayasa sistem
+
+mendapatkan serangkaian kondisi input yang sepenuhnya menggunakan semua
+
+persyaratan fungsional untuk suatu program. Rencana pengujian ini diuji
+
+berdasarkan use case yang telah terbentuk, seperti dijelaskan pada tabel di bawah
+
+ini:
+
+Tabel 6. 1 Rencana dan Prosedur Pengujian
+
+Kelas Uji Login
+Transaksi
+
+Butir Uji
+Login dengan mengosongkan field email dan password Login dengan mengosongkan field password Login dengan mengosongkan field email Login dengan username dan password yang tidak valid Login dengan username dan password yang valid Input transaksi dengan data kosong Input transaksi dengan data tidak valid (format salah)
+
+Identifikasi SKPL
+SRS-F-01 SRS-F-01 SRS-F-01 SRS-F-01
+SRS-F-01 SRS-F-02 SRS-F-02
+
+Identifikasi PDHUPL
+PDHUPL1.a
+PDHUPL1.b
+PDHUPL1.c
+PDHUPL1.d
+PDHUPL1.e
+PDHUPL2.a
+PDHUPL2.b
+
+Tingkat Pengujian
+Pengujian Unit
+Pengujian Unit
+Pengujian Unit
+Pengujian Unit
+Pengujian Unit
+Pengujian Unit
+Pengujian Unit
+
+Jenis Pengujian Black Box Black Box Black Box Black Box
+Black Box Black Box Black Box
+
+Jadwal Juni 2025 Juni 2025 Juni 2025 Juni 2025 Juni 2025 Juni 2025 Juni 2025
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 71 dari 83 halaman
+
+Laporan
+Dokumen Logout
+
+Input transaksi
+
+dengan data
+
+valid
+
+dan
+
+lengkap
+
+Filter laporan
+
+dengan hanya
+
+tanggal awal
+
+Filter laporan
+
+dengan hanya
+
+tanggal akhir
+
+Cetak laporan
+
+PDF setelah
+
+filter tanggal
+
+lengkap
+
+Lihat detail
+
+dokumen SPK
+
+Cetak
+
+dokumen
+
+faktur
+
+kendaraan
+
+Logout normal
+
+oleh user aktif
+
+Logout dengan
+
+gangguan
+
+koneksi
+
+(simulasi error
+
+server)
+
+SRS-F-02 SRS-F-03 SRS-F-03 SRS-F-03 SRS-F-04 SRS-F-04 SRS-F-05 SRS-F-05
+
+PDHUPL2.c
+
+Pengujian Unit
+
+Black Box Juni 2025
+
+PDHUPL3.a
+
+Pengujian Unit
+
+Black Box Juni 2025
+
+PDHUPL3.b
+
+Pengujian Unit
+
+Black Box Juni 2025
+
+PDHUPL3.c
+
+Pengujian Unit
+
+Black Box Juni 2025
+
+PDHUPL4.a
+
+Pengujian Unit
+
+Black Box Juni 2025
+
+PDHUPL4.b
+
+Pengujian Unit
+
+Black Box Juni 2025
+
+PDHUPL5.a
+
+Pengujian Unit
+
+Black Box Juni 2025
+
+PDHUPL5.b
+
+Pengujian Unit
+
+Black Box Juni 2025
+
+6.1.1 Pengenalan dan Latihan Pada pengujian Sistem Informasi ini tidak perlu diadakan pelatihan terlebih dahulu karena pengujian dilakukan oleh beberapa orang yang terlibat dalam pengembangan aplikasi ini. Pengguna tidak dilibatkan secara langsung dalam pengujian aplikasi ini, namun pengguna tetap melakukan pengujian akhir terhadap aplikasi dalam bentuk demo perangkat lunak ke pengguna pada waktu yang telah ditentukan.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 72 dari 83 halaman
+
+6.1.2 Persiapan Awal Sebelum melakukan pengujian, perlu melakukan persiapan prosedural, perangkat keras dan perangkat lunak agar aplikasi siap untuk diuji
+
+6.1.3 Persiapan Prosedural Tidak ada persiapan prosedural dalam persiapan awal pengujian.
+
+6.1.4 Persiapan Perangkat Keras Perangkat keras yang akan digunakan dilengkapi dengan:
+ Min 2 GB RAM  1 Keyboard  1 Mouse 6.1.5 Persiapan Perangkat Lunak Persiapan perangkat lunak yang dilakukan dalam rangka pengujian Sistem Informasi ini antara lain: a. Perangkat lunak yang akan diuji sudah ter-install pada komputer dan telah dilengkapi data untuk pengujian. b. Instruksi untuk pengaktifan program dijelaskan sebagai berikut:  Aktifkan program web server Apache dan MySql pada XAMPP Control
+Panel.  Aktifkan Sistem Informasi ini, dengan menggunakan Google Chrome atau
+Mozila Firefox.  Di layar monitor akan terlihat tampilan halaman utama aplikasi. 6.1.6 Pelaksanaan Pelaksanaan pengujian dilaksanakan dengan cara membagi pengujian ke dalam beberapa kelas utama sesuai dengan fungsi yang telah didefinisikan pada bab 3 yaitu:
+
+a. Login.
+
+b. Manajemen Data Transaksi Penjualan.
+
+c. Monitoring dan Prediksi Penjualan menggunakan metode Moving
+
+Average (MA).
+
+d. Laporan Penjualan Real-Time.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 73 dari 83 halaman
+
+Pengujian tidak dilakukan pada lingkungan operasional, melainkan pengujian dilakukan melalui 2 (dua) tingkat yaitu pengujian unit dan pengujian sistem. 6.1.7 Pelaporan Penjualan Hasil Dokumen hasil pengujian perangkat lunak Sistem Informasi ini akan diserahkan kepada : 6.1.8 Tim Pengembang Dokumen ini akan digunakan oleh tim pengembang sebagai referensi untuk melakukan analisis terhadap kualitas perangkat lunak, dan juga sebagai acuan terhadap aktifitas pemeliharaan dan pengembangan lebih lanjut. Dokumen ini juga berfungsi sebagai bukti bahwa perangkat lunak telah melewati pengujian formal berdasarkan beberapa kriteria tertentu. 6.1.9 Penguji Penguji dapat menggunakan dokumen ini untuk memahami cara kerja perangkat lunak dan berbagai fasilitas yang terdapat didalamnya. Selain itu, dokumen ini juga dapat membantu dalam mendefinisikan berbagai kesalahan yang terjadi, apakah disebabkan oleh user atau karena kesalahan tabel. Pencatatan data dan analisa hasil pengujian dilakukan secara manual. Pengujian Sistem Informasi ini akan mengikuti prosedur sebagai berikut :
+ Persiapan data yang akan digunakan dalam pengujian  Pengujian  Pencatatan data hasil pengujian  Mengelola terhadap data hasil pengujian  Menganalisis data hasil pengujian (kesimpulan)
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 74 dari 83 halaman
+
+6.2 Kelas Uji
+
+6.2.1 Pengujian Login
+
+Tabel 6. 2 Pengujian Login
+
+Identifikasi PDHUPL-1.a PDHUPL-1.b PDHUPL-1.c PDHUPL-1.d
+
+Deskripsi
+Login dengan mengosongkan field email dan password
+Login dengan mengosongkan field password
+Login dengan email dan password tidak valid
+Login dengan email dan password valid
+
+Prosedur Pengujian
+Masukkan emailMasukkan passwordTekan tombol Login
+Masukkan emailTekan tombol Login
+Masukkan emailMasukkan passwordTekan tombol Login Masukkan emailMasukkan passwordTekan tombol Login
+
+Masukan Email = ""Password = ""
+
+Email = admin@gmail.com
+
+Email
+
+=
+
+testing@gmail.comPassword
+
+= testing
+
+Email
+
+=
+
+agus@gmail.comPassword =
+
+agus123
+
+Keluaran yang
+Diharapkan
+Muncul pesan kesalahan
+Muncul pesan kesalahan
+Muncul pesan kesalahan
+Masuk ke dashboard
+
+Kriteria Evaluasi
+Hasil
+Muncul pesan kesalahan
+Muncul pesan kesalahan
+Muncul pesan kesalahan
+Masuk ke dashboard
+
+Hasil yang Didapat
+
+Muncul pesan
+
+kesalahan "Kolom
+
+email wajib diisi"
+
+&
+
+"Kolom
+
+password wajib
+
+diisi"
+
+Muncul pesan
+
+kesalahan "Kolom
+
+password wajib
+
+diisi!"
+
+Muncul pesan
+
+kesalahan
+
+"Username atau
+
+Password salah!"
+
+Masuk
+
+ke
+
+dashboard
+
+Kesimpulan
+
+Diuji dengan black
+
+box & boundary value
+
+analysis
+
+
+
+DITERIMA
+
+Diuji dengan black
+
+box & boundary value
+
+analysis
+
+
+
+DITERIMA
+
+Diuji dengan black
+
+box & boundary value
+
+analysis
+
+
+
+DITERIMA
+
+Diuji dengan black
+
+box & boundary value
+
+analysis
+
+
+
+DITERIMA
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 75 dari 83 halaman
+
+6.2.2 Pengujian Transaksi Penjualan Tabel 6. 3 Pengujian Transaksi Penjualan
+
+Identifikasi Deskripsi
+
+Prosedur Pengujian
+
+PDHUTR2.a
+PDHUTR2.b
+PDHUTR2.c
+
+Tambah transaksi tanpa mengisi data wajib Tambah transaksi dengan data salah format Tambah transaksi dengan data lengkap dan benar
+
+Klik menu Tambah TransaksiKlik Simpan tanpa mengisi data
+Isi kolom harga dengan teksKlik Simpan
+Isi semua data transaksi sesuai formatKlik Simpan
+
+PDHUTR- Hapus transaksi Pilih transaksiKlik
+
+2.d
+
+yang ada
+
+Hapus
+
+Keluaran
+
+Masukan
+
+yang
+
+Diharapkan
+
+Semua kolom kosong
+
+Pesan error muncul
+
+Kriteria Evaluasi
+Hasil
+Pesan error muncul
+
+Hasil yang Didapat
+Pesan "Data wajib diisi" pada semua kolom wajib
+
+Harga = Pesan error
+
+abc
+
+muncul
+
+Pesan error muncul
+
+Pesan "Format harga tidak valid"
+
+Data lengkap valid
+ID Transaksi valid
+
+Data tersimpan & tampil di tabel
+Data terhapus
+
+Data tersimpa n& tampil di tabel
+Data terhapus
+
+Data berhasil tersimpan dan tampil di tabel
+Data terhapus dari tabel
+
+Kesimpulan DITERIMA DITERIMA DITERIMA DITERIMA
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 76 dari 83 halaman
+
+6.2.3 Pengujian Laporan Penjualan Tabel 6. 4 Pengujian Laporan Penjualan
+
+Identifikasi Deskripsi
+
+Prosedur Pengujian
+
+PDHULP3.a
+
+Filter laporan Buka menu
+
+dengan tanggal LaporanKlik Filter
+
+tidak diisi
+
+tanpa pilih tanggal
+
+PDHULP3.b
+
+Filter laporan dengan range tanggal valid
+
+Pilih tanggal awal & akhirKlik Filter
+
+PDHULP3.c
+
+Cetak laporan periode tertentu
+
+Pilih tanggal awal & akhirKlik Cetak
+
+Keluaran
+
+Masukan
+
+yang
+
+Diharapkan
+
+Tanggal Pesan error kosong muncul
+
+01-012025 s/d 31-012025
+Periode valid
+
+Laporan sesuai filter
+File PDF laporan diunduh
+
+Kriteria Evaluasi
+Hasil
+Pesan error muncul
+Laporan sesuai filter
+File PDF laporan diunduh
+
+Hasil yang Didapat Pesan "Tanggal wajib diisi" Laporan muncul sesuai periode File PDF laporan sesuai filter
+
+Kesimpulan DITERIMA DITERIMA DITERIMA
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 77 dari 83 halaman
+
+6.2.4 Pengujian Dokumen Tabel 6. 5 Pengujian Dokumen
+
+Identifikasi
+
+Deskripsi
+
+PDHUDK-4.a
+
+Upload dokumen tanpa memilih file
+
+PDHUDK-4.b PDHUDK-4.c
+
+Upload dokumen dengan format tidak didukung Upload dokumen dengan format dan ukuran sesuai
+
+Prosedur Pengujian
+Klik Upload tanpa pilih file
+Pilih file .exe
+Pilih file .pdf ukuran < 5MB
+
+Masukan
+File kosong
+File tidak valid File valid
+
+Keluaran yang
+Diharapkan
+Pesan error muncul
+Pesan error muncul
+File berhasil diunggah
+
+Kriteria Evaluasi
+Hasil
+Pesan error muncul
+Pesan error muncul File berhasil diunggah
+
+Hasil yang Didapat Kesimpulan
+
+Pesan "File wajib dipilih"
+
+DITERIMA
+
+Pesan "Format file tidak didukung"
+File tersimpan & muncul di daftar dokumen
+
+DITERIMA DITERIMA
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 78 dari 83 halaman
+
+6.2.5 Pengujian Logout Tabel 6. 6 Pengujian Logout
+
+Identifikasi
+
+Deskripsi
+
+PDHULO-5.a
+
+Logout dari sistem
+
+Prosedur Pengujian
+Klik menu Logout
+
+Masukan
+Tidak ada input
+
+Keluaran yang
+Diharapkan
+Dialihkan ke halaman login
+
+Kriteria Evaluasi
+Hasil Dialihkan ke halaman login
+
+Hasil yang Didapat
+Dialihkan ke halaman login & session dihapus
+
+Kesimpulan DITERIMA
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 79 dari 83 halaman
+
+6.3 Evaluasi Pengujian Tabel 6. 7 Evaluasi Pengujian
+
+SRS SRS-F-1 SRS-F-2 SRS-F-3
+SRS-F-4
+SRS-F-5 SRS-F-6 SRS-F-7
+
+Nomor PDHUPL PDHUPL ­ 1 (a-d) PDHUPL ­ 2 (a-c) PDHUPL ­ 3 (a-d)
+PDHUPL ­ 4 (a-h)
+PDHUPL ­ 5 (a-c) PDHUPL ­ 6 (a-g) PDHUPL ­ 7 (a-g)
+
+Keterangan Login Register Kelola Transaksi Kelola Laporan Penjualan Kelola Kendaraan Kelola Customer Kelola User
+
+7 Spesifikasi Produk Perangkat Lunak 7.1 Perangkat Lunak Siap Eksekusi
+Berkas Sumber Sistem Informasi ini merupakan perangkat lunak yang berbasis web, oleh karena itu Sistem Informasi ini menghasilkan sebuah perangkat lunak yang siap dieksekusi. Untuk menjalankan Sistem Informasi berbasis Web ini, pengguna hanya perlu mengunjungi website https://localhost:8000/login.
+
+7.2 Berkas Sumber Berkas sumber yang digunakan untuk membangun Sistem monitoring dan
+prediksi penjualan unit kendaraan bermotor adalah bagian perancangan dan analisis dari dokumen ini dan berkas-berkas instalasi serta skema basis data sebagai berikut:
+
+No Modul 1. Login 2. Register 3. Kelola Pengaduan Masalah
+
+Nama Berkas LoginController RegisterController PengaduanController
+
+4. Kelola Ticketing Pengaduan
+
+TicketingController
+
+5. Kelola PeLaporan Penjualan Laporan PenjualanController Pengaduan Masalah
+
+Keterangan Form login Form registrasi Pengaduan Masalah Ticketing Pengaduan Masalah Laporan Penjualan
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 80 dari 83 halaman
+
+6. Kelola Produk 7. Kelola User
+
+ProdukController UserController
+
+pengaduan masalah Data Produk Data User
+
+7.3 Syarat Pemaketan Syarat yang diperlukan menjalankan perangkat lunak diantaranya:
+1. Memiliki browser seperti Google Chrome, Firefox, Microsoft Edge, dll. 2. Terhubung dengan jaringan internet. 7.4 Prosedur Konstruksi
+Dalam prosedur konstruksinya aplikasi ini memerlukan perangkat keras yaitu minimal satu paket komputer dengan spesifikasi sebagai berikut:
+- Processor Pentium(R) Dual-Core CPU - RAM min 2 GB - Hard Disk - Monitor - Keyboard & Mouse
+8 Panduan Instalasi 8.1 Instalasi Antar Domain
+Sistem komputer minimum yang diperlukan agar perangkat lunak Sistem monitoring dan prediksi penjualan unit kendaraan bermotor adalah dengan RAM min 2 GB
+1. Monitor 2. Keyboard & Mouse 8.2 Proses Instalasi
+Berkas-berkas sumber serta susunan direktori yang harus ditempatkan di server dan berkas-berkas skema basis data tidak harus disalin ke sistem tetapi harus dimasukkan ke dalam basis data dengan menjalankan perintah query tertentu. Langkah-langkah instalasi yang harus dilakukan adalah sebagai berikut :
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 81 dari 83 halaman
+
+8.2.1 Instalasi Aplikasi 1. Buka aplikasi xampp, lalu klik start pada Apache dan MySQL untuk menjalankan server
+
+Gambar 8. 1 Aplikasi XAMPP
+2. Selanjutnya, pindahkan folder project ke dalam direktori folder diinginkan contoh (C:\xampp\htdocs\wuling)
+3. Selanjutnya, Buka browser, lalu ketik URL berikut untuk mengakses website:. http://localhost/wuling
+4. Buka browser, ketik localhost/wuling untuk mengakses website.
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 82 dari 83 halaman
+
+Gambar 8. 2 Akses Browser localhost/wuling
+9 PENUTUP Pembangunan Sistem monitoring dan prediksi penjualan unit kendaraan
+bermotor ini dibuatkan untuk mengatasi masalah pada Laporan Penjualan yang masih dilakukan oleh setiap platform. Diharapkan dengan adanya dokumen ini, maka dapat dijadikan sebagai acuan dalam penggunaan dan pengembangan Sistem monitoring dan prediksi penjualan unit kendaraan bermotor .
+
+Program Studi D-III Manajemen Informatika Universitas Logistik dan Bisnis
+Internasional
+
+Dokumentasi Perangkat Lunak Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Penjualan Unit
+Kendaraan Bermotor
+
+Halaman 83 dari 83 halaman
+
+

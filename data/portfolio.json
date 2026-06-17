@@ -1,0 +1,381 @@
+{
+    "meta": {
+        "name": "Kyla Nazwa Salsabila",
+        "title": "Junior Full-Stack Developer & System Analyst",
+        "tagline": "Membangun sistem, bukan hanya kode.",
+        "email": "kylanazwa0@gmail.com",
+        "phone": "085659199540",
+        "linkedin": "https://linkedin.com/in/kylanazwa",
+        "location": "Bandung, Jawa Barat",
+        "gpa": "3,75/4,00",
+        "status": "Open to Work"
+    },
+    "diagrams": [
+        {
+            "id": "bpmn",
+            "label": "BPMN",
+            "title": "BPMN — Business Process Model & Notation",
+            "description": "Pemodelan proses bisnis end-to-end menggunakan notasi BPMN 2.0 dengan swimlane per aktor.",
+            "highlights": [
+                "4 skenario alur proses",
+                "Swimlane multi-aktor",
+                "Gateway kondisional (XOR, AND)",
+                "Notasi standar BPMN 2.0"
+            ],
+            "image": ""
+        },
+        {
+            "id": "usecase",
+            "label": "Use Case",
+            "title": "Use Case Diagram",
+            "description": "Pemodelan interaksi semua aktor dengan sistem — mencakup 5 peran pengguna dan seluruh use case utama.",
+            "highlights": [
+                "5 aktor pengguna",
+                "15+ use case terdokumentasi",
+                "Relasi include & extend",
+                "Basis implementasi RBAC"
+            ],
+            "image": ""
+        },
+        {
+            "id": "erd",
+            "label": "ERD",
+            "title": "Entity Relationship Diagram",
+            "description": "Desain database relasional dengan normalisasi 3NF — mengelola hubungan kompleks antar entitas.",
+            "highlights": [
+                "11 entitas / tabel utama",
+                "Normalisasi hingga 3NF",
+                "Relasi One-to-Many & Many-to-Many",
+                "Foreign key constraints"
+            ],
+            "image": ""
+        },
+        {
+            "id": "sequence",
+            "label": "Sequence",
+            "title": "Sequence Diagram",
+            "description": "Alur interaksi antar komponen sistem dari request hingga response secara kronologis.",
+            "highlights": [
+                "Alur request-response real-time",
+                "Validasi token dengan expiry check",
+                "Race condition prevention",
+                "Error handling komprehensif"
+            ],
+            "image": ""
+        }
+    ],
+    "projects": [
+        {
+            "id": "aims",
+            "number": "01",
+            "status": "live",
+            "status_label": "🟢 Live Production",
+            "type": "Live Production System",
+            "icon": "",
+            "title": "AIMS — ACF Integrated Management System",
+            "tagline": "Enterprise System",
+            "description": "Comprehensive management system tailored for internal operations, centralizing multi-departmental data and automating report consolidation to eliminate human errors.",
+            "highlights": [],
+            "features": [
+                "✅ Multi-Level Access Control (RBAC)",
+                "✅ Interactive Data Dashboard",
+                "✅ Automated Report Generation"
+            ],
+            "tech": [
+                "PHP",
+                "MySQL",
+                "Tailwind CSS"
+            ],
+            "tags": "live php enterprise",
+            "link_url": "http://inventoryacf.test:8080",
+            "attachment": ""
+        },
+        {
+            "id": "mgm-report",
+            "number": "02",
+            "status": "done",
+            "status_label": " Selesai",
+            "type": "System Design",
+            "icon": "",
+            "title": "Maju Global Motor System",
+            "tagline": "Integrated Sales Reporting System",
+            "description": "Designed and developed a centralized reporting system to automate vehicle sales reporting processes, improve data accessibility, and reduce manual administrative work across multiple operational roles.",
+            "highlights": [],
+            "features": [
+                "✅ Sales Transaction Management",
+                "✅ Automated Reporting & Export",
+                "✅ Role-Based Access Control"
+            ],
+            "tech": [
+                "Visual Basic",
+                "SQL Server",
+                "Excel"
+            ],
+            "tags": "analysis"
+        },
+        {
+            "id": "guruverse",
+            "number": "03",
+            "status": "indev",
+            "status_label": " In Dev",
+            "type": "LMS Platform",
+            "icon": "",
+            "title": "Guruverse LMS",
+            "tagline": "Learning Management System (LMS)",
+            "description": "Integrated digital learning ecosystem connecting students and instructors, featuring structured educational modules, task management, and an interactive community forum.",
+            "highlights": [],
+            "features": [
+                "✅ Student & Instructor Portals",
+                "✅ Interactive Discussion Forum",
+                "✅ Seamless UI/UX (Zero-Reload)"
+            ],
+            "tech": [
+                "Laravel",
+                "PHP",
+                "MySQL",
+                "Tailwind CSS"
+            ],
+            "tags": "laravel live enterprise",
+            "link_url": "http://guruverse.test:8080",
+            "attachment": ""
+        },
+        {
+            "id": "siponten",
+            "number": "04",
+            "status": "done",
+            "status_label": "✅ Selesai",
+            "type": "Education System",
+            "icon": "",
+            "title": "SIPonten",
+            "tagline": "QR Code Attendance System",
+            "description": "Digital attendance management system for students, enabling secure QR-based check-ins, real-time attendance tracking, and automated reporting for academic administrators.",
+            "highlights": [],
+            "features": [
+                "✅ QR Code Attendance",
+                "✅ Real-Time Monitoring",
+                "✅ Automated Reporting"
+            ],
+            "tech": [
+                "PHP",
+                "CodeIgniter",
+                "MySQL"
+            ],
+            "tags": "laravel enterprise",
+            "link_url": "http://absensi.test:8080",
+            "attachment": ""
+        },
+        {
+            "id": "salespred",
+            "number": "05",
+            "status": "done",
+            "status_label": "Selesai",
+            "type": "Tugas Akhir",
+            "icon": "",
+            "title": "Sales Forecaster",
+            "tagline": "Sales Monitoring & Forecasting System",
+            "description": "Web-based dashboard that analyzes historical sales data using the Simple Moving Average method to support sales planning and performance monitoring.",
+            "highlights": [],
+            "features": [
+                "✅ Moving Average Forecasting",
+                "✅ Real-Time Data Visualization",
+                "✅ Predictive Inventory Planning"
+            ],
+            "tech": [
+                "PHP",
+                "CodeIgniter",
+                "Chart.js",
+                "MySQL"
+            ],
+            "tags": "php ci analysis",
+            "attachment": "",
+            "link_url": "admin/../assets/files/projects/salespred_site_1781674262/wuling/index.php"
+        },
+        {
+            "id": "hilasari",
+            "number": "06",
+            "status": "done",
+            "status_label": " Selesai",
+            "type": "Web App",
+            "icon": "",
+            "title": "HilaSari Recruitment",
+            "tagline": "Web-Based Recruitment Platform",
+            "description": "Web-based recruitment platform that helps organizations manage job postings, applicant submissions, and recruitment tracking in a centralized system.",
+            "highlights": [],
+            "features": [
+                "✅ Public Job Listings",
+                "✅ Standardized Digital Application",
+                "✅ Transparent Applicant Tracking"
+            ],
+            "tech": [
+                "PHP",
+                "HTML5",
+                "CSS3",
+                "MySQL"
+            ],
+            "tags": "php analysis"
+        }
+    ],
+    "skills": [
+        {
+            "category": "Backend",
+            "icon": "",
+            "items": [
+                {
+                    "name": "PHP (Native)",
+                    "level": "expert"
+                },
+                {
+                    "name": "Laravel",
+                    "level": "expert"
+                },
+                {
+                    "name": "CodeIgniter 3",
+                    "level": "intermediate"
+                },
+                {
+                    "name": "MVC Architecture",
+                    "level": "intermediate"
+                },
+                {
+                    "name": "AJAX",
+                    "level": "intermediate"
+                },
+                {
+                    "name": "Visual Basic",
+                    "level": "beginner"
+                }
+            ]
+        },
+        {
+            "category": "Database",
+            "icon": "",
+            "items": [
+                {
+                    "name": "MySQL",
+                    "level": "expert"
+                },
+                {
+                    "name": "MariaDB",
+                    "level": "expert"
+                },
+                {
+                    "name": "ERD Design",
+                    "level": "intermediate"
+                },
+                {
+                    "name": "Database Normalization",
+                    "level": "intermediate"
+                },
+                {
+                    "name": "SQL Server",
+                    "level": "beginner"
+                }
+            ]
+        },
+        {
+            "category": "Frontend",
+            "icon": "",
+            "items": [
+                {
+                    "name": "HTML5",
+                    "level": "expert"
+                },
+                {
+                    "name": "CSS3",
+                    "level": "expert"
+                },
+                {
+                    "name": "Tailwind CSS",
+                    "level": "expert"
+                },
+                {
+                    "name": "JavaScript",
+                    "level": "intermediate"
+                },
+                {
+                    "name": "Bootstrap",
+                    "level": "intermediate"
+                },
+                {
+                    "name": "Figma",
+                    "level": "beginner"
+                }
+            ]
+        },
+        {
+            "category": "System Analysis",
+            "icon": "",
+            "items": [
+                {
+                    "name": "UML",
+                    "level": "expert"
+                },
+                {
+                    "name": "BPMN",
+                    "level": "expert"
+                },
+                {
+                    "name": "PIECES Analysis",
+                    "level": "expert"
+                },
+                {
+                    "name": "Kano Method",
+                    "level": "intermediate"
+                },
+                {
+                    "name": "Black Box Testing",
+                    "level": "intermediate"
+                }
+            ]
+        },
+        {
+            "category": "Security & Architecture",
+            "icon": "",
+            "items": [
+                {
+                    "name": "RBAC Multi-level",
+                    "level": "expert"
+                },
+                {
+                    "name": "Soft-Delete / Trash Recovery",
+                    "level": "intermediate"
+                },
+                {
+                    "name": "Session Management",
+                    "level": "intermediate"
+                },
+                {
+                    "name": "Import/Export Excel",
+                    "level": "intermediate"
+                }
+            ]
+        },
+        {
+            "category": "AI-Assisted Dev",
+            "icon": "",
+            "items": [
+                {
+                    "name": "Claude AI",
+                    "level": "ai-tag"
+                },
+                {
+                    "name": "Gemini",
+                    "level": "ai-tag"
+                },
+                {
+                    "name": "ChatGPT",
+                    "level": "ai-tag"
+                },
+                {
+                    "name": "Prompt Engineering",
+                    "level": "intermediate"
+                },
+                {
+                    "name": "AI Workflow Integration",
+                    "level": "intermediate"
+                }
+            ]
+        }
+    ],
+    "last_updated": "2026-06-17 21:16:04"
+}

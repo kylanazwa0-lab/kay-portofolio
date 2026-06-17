@@ -1,0 +1,2925 @@
+PERANCANGAN SISTEM TERINTEGRASI UNTUK PEMBUATAN LAPORAN PENJUALAN UNIT KENDARAAN BERMOTOR
+(Studi Kasus: PT Maju Global Motor)
+
+PRAKTEK KERJA LAPANGAN Program Studi D III Manajemen Informatika
+
+Oleh Kyla Nazwa Salsabila
+
+623220026
+
+PROGRAM STUDI D3 MANAJEMEN INFORMATIKA UNIVERSITAS LOGISTIK DAN BISNIS INTERNASIONAL
+BANDUNG 2025
+
+ABSTRAK Perancangan Sistem Terintegrasi untuk Pembuatan Laporan unit
+Kendaraan Bermotor (Studi Kasus: PT Maju Global Motor)
+
+Oleh Kyla Nazwa Salsabila
+
+623220026
+
+PT Maju Global Motor merupakan perusahaan otomotif yang bergerak sebagai dealer resmi kendaraan bermotor. Dalam operasionalnya, perusahaan telah mengimplementasikan sistem digital untuk pencatatan transaksi penjualan. Namun, proses penyusunan laporan penjualan masih dilakukan secara semi-manual, yang memakan waktu 15­20 jam per bulan. Hal ini berisiko meningkatkan kesalahan input data dan memperlambat proses pelaporan, yang dapat mengganggu pengambilan keputusan yang tepat waktu.
+Berdasarkan analisis menggunakan pendekatan PIECES, ditemukan beberapa permasalahan dalam sistem yang ada. Aspek kinerja (performance) menunjukkan bahwa proses penyusunan laporan masih memerlukan waktu yang lama, dan aspek informasi (information) memperlihatkan bahwa data yang digunakan dalam laporan belum dapat diakses secara real-time. Selain itu, perusahaan juga mengalami pemborosan sumber daya akibat pengulangan pekerjaan dalam proses pembuatan laporan dan potensi kesalahan input yang tinggi.
+Penelitian ini bertujuan untuk merancang sistem informasi terintegrasi yang dapat mengotomatisasi penyusunan laporan penjualan, sehingga dapat mengurangi kesalahan input dan mempercepat proses pelaporan. Sistem yang dikembangkan diharapkan dapat menarik data transaksi secara otomatis, memprosesnya, dan menghasilkan laporan yang siap cetak atau ditampilkan secara digital. Dengan demikian, laporan penjualan dapat dihasilkan dengan lebih efisien, akurat, dan tepat waktu.
+Manfaat dari penerapan sistem ini adalah peningkatan efisiensi operasional di bagian administrasi dan keuangan PT Maju Global Motor, serta mendukung pengambilan keputusan berbasis data yang lebih cepat dan akurat. Sistem yang terintegrasi ini juga memberikan kontribusi terhadap kualitas pelayanan perusahaan, baik di tingkat internal maupun eksternal, dengan menyediakan informasi yang lebih informatif dan real-time untuk pihak manajemen.
+Kata Kunci: Sistem Informasi Terintegrasi, Laporan Penjualan, Otomatisasi, PIECES, Visual Basic, MySQL
+
+KATA PENGANTAR Puji syukur penulis panjatkan kehadirat Allah S.W.T., karena atas rahmat dan hidayah-Nya maka laporan ini dapat diselesaikan dengan judul "Perancangan Sistem Terintegrasi untuk Pembuatan Laporan unit Kendaraan Bermotor (Studi Kasus: PT Maju Global Motor)". Laporan ini merupakan salah satu syarat untuk mendapatkan kelulusan pada mata kuliah Internship. Penulis mengucapkan terima kasih atas bantuan yang diberikan, sehingga dapat terselesaikanya laporan ini, kepada: 1. Bapak Veri Andika, sebagai pembimbing eksternal dari PT Maju Global
+Motor. Banyak ilmu yang saya dapatkan dari beliau selama magang di perusahaan. Terima kasih, 2. Bapak Agung Prasetyo, sebagai Mentor dari PT Maju Global Motor. Banyak ilmu yang saya dapatkan dari beliau selama magang di perusahaan. Terima kasih, 3. Bapak Virdiandry Putratama, S.T., M.Kom., sebagai Koordinator mata kuliah Internship sekaligus sebagai Penguji 1. Terima kasih, 4. Bapak Mubassiran, S.Si., M.T., sebagai pembimbing internal dalam mata kuliah Internship. Banyak wawasan baru yang penulis dapatkan dari topik ini. Terima kasih, Penulis menyadari bahwa laporan internship ini masih banyak kekurangannya. Oleh karena itu, Penulis sangat mengharapkan saran perbaikan agar pada laporan karya tulis selanjutnya dapat menjadi lebih baik lagi.
+Bandung, 05 April 2025
+Penulis
+
+DAFTAR ISI
+ABSTRAK 2 KATA PENGANTAR ............................................................................................................... 3 DAFTAR ISI 4 DAFTAR GAMBAR ................................................................................................................ 7 DAFTAR TABEL ..................................................................................................................... 8 BAB I PENDAHULUAN ......................................................................................................... 9
+1.1. Latar Belakang ................................................................................................ 9 1.2. Perumusan Masalah ..................................................................................... 11 1.3. Tujuan ........................................................................................................... 11
+1.3.1. Tujuan Umum .................................................................................. 11 1.3.2. Tujuan Khusus.................................................................................. 11 1.4. Ruang Lingkup Internship ............................................................................. 12 1.5. Sistematika Kerja .......................................................................................... 12 1.6. Sistematika Pembahasan.............................................................................. 14 BAB II TINJAUAN ORGANISASI .......................................................................................... 16 2.1. Tinjauan Umum Perusahaan ........................................................................ 16 2.1.1. Sejarah PT Maju Global Motor ........................................................ 16 2.1.2. Lokasi Perusahaan ........................................................................... 17 2.1.3. Visi Misi Perusahaan........................................................................ 17 2.1.4. Logo Perusahaan ............................................................................. 18 2.2. Struktur Organisasi Perusahaan ................................................................... 18 2.3. Deskripsi Kerja Bagian-Bagian yang Terkait Sistem Informasi ...................... 19 BAB III TEORI PENDUKUNG .............................................................................................. 23 3.1. Definisi Perancangan Sistem......................................................................... 23 3.2.1. Pengertian Sistem ............................................................................ 23
+
+3.2.2. Pengertian Perancangan .................................................................. 23 3.2.3. Pengertian Perancangan Sistem ...................................................... 23 3.2. Definisi Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Unit Kendaraan Bermotor .............................................................................................. 24 3.2.1. Pengertian Sistem Terintegrasi ........................................................ 24 3.2.2. Pengertian Laporan Penjualan......................................................... 24 3.2.3. Pengertian Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Unit Kendaraan Bermotor ............................................................................ 24 3.3. Tools yang digunakan ................................................................................... 24 3.3.1. Business Process Modelling Notation (BPMN) ................................ 24 3.3.2. Unified Modeling Language (UML).................................................. 25 3.3.3. Use Case Diagram ............................................................................ 26 3.3.4. Activity Diagram............................................................................... 26 3.3.5. Sequence Diagram........................................................................... 27 3.3.6. Class Diagram................................................................................... 28 3.3.7. Metode Kano ................................................................................... 29 3.3.8. Metode PIECES ................................................................................ 30 3.3.9. Metode Prototyping ........................................................................ 32 3.4. Perangkat Lunak Pendukung ........................................................................ 34 3.5. Penelitian Terdahulu..................................................................................... 34 BAB IV ANALISA SISTEM .................................................................................................... 37 4.1. Analisis Umum.............................................................................................. 37 4.1.1. Rantai Nilai (Porter) ......................................................................... 37 4.2. Analisis Khusus ............................................................................................. 38 4.2.1. Business User ................................................................................... 38 4.2.2. Business Process .............................................................................. 39 4.2.3. Business Data................................................................................... 44
+
+4.2.4. Business Tools .................................................................................. 53 4.2.5. Business Rules.................................................................................. 53 4.2.6. Business Evaluation Solutions .......................................................... 55 4.2.7. Analisa Metode PIECES .................................................................... 55 4.2.8. Business Plan ................................................................................... 62 BAB V PEMBANGUNAN SISTEM ........................................................................................ 65 V.1 Analisa Kebutuhan Sistem ............................................................................ 65 V.1.1 Analisa Metode Kano........................................................................... 65 V.2 Perancangan Sistem .......................................................................................... 68 V.2.1 Use Case Diagram ................................................................................ 68 V.2.2 Class Diagram ...................................................................................... 69 V.2.3 Perancangan Struktur Menu................................................................ 70 V.2.4 Perancangan Antarmuka...................................................................... 72 BAB VI KESIMPULAN DAN SARAN ....................................................................................... 1 VI.1 Kesimpulan ........................................................................................................ 1 VI.2 Saran .................................................................................................................. 1 DAFTAR PUSTAKA ................................................................................................................ 2
+
+DAFTAR GAMBAR
+Gambar 2. 1 Logo Perusahaan PT Maju Global Motor. ....................................... 18 Gambar 2. 2 Struktur Organisasi Perusahaan dari PT Maju Global Motor Wuling Setiabudi................................................................................................................ 19 Gambar 2. 3 Struktur Organisasi divisi Admin And Finance................................ 19 Gambar 3. 1 Notasi Dasar BPMN......................................................................... 25 Gambar 3. 2 Notasi Use Case Diagram ................................................................ 26 Gambar 3. 3 Notasi Activity Diagram................................................................... 27 Gambar 3. 4 Notasi Sequence Diagram ................................................................ 28 Gambar 3. 5 Notasi Class Diagram....................................................................... 29 Gambar 3. 6 Illustrasi Metode Prototyping[10] ................................................... 33 Gambar 4. 1 Rantai Nilai Porter........................................................................................ 37 Gambar 4. 2 BPMN Proses Utama PT Maju Global Motor Setiabudi ............................. 40 Gambar 4. 3 BPMN Proses Manajemen Data Transaksi Penjualan.................................. 41 Gambar 4. 4 BPMN Proses Pengolahan Data Penjualan .................................................. 42 Gambar 4. 5 BPMN Proses Pembuatan Laporan .............................................................. 43 Gambar 5. 1 Tahapan Penelitian Metode Kano................................................................. 65 Gambar 5. 2 Evaluasi Kano .............................................................................................. 66 Gambar 5. 3 Use Case Diagram........................................................................................ 69 Gambar 5. 4 Class Diagram .............................................................................................. 70
+
+DAFTAR TABEL
+Tabel 2. 1 Deskripsi Kerja Bagian-Bagian yang Terkait Sistem Informasi ...................... 20 Tabel 3. 2 Daftar Penelitian Terdahulu.............................................................................. 34 Tabel 4. 1 Kamus Data Elementer .................................................................................... 45 Tabel 4. 2 Kamus Data Komposit ..................................................................................... 46 Tabel 4. 3 Analisis Dokumen ............................................................................................ 47 Tabel 4. 4 Business Plan ................................................................................................... 63
+
+BAB I PENDAHULUAN
+1.1. Latar Belakang PT Maju Global Motor adalah perusahaan yang bergerak di bidang
+otomotif dan merupakan dealer resmi kendaraan bermerek Wuling. Perusahaan ini telah menerapkan sistem digital untuk pencatatan transaksi penjualan kendaraan bermotor. Namun, dalam praktiknya, penyusunan laporan penjualan masih dilakukan secara semi-manual, di mana staf administrasi dan keuangan harus mencetak serta mengarsipkan dokumen faktur untuk keperluan administratif, seperti pengurusan dokumen kendaraan di instansi pemerintah seperti SAMSAT. Proses ini tidak hanya memperpanjang waktu penyusunan laporan, tetapi juga meningkatkan potensi kesalahan input akibat pengolahan data berulang.
+Sebagai gambaran, dalam satu bulan PT Maju Global Motor dapat menjual rata-rata 50­70 unit kendaraan, yang masing-masing membutuhkan proses pencetakan dan pengarsipan dokumen. Akumulasi waktu kerja administratif untuk penyusunan laporan penjualan bisa mencapai 15­20 jam kerja per bulan, padahal proses ini bisa disederhanakan jika sistem pelaporan sudah terintegrasi dengan basis data transaksi. Selain itu, apabila terjadi kesalahan pencatatan, proses koreksi memerlukan pengecekan manual dan dapat menghambat penyelesaian laporan akhir bulan.
+Permasalahan serupa juga ditemukan di perusahaan lain dalam sektor otomotif. Misalnya, penelitian pada PT. Formula Diptajati mengungkapkan bahwa proses penjualan manual menyebabkan inefisiensi dalam pengolahan data[1]. Sementara itu, di CV. Yamaha Cupak, pencatatan konvensional memperlambat proses pelaporan sehingga perusahaan mengembangkan sistem informasi berbasis Visual Basic dan MySQL untuk menghasilkan laporan penjualan secara cepat dan akurat [2].
+Untuk memahami lebih dalam kondisi yang terjadi di PT Maju Global Motor, dilakukan analisis menggunakan pendekatan PIECES, yang meliputi: Berdasarkan hasil observasi dan analisis, permasalahan yang terjadi di PT Maju
+
+BAB I PENDAHULUAN
+Global Motor dapat dikaji lebih lanjut menggunakan pendekatan PIECES (Performance, Information, Economy, Control, Efficiency, Service). Dari aspek Performance (kinerja), proses penyusunan laporan penjualan masih dilakukan secara semi-manual, sehingga membutuhkan waktu yang cukup lama, yaitu sekitar 15­20 jam kerja per bulan. Kondisi ini menghambat penyelesaian laporan secara cepat dan tepat waktu. Dari segi Information (informasi), data yang digunakan dalam laporan belum tersaji secara real-time, serta terdapat potensi ketidaksesuaian antara data digital dan dokumen fisik karena pencatatan dilakukan secara terpisah. Hal ini juga meningkatkan risiko kesalahan input (human error).
+Dari aspek Economy (ekonomi), perusahaan mengalami pemborosan sumber daya, baik dalam hal penggunaan kertas untuk pencetakan maupun tenaga kerja yang harus melakukan input data berulang. Untuk aspek Control (pengendalian), belum tersedia sistem validasi otomatis terhadap data transaksi penjualan, sehingga kontrol terhadap keakuratan data masih sangat bergantung pada pemeriksaan manual. Dari sisi Efficiency (efisiensi), pengulangan pekerjaan dalam proses pembuatan laporan menyebabkan waktu dan tenaga tidak digunakan secara optimal. Terakhir, dari aspek Service (layanan), keterlambatan dalam penyusunan laporan mengakibatkan informasi tidak dapat segera disampaikan kepada manajemen maupun pihak eksternal yang memerlukan laporan tersebut.
+Oleh karena itu, penerapan sistem informasi terintegrasi sangat dibutuhkan untuk meningkatkan kinerja, kecepatan, dan keakuratan penyusunan laporan penjualan di perusahaan ini.
+Berdasarkan kondisi tersebut, perlu dikembangkan sistem informasi laporan penjualan yang terintegrasi dengan basis data transaksi penjualan kendaraan. Sistem ini diharapkan dapat menarik data faktur secara otomatis, mengolahnya, dan menghasilkan laporan yang siap cetak maupun siap ditampilkan secara digital, sehingga mempercepat penyusunan laporan, mengurangi kesalahan, dan mendukung pengambilan keputusan secara realtime oleh manajemen.
+
+BAB I PENDAHULUAN
+Dengan diterapkannya sistem terintegrasi ini, kegiatan operasional bagian administrasi dan keuangan di PT Maju Global Motor dapat menjadi lebih efisien dan profesional. Oleh karena itu, pelaksanaan Praktek Kerja Lapangan (PKL) di perusahaan ini menjadi penting dan relevan, baik dari sisi kebutuhan organisasi maupun peluang penerapan pengetahuan akademik dalam menyelesaikan permasalahan nyata di dunia industri.
+1.2. Perumusan Masalah Berdasarkan latar belakang di atas, maka dapat diidentifikasi beberapa
+masalah sebagai berikut:
+1. Bagaimana merancang sistem informasi yang mampu menghasilkan laporan penjualan secara otomatis, cepat, dan akurat?
+2. Bagaimana mengintegrasikan data transaksi penjualan kendaraan bermotor ke dalam sistem laporan tanpa menghilangkan kebutuhan pencetakan dokumen fisik?
+3. Bagaimana sistem terintegrasi dapat meminimalkan kesalahan input dan meningkatkan efisiensi kerja bagian administrasi dan keuangan?
+1.3. Tujuan 1.3.1. Tujuan Umum Adapun tujuan umum yang dilaksanakannya kegiatan Internship adalah sebagai berikut:
+1. Untuk memenuhi syarat kelulusan mata kuliah Internship. 2. Menambah wawasan dan pengalaman kerja sebagai bekal di dunia
+bisnis sesuai dengan bidang keahlian. 3. Sebagai wadah pengPerancanganan teori-teori yang telah
+didapatkan selama berada di kampus pada dunia kerja yang sesungguhnya.
+1.3.2. Tujuan Khusus 1. Menerapkan sistem informasi terintegrasi untuk menyusun laporan penjualan unit kendaraan secara otomatis dan efisien.
+
+BAB I PENDAHULUAN
+2. Meningkatkan kecepatan dan akurasi dalam proses pembuatan laporan penjualan melalui otomatisasi pengambilan data faktur.
+3. Menyediakan fitur laporan yang fleksibel, baik dalam bentuk digital maupun cetak (hardcopy), guna mendukung keperluan administratif internal dan eksternal.
+4. Mendukung efisiensi operasional bagian administrasi dan keuangan dengan mengurangi pengolahan data berulang.
+5. Memberikan kontribusi nyata terhadap kualitas pengambilan keputusan manajerial melalui penyediaan laporan yang lebih cepat dan informatif.
+1.4. Ruang Lingkup Internship Melihat kondisi dari PT Maju Global Motor., maka ruang lingkup dari
+penelitian ini adalah sebagai berikut: Sistem, diantaranya: a. Manajemen Data Faktur Penjualan b. Pembuatan Laporan Penjualan Otomatis c. Dashboard Ringkasan Penjualan d. Manajemen Pengguna dan Hak Akses e. Integrasi dengan Sistem Penjualan Digital yang Sudah Ada User, diantaranya: a. Admin b. C-Level c. Finance
+1.5. Sistematika Kerja Internship ini dilakukan di PT Maju Global Motor. Adapun sistematika kerja
+dalam melaksanakan Internship ini terdapat 3 tahap, yaitu: 1. Pra-Internship
+
+BAB I PENDAHULUAN
+Kegiatan-kegiatan yang dilakukan sebelum melakukan Internship sebagai berikut:
+a. Pembekalan Internship Pembekalan Internship untuk Program Studi Manajemen
+Informatika dilaksanakan pada tanggal 17 Maret 2025. b. Studi Literatur
+Studi Literatur diantaranya membaca beberapa dokumen perancangan sistem informasi c. Pencarian Tempat Internship
+Pencarian tempat Praktek Kerja Lapangan (PKL) dilakukan secara mandiri dengan mendatangi langsung instansi yang dituju d. Pengajuan Proposal Internship
+Proposal diajukan oleh penulis kepada Program Studi Manajemen Informatika pada tanggal 07 Mei 2025, dalam keadaan penulis telah memulai kegiatan magang. e. Keputusan Perizinan Internship
+Setelah mengajukan permohonan magang secara langsung ke PT Maju Global Motor pada tanggal 31 Januari 2025, penulis diterima untuk melaksanakan kegiatan magang pada tanggal 05 Maret 2025, dan mulai menjalankan magang terhitung sejak tanggal 10 Maret 2025. 2. Pelaksanaan Internship Kegiatan Internship dilaksanakan per tanggal 10 Maret sampai 10 Juni 2025 di PT Maju Global Motor. yang berada di Jl. Dr. Setiabudi No.43, Pasteur, Kec. Sukajadi, Kota Bandung, Jawa Barat 40161 dengan mengikuti jam kerja mulai hari Senin-Sabtu dari pukul 08:00-17:00 WIB. Dalam pelaksanaan kegiatan Internship, yang dilakukan diantaranya: a. Melakukan analisis terhadap proses bisnis yang sedang berjalan dalam pelaporan masalah di PT Maju Global Motor. dan terlibat dalam project pengerjaan produk digital yang sedang dikembangkan.
+
+BAB I PENDAHULUAN
+b. Penentuan Judul yaitu "PERANCANGAN SISTEM TERINTEGRASI UNTUK PEMBUATAN LAPORAN PENJUALAN UNIT KENDARAAN BERMOTOR".
+c. Survei melalui kuesioner dilakukan untuk memperoleh informasi mengenai fitur yang akan terdapat di dalam sistem.
+d. Pengembangan perangkat lunak menggunakan Model Prototype. e. Melakukan tahap analisis dari hasil survei yang telah dilakukan.
+Setelah itu mulai dengan tahap perancangan sistem dan perancangan database untuk sistem yang akan dibangun. 3. Pasca Internship Setelah pelaksanaan Internship selesai dilakukan, maka kegiatan selanjutnya adalah sebagai berikut: a. Perancangan terhadap sistem yang akan dibangun b. Pembuatan laporan yang dilakukan bersamaan dengan tahap perancangan sistem yang akan dibangun.
+1.6. Sistematika Pembahasan Sistematika Pembahasan ini dibuat bertujuan untuk memberikan gambaran
+atau struktur penulisan mengenai bab-bab yang akan disusun dalam laporan internship adalah sebagai berikut :
+BAB I PENDAHULUAN Bab ini berisi mengenai uraian latar belakang, rumusan masalah, tujuan, ruang lingkup, metode perancangan sistem, sistematika kerja, dan sistematika pembahasan.
+BAB II TINJAUAN ORGANISASI Pada bab ini berisi tinjauan umum perusahaan, struktur organisasi dan deskripsi kerja bagian-bagian yang terkait sistem informasi.
+BAB III TEORI PENDUKUNG
+
+BAB I PENDAHULUAN
+Bab ini memuat teori yang terkait dengan pembahasan laporan, seperti konsep dasar Sistem Informasi, model system, model data, teori yang berkaitan Sistem, metode dan lain-lain.
+BAB IV ANALISIS SISTEM Pada bab ini berisi tentang deskripsi hasil analisis sistem yang sedang berjalan. Analisis ini berisi deskripsi pembahasan tentang business user, business process,business data, business tools, business rule, business evaluation and solutions serta business plan.
+BAB V PEMBANGUNAN SISTEM Pada bab ini berisi tentang gambaran sistem yang akan dirancang. Analisis ini berisi deskripsi pembahasan tentang analisa kebutuhan sistem, perancangan sistem,Perancangan dan rencana pengujian.
+BAB VI KESIMPULAN DAN SARAN Pada bab ini berisikan kesimpulan dari rancangan sistem yang dibuat serta saran untuk pengembangan.
+
+BAB II TINJAUAN ORGANISASI
+BAB II TINJAUAN ORGANISASI
+2.1. Tinjauan Umum Perusahaan 2.1.1. Sejarah PT Maju Global Motor
+Maju Motor Group merupakan sebuah grup perusahaan nasional yang bergerak di bidang otomotif dan telah memiliki reputasi kuat di Indonesia. Perjalanan Maju Motor Group dimulai dari sebuah showroom mobil bekas (used cars), yang secara bertahap tumbuh dan berkembang seiring dengan meningkatnya kepercayaan konsumen dan perkembangan ekonomi perusahaan.
+Berbekal komitmen tinggi terhadap kepuasan pelanggan dan profesionalisme dalam pelayanan, Maju Motor Group mendapatkan kepercayaan sebagai Authorized Dealer (dealer resmi) dari berbagai merek otomotif ternama, seperti Honda, Mitsubishi, Wuling, dan Hyundai. Perluasan jaringan dealer ini menjadi tonggak penting dalam transformasi Maju Motor Group dari pelaku bisnis lokal menjadi pemain besar dalam industri otomotif nasional.
+Saat ini, Maju Motor Group berkantor pusat di Jakarta, tepatnya di Jl. Raya Pondok Gede No. 20, Jakarta Timur, serta memiliki kantor pusat Keuangan dan Pajak yang berlokasi di Palembang, Sumatera Selatan. Dengan struktur manajemen yang solid dan visi jangka panjang, grup ini terus memperluas jangkauannya ke berbagai wilayah strategis di Indonesia.
+Maju Motor Group mengelola lebih dari 50 jaringan dealer mobil yang tersebar di berbagai daerah, termasuk Jabodetabek, Banten, Jawa Barat, Jawa Tengah, Jawa Timur, DI Yogyakarta, Lampung, Sumatera Selatan, Bangka Belitung, Jambi, Bengkulu, Padang, Kepulauan Riau, Bali, Nusa Tenggara Barat, hingga Papua dan Papua Barat. Keberadaan jaringan yang luas ini
+
+BAB II TINJAUAN ORGANISASI
+
+menjadikan Maju Motor Group sebagai salah satu grup dealer terbesar dan terpercaya di Indonesia.
+
+Selain bisnis inti di bidang otomotif, Maju Motor Group juga mengembangkan usahanya ke berbagai sektor lainnya melalui beberapa divisi, seperti Car Rental, Transportasi, dan Used Car. Tidak hanya itu, grup ini juga melebarkan sayap ke sektor non-otomotif, antara lain di bidang Property Trading, Property Developer, Hospitality, Food & Beverage (F&B), Teknologi Informasi (IT), dan Investment.
+
+Dengan fondasi pengalaman yang kuat, jaringan luas, dan inovasi berkelanjutan, Maju Motor Group terus berkomitmen menjadi mitra terbaik bagi pelanggan dan stakeholder dalam menghadirkan layanan dan produk berkualitas di seluruh lini usahanya.
+
+2.1.2. Lokasi Perusahaan
+
+Lokasi perusahaan PT Maju Global Motor. tersebar di berbagai
+
+wilayah Indonesia mencakup Sumatera, Jawa, Bali, Nusa Tenggara Barat
+
+(NTB), dan Papua. Akan tetapi penulis ditempatkan di Dealer Setiabudi yang
+
+beralamat di Jl. Dr. Setiabudi No.43, Pasteur, Kec. Sukajadi, Kota Bandung,
+
+Jawa Barat 40161.
+
+2.1.3. Visi Misi Perusahaan
+
+2.1.3.1
+
+Visi Perusahaan
+
+Menjadi perusahaan yang terus bergerak maju, tumbuh maupun berubah
+
+untuk dapat memenangkan pasar serta kepuasan para pelanggan.
+
+2.1.3.2 Misi Perusahaan 1. Menjadi perusahaan yang mandiri & konsisten agar terus berkembang
+menjadi yang terdepan dan terhandal selaras dengan peningkatan kualitas & kesejahteraan seluruh SDM-nya. 2. Memberikan produk & layanan yang terus lebih baik untuk memenangkan pasar serta menjaga kepuasan & loyalitas para pelanggan. 3. Menciptakan & membangun kerjasama yang baik serta saling menguntungkan dengan seluruh pihak dan masyarakat.
+
+BAB II TINJAUAN ORGANISASI
+2.1.4. Logo Perusahaan Logo perusahaan merupakan suatu identitas perusahaan yang
+melambangkan jati diri perusahaan, di samping itu juga logo perusahaan dapat menjiwai dan menambah semangat dalam melaksanakan suatu visi dan misi perusahaan. Berikut Logo Perusahaan dari PT Maju Global Motor.
+Gambar 2. 1 Logo Perusahaan PT Maju Global Motor. 2.2. Struktur Organisasi Perusahaan
+Struktur organisasi merupakan pedoman dan gambaran bagi para karyawan dalam melaksanakan tugas dan tanggung jawabnya. Struktur organisasi sangatlah penting karena didalamnya tergambar jelas hubungan antara bagian satu dengan bagian yang lainnya sehingga memudahkan bagi karyawan dalam memahami tugas dan tanggung jawabnya. Berikut Struktur Organisasi PT Maju Global Motor.
+
+BAB II TINJAUAN ORGANISASI
+
+Gambar 2. 2 Struktur Organisasi Perusahaan dari PT Maju Global Motor Wuling Setiabudi
+Operation Manager (OM)
+Branch Manager (BM)
+Divisi Admistration & Finance
+Administration Head (ADH)
+
+Admin Sales Admin BPKB
+
+Finance
+
+Admin PDI
+
+Gambar 2. 3 Struktur Organisasi divisi Admin And Finance 2.3. Deskripsi Kerja Bagian-Bagian yang Terkait Sistem Informasi
+Bagian ini berisi fungsi kerja dari tiap unit pada divisi/bagian dari tempat internship yang akan berkaitan langsung dengan sistem informasi serta mendukung
+
+BAB II TINJAUAN ORGANISASI
+
+pada indikasi pelaku atau pengguna, proses, aliran data dan seterusnya. Adapun tanggung jawab dan fungsi kerja bagian-bagian yang terkait sistem informasi adalah sebagai berikut: Tabel 2. 1 Deskripsi Kerja Bagian-Bagian yang Terkait Sistem Informasi
+
+No. Jabatan 1. Operation Manager (OM)
+2. Sales Supervisor (SPV) 3. Sales 4. Marketing Support
+
+Deskripsi Kerja
+bertanggung jawab atas pengawasan seluruh operasional cabang, termasuk implementasi dan pemanfaatan sistem informasi diseluruh divisi. OM memastikan integrase data berjalan lancar dan konsisten, serta membuat laporan strategis dari data sistem. OM juga mengevaluasi efektivitas sistem informasi dalam mendukung efisiensi dan pengambilan keputusan manajerial. Memantau kinerja tim sales dan memastikan seluruh aktivitas penjualan tercatat dengan benar di sistem informasi. SPV juga menyusun laporan kinerja penjualan, menganalisis data dari sistem, serta memberikan pelatihan penggunaan sistem kepada sales. Menginput transaksi penjualan kendaraan dalam sistem informasi, termasuk data pelanggan dan detail unit. Sales juga menggunakan sistem untuk memantau stok kendaraan dan membuat laporan penjualan berdasarkan data real-time dari sistem. Mendukung tim penjualan dengan menyusun Materi pemasaran dan
+
+BAB II TINJAUAN ORGANISASI
+
+5. Administration Head (ADH) 6. Admin Sales 7. Admin BPKB 8. Finance
+
+kampanye promosi. Menggunakan sistem informasi untuk menganalisis efektivitas kampanye, memantau lead penjualan, dan membuat laporan pemasaran berbasis data. memimpin dan mengawasi seluruh aktivitas administrasi dan keuangan. Memastikan sistem informasi yang digunakan berjalan dengan efektif. ADH juga memantau integrasi data antara divisi dan menyusun laporan keuangan serta administratif berdasarkan data yang dihasilkan oleh sistem. Mengelola dan memverifikasi data transaksi penjualan yang diinput oleh Sales ke dalam sistem. Memastikan kelengkapan dokumen penjualan dan membuat administrasi penjualan untuk divisi terkait. Menginput dan mengelola data BPKB kendaraan yang telah terjual. Memastikan legalitas dan dokumentasi BPKB tercatat dengan baik dalam sistem, serta membuat laporan BPKB untuk kebutuhan internal dan eksternal. Mencatat transaksi keuangan perusahaan ke dalam sistem informasi, termasuk pembayaran dari pelanggan dan pengeluaran operasional. Finance menyusun laporan keuangan bulanan dan mendukung audit internal dengan data yang tersedia dari sistem.
+
+BAB II TINJAUAN ORGANISASI
+
+Branch Service Manager 9.
+(BSM) 10. Service Advisor (SA) 11. Mekanik 12. Admin Sparepart 12. Body Repair Manager
+Service Advisor Body Repair 13.
+(SABP)
+
+Mengawasi seluruh operasional layanan
+servis kendaraan. Memastikan seluruh
+data perbaikan dan layanan tercatat akurat
+dalam sistem informasi. BSM juga
+bertanggung jawab menyusun laporan
+efisiensi bengkel dan penggunaan
+sparepart dari sistem.
+Menginput data perawatan dan perbaikan kendaraan ke dalam sistem servis. Memberikan estimasi layanan kepada pelanggan dan memantau progres perbaikan melalui sistem. SA juga menyusun laporan aktivitas bengkel berdasarkan data sistem. Melaksanakan perbaikan kendaraan sesuai data dan instruksi kerja yang tersedia di sistem. Mencatat hasil pekerjaan ke dalam sistem untuk referensi dan pelaporan kinerja per unit. Mengelola stok sparepart dan mencatat penggunaan serta pemasukannya ke dalam sistem. Menyusun laporan ketersediaan dan pemakaian sparepart berdasarkan data sistem informasi untuk mendukung aktivitas servis dan body repair. Mengelola pekerjaan perbaikan bodi
+kendaraan dan memastikan data
+perbaikan tercatat akurat di sistem. BRM
+juga menyusun laporan penggunaan
+sparepart, waktu pengerjaan, dan hasil
+kerja berdasarkan data sistem informasi.
+Menginput data perbaikan bodi kendaraan
+ke dalam sistem. SABP juga berinteraksi
+dengan pelanggan terkait estimasi dan
+progres perbaikan bodi serta menyusun
+laporan pekerjaan berdasarkan data
+sistem
+
+BAB III TEORI PENDUKUNG
+BAB III TEORI PENDUKUNG
+3.1. Definisi Perancangan Sistem 3.2.1. Pengertian Sistem Kata "sistem" berasal dari bahasa Latin systema dan Yunani sustma yang berarti suatu kesatuan dari elemen-elemen yang saling berhubungan dan bekerja sama untuk mencapai suatu tujuan tertentu. Sistem merupakan sekumpulan komponen yang saling berinteraksi untuk mengolah masukan (input) menjadi keluaran (output). Menurut Anwar Arifin (1992), sistem adalah suatu kesatuan yang terdiri atas bagian-bagian yang saling berhubungan dan saling bergantung satu sama lain.[3] 3.2.2. Pengertian Perancangan Perancangan merupakan proses menggambarkan, merancang, serta menyusun sketsa atau tatanan dari berbagai elemen yang awalnya terpisah menjadi satu kesatuan yang terpadu dan memiliki fungsi tertentu. Menurut para ahli, perancangan dapat diartikan sebagai sebuah proses yang bertujuan untuk mendefinisikan sesuatu secara sistematis, dengan menggunakan berbagai teknik dan pendekatan yang berbeda. Proses ini tidak hanya mencakup perincian arsitektur dan komponen yang terlibat, tetapi juga mempertimbangkan berbagai keterbatasan atau kendala yang mungkin dihadapi selama pelaksanaannya. Dalam konteks sistem, perancangan melibatkan pengorganisasian sejumlah elemen yang saling terkait erat satu sama lain dan bekerja secara sinergis untuk mencapai tujuan yang telah ditetapkan. Dengan kata lain, sistem dapat dipahami sebagai sekumpulan unsur, komponen, atau variabel yang tersusun secara teratur, saling berinteraksi dan bergantung, sehingga membentuk satu struktur yang menyatu dan berfungsi secara kolektif.[4]
+3.2.3. Pengertian Perancangan Sistem Menurut Kusrini (2007), perancangan sistem adalah proses pengembangan spesifikasi dari sistem baru berdasarkan hasil analisis sistem yang telah dilakukan. Proses ini bertujuan untuk menggambarkan secara rinci komponen sistem yang akan dikembangkan, termasuk struktur data, alur kerja, dan antarmuka pengguna.
+Secara umum, perancangan sistem mencakup hal-hal berikut:
+1. Tahap lanjutan setelah analisis dalam siklus pengembangan sistem. 2. Menjabarkan kebutuhan fungsional sistem.
+
+BAB III TEORI PENDUKUNG
+3. Persiapan untuk tahap implementasi sistem. 4. Penggambaran struktur sistem secara menyeluruh dan integratif. 5. Penentuan konfigurasi perangkat lunak dan keras yang diperlukan.
+3.2. Definisi Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Unit Kendaraan Bermotor 3.2.1. Pengertian Sistem Terintegrasi Sistem terintegrasi adalah sistem yang menggabungkan beberapa komponen atau modul yang berbeda menjadi satu kesatuan sistem yang saling berkomunikasi dan beroperasi bersama, untuk meningkatkan efisiensi dan efektivitas operasional. Sistem ini memungkinkan pertukaran data secara otomatis antara subsistem yang berbeda.[5] 3.2.2. Pengertian Laporan Penjualan Laporan penjualan merupakan dokumen atau data yang menyajikan informasi mengenai hasil penjualan suatu produk atau jasa dalam periode tertentu. Laporan ini berguna dalam pengambilan keputusan strategis, seperti perencanaan stok, evaluasi performa penjualan, dan analisis tren pasar.[6] 3.2.3. Pengertian Sistem Terintegrasi untuk Pembuatan Laporan Penjualan Unit Kendaraan Bermotor Merupakan sistem yang dirancang untuk mengintegrasikan proses pencatatan, pengelolaan, dan pelaporan data penjualan unit kendaraan bermotor ke dalam satu platform terpusat. Sistem ini mendukung efisiensi waktu, mengurangi kesalahan input manual, dan memungkinkan pengambilan keputusan berbasis data secara real-time.[5]
+3.3. Tools yang digunakan 3.3.1. Business Process Modelling Notation (BPMN) Notasi grafis yang menggambarkan logika dari langkah-langkah dalam proses bisnis. Notasi ini telah didesain secara khusus untuk mengkoordinasikan urutan proses dan pesan yang mengalir antara pelaku dalam kegiatan yang berbeda. Tujuan utama dari usaha BPMN adalah menyediakan suatu notasi yang mudah dipahami oleh semua masyarakat terutama pegiat software. Dari analis bisnis yang ada kemudian menciptakan draft permulaan dari proses-proses
+
+BAB III TEORI PENDUKUNG
+sampai dengan pengembangan teknis melipui alur dan pekerjaan dalam bentuk model atau notasi. BPMN juga menciptakan suatu jembatan terstandardisasi untuk gap antara desain proses bisnis dan Perancangan proses.
+Gambar 3. 1 Notasi Dasar BPMN 3.3.2. Unified Modeling Language (UML)
+Suatu metode dalam pemodelan secara visual yang digunakan sebagai sarana perancangan sistem berorientasi objek. Awal mulanya, UML diciptakan oleh Object Management Group dengan versi awal 1.0 pada bulan Januari 1997.[7]
+UML juga dapat didefinisikan sebagai suatu bahasa standar visualisasi, perancangan, dan pendokumentasian sistem, atau dikenal juga sebagai bahasa standar penulisan blueprint sebuah software.
+Adapun tujuan dan fungsi perlu adanya UML yaitu sebagai berikut: 1. Dapat memberikan bahasa pemodelan visual atau gambar kepada para pengguna dari berbagai macam pemrograman maupun proses umum rekayasa. 2. Menyatukan informasi-informasi terbaik yang ada dalam pemodelan. 3. Memberikan suatu gambaran model atau sebagai bahasa pemodelan visual yang ekspresif dalam pengembangan sistem. 4. Tidak hanya menggambarkan model sistem software saja, namun dapat memodelkan sistem berorientasi objek. 5. Mempermudah pengguna untuk membaca suatu sistem. 6. Berguna sebagai blueprint, jelas ini nantinya menjelaskan informasi yang lebih detail dalam perancangan berupa coding suatu program.
+
+BAB III TEORI PENDUKUNG 3.3.3. Use Case Diagram Use Case Diagram menggambarkan hubungan interaksi antara sistem dan aktor. Use Case dapat mendeskripsikan tipe interaksi antara pengguna sistem dengan sistemnya.
+Gambar 3. 2 Notasi Use Case Diagram 3.3.4. Activity Diagram
+Merupakan sebuah diagram yang dapat memodelkan berbagai proses yang tejadi pada sistem. Activity diagram adalah salah satu contoh diagram dari UML dalam pengembangan dari Use Case.
+
+BAB III TEORI PENDUKUNG
+Gambar 3. 3 Notasi Activity Diagram 3.3.5. Sequence Diagram
+Merupakan diagram yang menjelaskan interaksi objek berdasarkan urutan waktu. Sequence dapat menggambarkan urutan atau tahapan yang harus dilakukan untuk dapat menghasilkan sesuatu, seperti yang tertera pada Use Case diagram.
+
+BAB III TEORI PENDUKUNG
+Gambar 3. 4 Notasi Sequence Diagram 3.3.6. Class Diagram
+Merupakan suatu diagram yang digunakan untuk menampilkan kelas-kelas berupa paket-paket untuk memenuhi salah satu kebutuhan paket yang akan digunakan nantinya.
+
+BAB III TEORI PENDUKUNG
+
+3.3.7.
+
+Gambar 3. 5 Notasi Class Diagram Metode Kano
+
+Model Kano adalah konse yang dirancang oleh Profesor Noriaki Kano pada decade 1980-an untuk menganalisis dan mengkategorikan harapan serta prioritas pelanggan dalam pengembangan produk dan peningkatan kualitas layanan. Kerangka kerja ini memandu perusahaan dalam mengevaluasi fitur produk sesuai pengaruhnya terhadap tingkat kepuasan pelanggan, sehingga memudahkan penentuan prioritas inovasi yang strategis.
+Kategori Utama dalam Model Kano
+Model Kano mengelompokkan fitur produk ke dalam lima kategori utama:
+1. Must-be Attributes (Kebutuhan Dasar) Fitur-fitur yang diharapkan oleh pelanggan dan dianggap sebagai standar minimum. Ketidakhadiran fitur ini menyebabkan ketidakpuasan, namun kehadirannya tidak meningkatkan kepuasan secara signifikan karena dianggap sudah seharusnya ada.
+2. One-dimensional Attributes (Kebutuhan Kinerja) Fitur-fitur yang memiliki hubungan linier dengan kepuasan pelanggan; semakin baik kinerja fitur ini, semakin tinggi kepuasan pelanggan, dan sebaliknya.
+3. Attractive Attributes (Kebutuhan Menarik) Fitur-fitur yang tidak diharapkan oleh pelanggan, namun kehadirannya
+
+BAB III TEORI PENDUKUNG
+dapat memberikan kejutan positif dan meningkatkan kepuasan secara signifikan. Ketidakhadiran fitur ini tidak menyebabkan ketidakpuasan karena pelanggan tidak mengharapkannya. 4. Indifferent Attributes (Kebutuhan Netral) Fitur-fitur yang tidak mempengaruhi kepuasan atau ketidakpuasan pelanggan. Kehadiran atau ketidakhadiran fitur ini tidak memberikan dampak signifikan terhadap persepsi pelanggan terhadap produk. 5. Reverse Attributes (Kebutuhan Terbalik) Fitur-fitur yang kehadirannya justru menyebabkan ketidakpuasan bagi sebagian pelanggan karena preferensi yang berlawanan. Misalnya, fitur yang dianggap berlebihan atau tidak sesuai dengan kebutuhan pelanggan tertentu.
+Melalui model ini, perusahaan dapat mengoptimalkan alokasi sumber daya dengan fokus pada fitur yang paling berdampak pada kepuasan pelanggan. Selain itu, model ini membantu memahami perubahan preferensi pelanggan seiring waktu, memungkinkan adaptasi terhadap tren pasar dan kebutuhan yang dinamis.dengan demikian, perusahaan dapat meningkatkan daya saing produk dan membangun loyalitas pelanggan secara berkelanjutan.
+3.3.8. Metode PIECES PIECES Framework adalah sebuah metode yang digunakan untuk mengidentifikasi masalah, peluang, dan arahan yang terdapat dalam definisi ruang lingkup, analisis, dan perancangan sistem. Dengan menggunakan metode ini, dapat dihasilkam informasi baru yang berguna sebagai pertimbangan dalam pengembangan sistem. PIECES mencakup enam variable yang digunakan untuk menganalisis sistem infomasi, yaitu:
+1. Performance (Keandalan) Performance atau kinerja mengukur sejauh mana sistem
+mampu memenuhi kebutuhan pengguna, termasuk kecepatan, throughput, dan responsivitas. Evaluasi dilakukan untuk mengetahui apakah sistem dapat menjalankan tugas dengan cepat dan efisien, serta apakah waktu respons sesuai dengan ekspektasi pengguna. Sistem yang memiliki kinerja yang baik memastikan operasional berjalan lancar.. 2. Information and Data (Data dan Informasi)
+Aspek ini mengevaluasi kualitas data dan informasi yang dihasilkan oleh sistem, yang mencakup akurasi, relevansi, dan ketepatan waktu. Sistem informasi yang efektif harus dapat
+
+BAB III TEORI PENDUKUNG
+menyediakan data yang akurat dan relevan untuk membantu pengambilan keputusan. Evaluasi dilakukan untuk menilai apakah data yang disajikan sesuai dengan kebutuhan pengguna dan apakah informasi yang diberikan dapat dipahami dengan mudah. 3. Economics (Nilai Ekonomis)
+Evaluasi ekonomi berfokus pada biaya dan manfaat yang dihasilkan oleh sistem. Analisis ini membantu menentukan apakah investasi dalam sistem informasi sebanding dengan biaya yang dikeluarkan. Aspek ini juga mencakup pertimbangan terkait penghematan biaya operasional dan potensi peningkatan pendapatan yang dapat dicapai melalui implementasi sistem. 4. Control and Security (Pengendalian dan Pengamanan)
+Aspek ini mengukur sejauh mana sistem dapat mengelola dan melindungi data serta informasi. Kontrol yang tepat memastikan bahwa hanya pengguna yang berwenang yang dapat mengakses atau mengubah data, sementara pengamanan menjaga sistem dari ancaman baik dari dalam maupun luar. Evaluasi dilakukan dengan melihat kebijakan kontrol akses, enkripsi data, dan mekanisme audit yang diterapkan pada sistem. 5. Efficiency (Efisiensi)
+Efisiensi mengukur sejauh mana sistem dapat menghasilkan output yang diinginkan dengan penggunaan sumber daya yang minimal. Sistem yang efisien mampu memproses data dengan cepat, memanfaatkan sumber daya secara optimal, dan mengurangi pemborosan. Evaluasi dilakukan dengan mengamati penggunaan sumber daya seperti waktu, tenaga kerja, dan perangkat keras dalam operasional sistem.. 6. Service (Pelayanan)
+Aspek layanan menilai seberapa baik dukungan yang diberikan kepada pengguna sistem, seperti pelatihan, bantuan teknis, dan respons terhadap masalah yang dihadapi pengguna. Layanan yang baik akan meningkatkan kepuasan pengguna dan memastikan
+
+BAB III TEORI PENDUKUNG
+bahwa sistem dapat digunakan secara optimal. Evaluasi dilakukan dengan mengumpulkan umpan balik dari pengguna mengenai pengalaman mereka dalam berinteraksi dengan tim dukungan dan layanan yang ada.
+3.3.9. Metode Prototyping Dikutip dari buku yang berjudul "System Analysis and Design With UML",
+metode prototyping yaitu "... analysis, design, and implementation phases concurrently, and all three phases are performed repeatedly in a cycle until the system is completed. With these methodologies, the basics of analysis and design are performed, and work immediately begins on a system prototype, a quick-and-dirty program that provides a minimal amount of features."
+Berdasarkan dari kutipan kalimat di atas, metode prototyping merupakan metode yang mempunyai 3 fase, yaitu analisis, desain, dan Perancangan. Ketiga fase tersebut dapat dilakukan secara berulang-ulang sampai sistem selesai dibuat. Metode Prototyping adalah teknik pengembangan sistem yang menggunakan prototyping untuk menggambarkan sistem sehingga klien atau pemilik sistem mempunyai gambaran jelas pada sistem yang akan dibangun oleh tim pengembang. Dengan menggunakan metode prototyping, tahap analisis dan desain yang telah dilakukan nanti akan menghasilkan sebuah prototyping sistem yang memiliki fitur terbatas sebelum dibuat menjadi aplikasi yang sempurna.
+Penggunaan metode prototyping dalam penelitian ini memiliki juga tujuan untuk mendapatkan gambaran aplikasi yang akan dibangun melalui tahap analisis, desain dan Perancangan yang dapat dilakukan secara berulang-ulang sampai pembuatan aplikasi prototype selesai. Aplikasi prototype yang sudah dievaluasi oleh user nantinya akan dijadikan acuan untuk membuat aplikasi yang dijadikan produk akhir sebagai keluaran akhir dari penelitian ini.
+Mengutip dari Gramedia Blog, Metode Prototyping memiliki beberapa kekurangan[12]:
+1. Permintaan pengguna terkadang sulit untuk direalisasikan, sehingga ketika berdiskusi awal cukup membutuhkan waktu yang lama.
+
+BAB III TEORI PENDUKUNG
+2. Proses perancangan prototype umumnya berlangsung cukup lama, karena adanya beberapa koneksi dari pengguna.
+Gambar 3. 6 Illustrasi Metode Prototyping[10] Adapun tahapan dalam metode prototyping, yaitu:
+1. Planning Tahap ini berfokus kenapa sistem harus dibuat, bagaimana struktur
+proyek yang akan dijalankan, dan deliverables-nya adalah system request dan project plan. 2. Analysis Tahap ini berfokus terhadap siapa, apa, di mana, dan kapan sistem akan digunakan, deliverables dari tahap ini adalah system proposal, yang terdiri dari: proses bisnis saat ini (as is system) dan proses bisnis baru (to be system), dan pemodelan, yang terdiri dari functional modelling, structural modelling, dan behavioral modelling. Hasil dari functional modelling adalah activity diagram, use-case description, use-case diagram. Hasil akhir structural modelling adalah class diagram. Hasil akhir dari behavioral modeling adalah sequence diagram dan state machine (behavioral state machine). 3. Design Tahap ini berfokus bagaimana nantinya sistem akan bekerja, deliverables-nya system specification, yang terdiri dari: physical data
+
+BAB III TEORI PENDUKUNG
+
+model (PDM) dan user interface, dan spesifikasi arsitektur hardware, software, dan jaringan. 4. Implementation Tahap ini berfokus untuk menghasilkan sistem utuh dan pengujian sistem.
+
+3.4.
+
+Perangkat Lunak Pendukung
+
+Untuk membantu penulis dalam melakukan perancangan, ada beberapa
+
+tools atau alat bantu yang digunakan dalam proses perancangan sistem. Adapun
+
+beberapa aplikasi atau tools yang digunakan antara lain:
+
+1. Bizagi Modeler
+
+Bizagi Modeler adalah aplikasi yang digunakan penulis untuk membuat
+
+Business Process Modeling Notation (BPMN).
+
+2. Enterprise Architect
+
+Enterprise Architect adalah software yang membantu pembuatan UML
+
+seperti Class Diagram dan Use Case Diagram.
+
+3. Balsamiq Mockup
+
+Adalah software yang digunakan untuk membuat mockup atau
+
+rancangan antarmuka aplikasi.
+
+3.5.
+
+Penelitian Terdahulu
+
+Dalam penelitian terdahulu terdapat beberapa kekurangan yang akan
+
+dibandingkan dengan kelebihan penelitian sistem yang akan dibangun
+
+diantaranya:
+
+Tabel 3. 1 Daftar Penelitian Terdahulu
+
+No Penelitian 1. Eko Susanto, Budi Judul
+Santoso
+Hasil
+
+Review
+Perancangan Sistem Informasi Penjualan Motor di Dealer Margo Mulyo Megah Berbasis Java Sistem berbasis Java untuk mengelola transaksi penjualan motor dan laporan penjualan.
+
+BAB III TEORI PENDUKUNG
+
+Kekurangan a. Sistem hanya digunakan
+
+pada
+
+untuk divisi sales dan tidak
+
+penelitian
+
+terintegrasi lintas divisi.
+
+terdahulu b. Tidak mendukung akses
+
+data secara online.
+
+c. Tidak tersedia fitur laporan
+
+otomatis real-time.
+
+Keunggulan a. Memudahkan
+
+admin
+
+pada
+
+mencatat data penjualan.
+
+penelitian b. Menyajikan laporan manual
+
+terdahulu
+
+dengan akurat.
+
+c. Meningkatkan efisiensi
+
+proses penjualan.
+
+2. Irfan Maulana, Reni Judul
+
+Sistem Informasi Eksekutif
+
+Yulianti
+
+Sebaran Penjualan Kendaraan
+
+Bermotor Roda 2 di Kalimantan
+
+Timur Berbasis Web
+
+Hasil
+
+Sistem informasi eksekutif
+
+berbasis web untuk memantau
+
+sebaran penjualan kendaraan
+
+roda 2 di wilayah Kalimantan
+
+Timur.
+
+Kekurangan a. Fokus hanya pada fungsi
+
+pada
+
+monitoring,
+
+tidak
+
+penelitian
+
+operasional harian.
+
+terdahulu b. Tidak mendukung input
+
+transaksi dari bagian
+
+operasional.
+
+c. Kurang integrasi dengan
+
+fungsi layanan purna jual.
+
+Keunggulan Sistem berbasis web ini dapat
+
+pada
+
+diakses secara online,
+
+BAB III TEORI PENDUKUNG
+
+penelitian menampilkan dashboard visual
+
+terdahulu yang membantu manajemen
+
+dalam analisis tren penjualan
+
+dan pengambilan keputusan
+
+strategis.
+
+3. Rahmat Hidayat, Dita Judul
+
+Perancangan Sistem Informasi
+
+Sari
+
+Penjualan Motor Bekas
+
+Berbasis Web pada Zidan Jaya
+
+Motor Pasaman
+
+Hasil
+
+Sistem informasi penjualan
+
+motor bekas yang membantu
+
+proses penginputan data
+
+penjualan, laporan stok, dan
+
+nota transaksi.
+
+Kekurangan Sistem belum terintegrasi
+
+pada
+
+dengan layanan purna jual dan
+
+penelitian administrasi keuangan, serta
+
+terdahulu laporan yang dihasilkan belum
+
+otomatis. Selain itu, sistem
+
+masih bersifat dasar dalam
+
+pengelolaan
+
+informasi
+
+penjualan.
+
+Keunggulan a. Sistem ini mampu mencatat
+
+pada
+
+transaksi dan data stok
+
+penelitian
+
+secara sistematis, serta
+
+terdahulu
+
+mempermudah
+
+proses
+
+pencatatan penjualan motor
+
+bekas melalui antarmuka
+
+web yang sederhana dan
+
+mudah digunakan.
+
+BAB IV ANALISA SISTEM
+
+BAB IV ANALISA SISTEM
+
+4.1.
+
+Analisis Umum
+
+Analisis sistem adalah penguraian dari suatu sistem informasi yang utuh ke
+
+dalam bagian-bagian komponennya yang dimaksudkan untuk mengidentifikasikan
+
+dan mengevaluasi permasalahan atau hambatan yang terjadi dan kebutuhan yang
+
+diharapkan sehingga dapat diusulkan perbaikannya.
+
+4.1.1. Rantai Nilai (Porter)
+
+Infrastruktur Perusahaan Pengolahan Sumber Daya Manusia
+Teknologi Informasi Pengadaan
+
+Meningkatkan efisiensi pengolahan data laporan
+penjualan.
+
+Aktivitas Pendukung
+
+Manajemen Data Transaksi Penjualan
+
+Pengolahan Data Penjualan
+
+Pembuatan Laporan Penjualan
+
+Aktivitas Utama
+Gambar 4. 1 Rantai Nilai Porter
+a. Aktivitas utama yang dilakukan adalah manajemen data transaksi penjualan, yang mencakup pencatatan dan pengolahan seluruh transaksi jual beli kendaraan kepada konsumen. Selanjutnya, pengolahan data penjualan dilakukan, yang mencakup pemrosesan data transaksi untuk menghasilkan informasi yang diperlukan dalam pembuatan laporan. Setelah itu, dilakukan pembuatan laporan penjualan, yang mencakup pembuatan dan distribusi laporan penjualan yang akurat dan tepat waktu kepada manajemen untuk pengambilan keputusan. Proses ini menggantikan sistem manual yang memerlukan waktu lama dan dapat menyebabkan kesalahan input. Dengan penerapan sistem terintegrasi, proses ini menjadi lebih efisien dan mengurangi pemborosan sumber daya.
+b. Aktivitas pendukung yang mendukung aktivitas utama adalah infrastruktur perusahaan, yang meliputi sistem informasi terintegrasi yang digunakan untuk mendukung operasional pengolahan data transaksi dan pembuatan laporan penjualan. Selain itu, pengelolaan sumber daya manusia yang bertugas untuk melatih dan meningkatkan kompetensi staf penjualan serta administrasi juga menjadi faktor penting. Teknologi informasi berperan dalam mengembangkan dan menjaga sistem operasional perusahaan, memastikan bahwa sistem berjalan dengan baik. Pengadaan memastikan ketersediaan perangkat lunak dan perangkat keras yang dibutuhkan untuk
+
+BAB IV ANALISA SISTEM
+mendukung kelancaran sistem informasi yang digunakan dalam pengelolaan transaksi dan pembuatan laporan. c. Margin dari kegiatan ini adalah sistem manajemen penjualan yang terintegrasi, yang meningkatkan efisiensi waktu dalam pengolahan transaksi dan pembuatan laporan, serta memastikan akurasi data yang lebih baik. Dengan adanya sistem terintegrasi, proses administrasi menjadi lebih cepat dan standar, yang pada akhirnya mendukung kepuasan pelanggan. Kecepatan dalam pembuatan laporan dan akurasi data juga meningkatkan kinerja operasional perusahaan, memastikan bahwa manajemen dapat membuat keputusan berbasis data secara real-time dan lebih tepat.
+4.2. Analisis Khusus Analisis khusus dilakukan terhadap aktivitas yang sudah dipilih menjadi
+objek analisis. Analisis khusus ini bisa berupa deskripsi pembahasan tentang Business User, Business Process, Business Data (misal terdiri dari kamus data, analisis formulir, analisis dokumen, analisis laporan, dan analisis pengkodean), Business Rule, Business Problem and Solution, serta Business Plan. 4.2.1. Business User
+Business User atau bisnis user adalah individu atau pekerja yang terlibat dalam aktivitas operasional bisnis sehari ­ hari. Mereka meliputi:
+1. Sales Merupakan orang yang bertugas menjual kendaraan kepada pelanggan dan mencatat setiap transasksi dalam sistem. Selain itu, sales juga menginput data konsumen, memilih unit kendaraan dari stok, serta membuat laporan penjualan harian atau mingguan menggunakan sistem informasi yang ada.
+2. Admin Sales Merupakan orang yang mengurus administrasi penjualan kendaraan, termasuk memastikan dokumen seperti faktur, surat jalan, dan bukti pembayaan telat tercatat dengan benar dalam sistem. Mereka juga bertugas menyusun laporan penjualan berdasarkan data sistem infomasi.
+3. Admin BPKB Merupakan orang yang mengelola pencatatan dan administrasi dokumen BPKB kendaraan yang telah terjual. Tugasnya mencakup memastikan seluruh dokumen legar terdaftar dalam sistem dan digunakan untuk pelaporan administrative setelah kendaraan diserahkan ke konsumen.
+4. Administration Head (ADH)
+
+BAB IV ANALISA SISTEM
+Merupakan orang yang memimpin tim administrasi dan memastikan kelancaran proses administrasi penjualan. ADH bertanggung Jawab agar seluruh bagian admin menggunakan sistem infomasi dengan baik dan laporan penjualan yang dihasilkan akurat dan lengkap. 5. Operation Manager (OM) Merupakan orang yang mengawasi seluruh operasional cabang, termasuk pemantauan penggunaan sistem infomasi di semua divisi. OM memanfaatkan data sistem untuk evaluasi kinerja, perencanaan strategis, dan penyusunan laporan penjualan untuk kebutuhan manajemen pusat. 4.2.2. Business Process Proses dimodelkan dengan menggunakan BPMN (Business Process Modeling Notation). Adapun fungsi dari BPMN adalah untuk mempermudah penggambaran aliran data yang berupa dokumen sistem yang sedang berjalan maupun sistem yang diusulkan, dokumen yang menunjukan aliran data berupa formulir ataupun keterangan berupa dokumentasi yang mengalir dalam suatu sistem. BPMN memberikan notasi yang mudah dipahami oleh semua pengguna bisnis, dari analis bisnis yang menciptakan konsep awal dari proses, para pengembang teknis yang bertanggung jawab untuk menerapkan teknologi yang akan melakukan proses-proses tersebut, dan akhirnya, untuk orang-orang bisnis yang akan mengelola dan memantau proses tersebut. Berikut ini BPMN untuk proses bisnis yang sedang berjalan: 1. Proses Utama
+
+BAB IV ANALISA SISTEM
+Gambar 4. 2 BPMN Proses Utama PT Maju Global Motor Setiabudi Deskripsi Proses Utama:
+1. Mulai. 2. Sales menerima informasi transaksi dari konsumen dan langsung
+menginput data ke dalam sistem informasi penjualan. 3. Admin Sales memverifikasi kelengkapan dan keakuratan data transaksi. 2. Jika data tidak lengkap, dikembalikan ke Sales. 4. Admin BPKB mencatat status dan dokumen pengurusan BPKB dalam
+sistem dealer. 6. Admin Sales mengelola dan menyimpan data transaksi yang telah
+diverifikasi. 7. Admin Sales mengelompokkan dan merekap data penjualan
+berdasarkan periode dan kategori. 8. Admin Sales menyerahkan data olahan ke Admin/Sales BPKB. 9. Admin/Sales BPKB menyusun laporan penjualan internal dealer.
+
+BAB IV ANALISA SISTEM
+10. ADH melakukan validasi laporan dan meneruskan ke OM jika valid. 11. OM memeriksa laporan dan memberikan masukan. 12. ADH menyusun ulang laporan sesuai format HO/SGMW. 13. OM melakukan pengecekan akhir dan mengirim ke HO/SGMW. 14. C-Level menerima laporan dan melakukan analisis strategis. 15. Selesai. 3. Proses Manajemen Data Transaksi Penjualan
+Gambar 4. 3 BPMN Proses Manajemen Data Transaksi Penjualan Deskripsi Proses Manajemen Data Transaksi Penjualan:
+1. Mulai. 2. Sales menerima informasi transaksi dari konsumen dan langsung
+menginput data transaksi ke dalam sistem informasi penjualan. 3. Admin Sales memverifikasi kelengkapan dan keakuratan data
+transaksi penjualan dan memastikan dokumen lengkap, data sesuai, dan tidak ada kekeliruan input. 4. Admin BPKB mencatat status dan dokumen pengurusan BPKB dalam sistem dealer, termasuk dokumen permohonan dan informasi pelacakan penerbitan BPKB dari Samsat.
+
+BAB IV ANALISA SISTEM
+5. Admin Sales mengelola dan menyimpan data transaksi yang telah diverifikasi untuk diproses lebih lanjut di tahap pengolahan data penjualan.
+6. Selesai.
+4. Proses Pengolahan Data Penjualan
+
+Gambar 4. 4 BPMN Proses Pengolahan Data Penjualan
+
+Deskripsi Proses Pengolahan Data Penjualan:
+
+1. Mulai.
+
+2. Admin Sales menerima data transaksi yang telah diverifikasi dari proses
+
+sebelumnya.
+
+3. Admin Sales mengelompokkan data berdasarkan kategori seperti jenis
+
+kendaraan, metode pembayaran, dan waktu transaksi.
+
+4. Admin Sales menyimpan hasil pengelompokan ke dalam sistem
+
+informasi penjualan.
+
+16.
+
+Admin Sales memeriksa kembali data untuk memastikan tidak
+
+ada duplikasi atau kesalahan entri.
+
+17.
+
+Admin Sales membuat rekapitulasi data penjualan
+
+harian/mingguan/bulanan.
+
+BAB IV ANALISA SISTEM
+
+18.
+
+Data hasil pengelompokan dan rekapitulasi diserahkan kepada
+
+Admin BPKB untuk digunakan dalam penyusunan laporan penjualan
+
+tingkat dealer.
+
+19.
+
+Selesai.
+
+5. Proses Pembuatan Laporan
+
+Gambar 4. 5 BPMN Proses Pembuatan Laporan
+Deskripsi Proses Pembuatan Laporan: 1. Mulai. 2. Admin/Sales BPKB menyusun laporan penjualan berdasarkan data rekap penjualan yang diterima dari Admin Sales. 3. ADH melakukan validasi terhadap laporan penjualan dari Admin/Sales BPKB. a. Jika ditemukan kesalahan, laporan dikembalikan untuk diperbaiki. b. Jika valid, laporan diteruskan ke Operational Manager (OM).
+
+BAB IV ANALISA SISTEM
+4. OM menerima dan memeriksa laporan penjualan dari dealer. 5. ADH menyusun ulang laporan berdasarkan masukan OM untuk
+disesuaikan dengan format laporan ke Head Office (HO) dan SGMW. 6. OM melakukan pengecekan akhir laporan yang akan dikirim ke HO dan SGMW. 7. CLevel menerima laporan final dan melakukan analisis strategis berdasarkan data tersebut. 8. Selesai.
+4.2.3. Business Data Bisnis data dalam perancangan sistem ini terkait dengan Analisa kebutuhan
+data, analisa formulir, analisa pengkodean, dan analisa dokumen. Pada analisa kebutuhan data menjelaskan tentang kamus data yang terdiri dari kamus data elementer dan kamus data komposit
+4.2.3.1. Analisa Kebutuhan Data Dalam mempelajari sistem yang berjalan, diperlukan struktur atau cara kerja
+dari badan yang sedang berjalan. Pada analisa kebutuhan data menjelaskan tentang kamus data yang terdiri dari kamus data elementer dan kamus data.
+4.2.3.1.1. Kamus Data Kamus data atau data dictionary adalah katalog fakta tentang data dan
+kebutuhan-kebutuhan informasi dari suatu sistem informasi. Dengan kamus data analisis sistem dapat mendefinisikan data yang mengalir di sistem dengan lengkap. Pada tahap analisis sistem, kamus data digunakan sebagai alat komunikasi antara analis sistem dengan pemakai sistem tentang data yang mengalir ke sistem, yaitu tentang data yang masuk ke sistem dan tentang informasi yang dibutuhkan oleh pemakai sistem. Pada tahap perancangan sistem, kamus data digunakan untuk merancang input, merancang laporan-laporan dan database.
+4.2.3.1.2. Kamus Data Elementer
+
+BAB IV ANALISA SISTEM
+
+Kamus data elementer digunakan untuk menjelaskan data-data elementer yang tidak dapat dipecah lagi. Tabel 4. 1 Kamus Data Elementer
+
+No.
+
+Nama Atribut
+
+1. SL Date
+
+2. Customer
+
+3. Alamat
+
+4. Cust. Phone
+
+5. SalesName
+
+6. SPV
+
+8. Leasing
+
+9. Insurance
+
+10. Inv. No.
+
+11. Code
+
+12. Type
+
+Keterangan
+Tanggal transaksi penjualan kendaraan dilakukan. Nama lengkap pelanggan yang membeli kendaraan. Alamat lengkap pelanggan yang membeli kendaraan. Nomor telepon pelanggan untuk keperluan komunikasi lebih lanjut. Nama sales yang menangani transaksi penjualan kendaraan. Nama supervisor yang bertanggung jawab atas transaksi tersebut. Nama perusahaan leasing yang digunakan untuk pembiayaan. Nama perusahaan asuransi yang digunakan oleh pelanggan (jika ada). Nomor invoice atau faktur untuk transaksi penjualan. Kode unik yang digunakan untuk mengidentifikasi transaksi penjualan. Tipe kendaraan yang dijual, seperti model, varian, atau kategori.
+
+IV.2.3.1.3 Kamus Data Komposit Kamus data komposit digunakan untuk menjelaskan komposisi dari paket
+data yang kompleks yang dapat dipecah menjadi beberapa item.
+
+BAB IV ANALISA SISTEM
+
+Tabel 4. 2 Kamus Data Komposit No. Data 1. Transaksi Penjualan
+2. Pelanggan 3. Kendaraan 4. Laporan Penjualan 5. Pembayaran
+
+Atribut
+SL Date + Customer + Alamat + Cust. Phone + SalesName + SPV + Leasing + Insurance + Inv. No. + Code + Type + Chassis + Price List + Discount + Price Net + DP Amt + Leasing Amt + Description + Tenor + KTP No. + DO + Tunai/Kredit + Model + Date + Month + Year Customer + Alamat + Cust. Phone + KTP No. + Email Customer + Foto Profil Type + Model + Chassis + Price List + Discount + Price Net + DP Amt + Leasing Amt + Description + URL Produk + Logo Produk Judul Laporan + Tanggal Cetak + SalesName + Inv. No. + Type + Price Net + DP Amt + Leasing Amt + Model + Date + Month + Year DP Amt + Leasing Amt + Metode Pembayaran + Tenor + Tanggal Pembayaran + Status Pembayaran
+
+IV.2.3.2 Model Data Berdasarkan hasil analisis yang telah dilakukan terhadap sistem yang sedang
+berjalan. Terdapat hubungan dokumen yaitu sebagai berikut:
+
+BAB IV ANALISA SISTEM
+
+Gambar 4. 6 Model Data IV.2.3.5 Analisis Formulir
+Pada penelitian ini, tidak ada analisis formulir, karena tidak ada formulir yang digunakan.
+
+IV.2.3.6 Analisis Pengkodean Pada penelitian ini, tidak ada analisis pengkodean, karena tidak ada
+pengkodean yang digunakan.
+
+IV.2.3.7 Analisis Dokumen Tabel 4. 3 Analisis Dokumen
+
+No.
+
+Nama
+
+1. Transaksi Penjualan
+
+Deskripsi
+
+Keterangan
+Merupakan dokumen yang berisi data terkait transaksi penjualan
+
+BAB IV ANALISA SISTEM Fungsi
+Rangkap Atribut
+
+2. Data Pelanggan
+
+Deskripsi
+
+Fungsi
+
+3. Kendaraan
+
+Rangkap Atribut
+Deskripsi
+
+kendaraan yang dilakukan oleh konsumen. Sebagai dokumen yang menyimpan informasi lengkap mengenai transaksi penjualan, termasuk data kendaraan, pembeli, harga, dan metode pembayaran. 1 SL Date + Customer + Alamat + Cust. Phone + SalesName + SPV + Leasing + Insurance + Inv. No. + Code + Type + Chassis + Price List + Discount + Price Net + DP Amt + Leasing Amt + Description + Tenor + KTP No. + DO + Tunai/Kredit + Model + Date + Month + Year Merupakan dokumen yang berisi data pelanggan yang membeli kendaraan. Sebagai dokumen yang menyimpan informasi lengkap mengenai pelanggan yang melakukan transaksi pembelian kendaraan. 1 Nama_Lengkap + Alamat + tanggal lahir + Cust. Phone + KTP No. + Email Customer + Foto Profil (opsional) Merupakan dokumen yang berisi data kendaraan yang dijual, mencakup tipe, model, dan harga kendaraan.
+
+BAB IV ANALISA SISTEM Fungsi
+
+Rangkap Atribut
+
+4. Laporan Penjualan
+
+Deskripsi
+
+Fungsi
+
+Rangkap Atribut
+
+5. Pembayaran
+
+Deskripsi
+
+Fungsi
+
+Rangkap
+
+Sebagai dokumen yang menyimpan data terkait kendaraan yang dijual, termasuk identifikasi kendaraan dan informasi harga. 1 Type + Model + Chassis + Price List + Discount + Price Net + DP Amt + Leasing Amt + Description + URL Produk + Logo Produk Merupakan dokumen yang berisi ringkasan atau laporan tentang transaksi penjualan kendaraan dalam periode tertentu. Sebagai dokumen yang digunakan oleh manajemen untuk evaluasi dan analisis kinerja penjualan kendaraan. 1 Judul Laporan + Tanggal Cetak + SalesName + Inv. No. + Type + Price Net + DP Amt + Leasing Amt + Model + Date + Month + Year Merupakan dokumen yang berisi detail pembayaran transaksi kendaraan, termasuk uang muka dan cicilan. Sebagai dokumen yang menyimpan informasi terkait pembayaran, baik itu tunai maupun kredit. 1
+
+BAB IV ANALISA SISTEM Atribut
+
+IV.2.3.8 Analisis Laporan Tabel IV. 1 Analisis Laporan
+
+No.
+
+Nama
+
+1. Laporan Harian
+
+Deskripsi
+
+Fungsi
+
+Rangkap Atribut
+
+2. Laporan Mingguan
+
+Deskripsi Fungsi
+
+Rangkap Atribut
+
+DP Amt + Leasing Amt + Metode
+
+Pembayaran + Tenor + Tanggal
+
+Pembayaran
+
++
+
+Status
+
+Pembayaran
+
+Keterangan
+
+Merupakan dokumen yang berisi
+
+kumpulan pengaduan masalah
+
+yang telah direkapitulasi dalam
+
+jangka waktu tertentu
+
+Sebagai dokumen yang
+
+menginformasikan pengaduan
+
+masalah yang dilaporkan oleh
+
+user dan terjadi di dalam satu
+
+platform
+
+1
+
+Judul Laporan + Tanggal Cetak +
+
+Tanda Tangan + Nama User +
+
+Judul Pengaduan + Nama
+
+Pengadu
+
+Merupakan dokumen yang berisi
+
+rekap transaksi penjualan
+
+kendaraan selama satu minggu.
+
+Sebagai dokumen untuk
+
+mengevaluasi kinerja penjualan
+
+mingguan, membantu tim
+
+manajemen
+
+dalam
+
+merencanakan
+
+strategi
+
+pemasaran dan penjualan.
+
+1
+
+Minggu (Tanggal Mulai dan Akhir) + SalesName + Total Unit Terjual + Pendapatan Mingguan + Model + Metode Pembayaran
+
+BAB IV ANALISA SISTEM
+
+3. Laporan Bulanan
+
+Deskripsi Fungsi
+
+Rangkap Atribut
+
+4. Laporan Triwulan
+
+Deskripsi
+
+Fungsi
+
+Rangkap Atribut
+
+5. Laporan Tahunan
+
+Deskripsi Fungsi
+
+Rangkap Atribut
+
+6. Laporan Data Transaksi Deskripsi Penjualan
+Fungsi
+
+Merupakan dokumen yang berisi rekap transaksi penjualan kendaraan dalam satu bulan. Sebagai dokumen yang memberikan gambaran lengkap tentang kinerja penjualan bulanan, digunakan untuk evaluasi dan perencanaan ke depan. 1
+Bulan + SalesName + Total Unit Terjual + Pendapatan Bulanan + Model + Diskon/Potongan Harga yang Diberikan + Jenis Pembayaran Merupakan dokumen yang berisi rekap transaksi penjualan kendaraan selama satu triwulan (3 bulan). Sebagai dokumen untuk evaluasi kinerja penjualan dalam satu triwulan, membantu manajemen dalam menentukan langkahlangkah strategis untuk kuartal berikutnya. 1
+Triwulan (Tanggal Mulai dan Akhir) + SalesName + Total Unit Terjual + Pendapatan Triwulan + Model + Tren Penjualan Merupakan dokumen yang berisi rekap transaksi penjualan kendaraan selama satu tahun. Sebagai dokumen untuk evaluasi kinerja penjualan tahunan dan perencanaan strategi jangka panjang. 1
+Tahun + SalesName + Total Unit Terjual + Pendapatan Tahunan + Model + Analisis Tren Penjualan Tahun Ini Merupakan dokumen yang berisi data detail transaksi penjualan kendaraan yang telah tercatat dalam sistem. Sebagai dokumen untuk memonitor seluruh data transaksi penjualan, digunakan oleh manajemen untuk verifikasi dan analisis lebih lanjut.
+
+BAB IV ANALISA SISTEM
+Rangkap Atribut
+
+7. Laporan Dealer
+
+Penjualan Deskripsi
+
+Fungsi
+
+Rangkap Atribut
+8. Laporan Penjualan Deskripsi untuk HO dan SGMW
+Fungsi
+
+Rangkap Atribut
+
+9. Laporan
+
+rekap Deskripsi
+
+penjualanan bulanan
+
+Fungsi
+
+Rangkap
+
+1
+
+Inv. No. + Customer + Model + Tanggal Transaksi + Harga + Pembayaran (Tunai/Kredit) + SalesName + DP Amt + Leasing Amt Merupakan dokumen yang berisi laporan penjualan kendaraan yang dilakukan oleh dealer tertentu. Sebagai dokumen untuk mengevaluasi kinerja penjualan per dealer dan membandingkan performa antar dealer. 1
+
+Dealer Name + Total Unit Terjual + Pendapatan + Model + SalesName + Tanggal Transaksi Merupakan dokumen yang berisi rekapitulasi penjualan kendaraan yang diserahkan kepada Head Office (HO) dan SGMW. Sebagai dokumen untuk memberikan gambaran tentang kinerja penjualan di tingkat dealer dan bagaimana penjualan tersebut berkontribusi terhadap target perusahaan. 1
+
+HO dan SGMW Report + Dealer
+
++ Total Unit Terjual +
+
+Pendapatan + Model + Sales
+
+Performance
+
+Merupakan dokumen yang berisi
+
+ringkasan penjualan kendaraan
+
+dalam periode satu bulan
+
+berdasarkan data transaksi yang
+
+telah diverifikasi dan diolah oleh
+
+Admin Sales.
+
+Sebagai dokumen untuk
+
+mengevaluasi
+
+performa
+
+penjualan bulanan setiap sales,
+
+model kendaraan yang paling
+
+diminati, metode pembayaran
+
+dominan, serta sebagai acuan
+
+untuk menyusun laporan lanjutan
+
+ke Head Office (HO) dan
+
+SGMW.
+
+1
+
+BAB IV ANALISA SISTEM
+
+Atribut
+
+Judul Laporan + Tanggal Cetak + Nama Dealer + Periode Laporan + SalesName + Total Unit Terjual + Total DP + Total Leasing + Model Terlaris + Metode Pembayaran Dominan + Pendapatan Total + Disetujui Oleh (ADH & OM)
+
+4.2.4. Business Tools IV.2.4.1 Perangkat Lunak
+Perangkat lunak atau software yang digunakan dalam pembuatan laporan saat ini, yaitu:
+a. Visual Basic b. Sql 2008
+
+IV.2.4.2 Perangkat Keras Perangkat keras atau hardware yang menjalankan perangkat lunak di atas
+adalah: a. Processor: Intel Core i5-8250U CPU @1.60GHz b. Memory: 8 GB c. Harddisk: 256 GB d. Keyboard e. Mouse
+
+IV.2.4.3 Karakteristik Pengguna Karakteristik pengguna minimum adalah orang yang mampu mengoperasikan
+Microsoft Excel, sehingga dapat mengerti bagaimana cara mengelola data pada sistem, dapat menghapus data pada sistem dan dapat mengubah data yang mungkin diperlukan.
+
+4.2.5. Business Rules Terdapat beberapa Business Rules dalam proses Pembuatan Laporan
+Penjualan Unit Kendaraan Bermotor di PT Maju Global Motor., diantaranya: Penyusunan Laporan Penjualan:
+
+BAB IV ANALISA SISTEM
+1. Laporan penjualan hanya dapat disusun setelah semua transaksi penjualan tercatat dengan lengkap dan data transaksi diverifikasi oleh Admin Sales.
+2. Sales wajib memasukkan informasi yang akurat tentang kendaraan yang terjual, termasuk harga, model, jumlah unit, dan informasi pembeli ke dalam sistem penjualan.
+3. Admin Sales wajib memeriksa kembali data yang diinput oleh Sales untuk memastikan tidak ada kesalahan atau informasi yang hilang. Jika ditemukan kesalahan, data akan dikembalikan untuk diperbaiki.
+4. Admin BPKB harus membuat dan menginput faktur penjualan serta dokumen BPKB untuk kendaraan yang terjual sesuai dengan transaksi yang tercatat dalam sistem.
+5. Setelah data transaksi diverifikasi, Admin Sales menyerahkan data tersebut kepada tim yang bertanggung jawab untuk menyusun laporan penjualan.
+6. ADH (Kepala Administrasi) memastikan seluruh tim bekerja sama untuk menyusun laporan penjualan yang akurat, lengkap, dan tepat waktu.
+7. Laporan penjualan yang disusun harus mencakup total unit terjual, harga kendaraan, pendapatan yang dihasilkan, tren penjualan berdasarkan periode (harian, mingguan, bulanan), dan metode pembayaran.
+8. Laporan penjualan harus diperiksa dan disetujui oleh ADH sebelum diserahkan ke manajemen untuk evaluasi lebih lanjut.
+9. Laporan yang telah disusun dan disetujui oleh ADH diteruskan kepada Operational Manager (OM) untuk evaluasi kinerja penjualan dan pengambilan keputusan lebih lanjut.
+10. Laporan dapat direvisi berdasarkan masukan dari OM jika ada ketidaksesuaian atau informasi yang kurang jelas.
+11. Setelah direvisi dan disetujui, laporan penjualan diserahkan kepada Head Office (HO) dan SGMW untuk evaluasi di tingkat pusat.
+12. Semua laporan yang telah disusun dan disetujui harus dilengkapi dengan tanda tangan digital dari ADH sebagai validasi dan pengesahan dokumen.
+13. Laporan yang telah disetujui harus disimpan dengan baik dan mudah diakses untuk keperluan audit dan perencanaan di masa depan.
+
+BAB IV ANALISA SISTEM
+
+4.2.6. Business Evaluation Solutions Dalam sistem yang berjalan terdapat beberapa permasalahan dan kebutuhan
+data yang digambarkan menggunakan Diagram Ishikawa dan Tabel Business Evaluation and Solution:
+
+Proses Verifikasi yang Tidak Tepat
+
+Output Laporan Otomatis yang Masih Mentah
+
+Kualitas Data yang Diterima Dokumen yang Tidak Lengkap
+
+Pengaruh eksternal seperti kesibukan musiman
+
+Keterampilan sales yang kurang
+Proses pembuatan laporan penjualan kendaraan yang seharusnya otomatis, malah harus disusun ulang secara manual.
+Meskipun ada sistem yang memungkinkan pengumpulan data secara otomatis, laporan yang dihasilkan tetap perlu dirapikan dan disesuaikan ulang, sehingga memerlukan waktu lebih lama dan dapat menyebabkan kesalahan dalam penyusunan laporan.
+
+Gambar 4. 7 Diagram Ishikawa 4.2.7. Analisa Metode PIECES 1. Tahapan Penelitian
+
+Gambar IV. 1 Tahapan Penelitian Metode PIECES
+Berdasarkan gambar di atas, tahapan atau alur penelitian yang dilakukan adalah sebagai berikut:
+1. Identifikasi Masalah Identifikasi masalah yaitu tahap awal sebuah penelitian dengan cara mengidentifikasi masalah. Identifikasi masalah digunakan agar mengetahui masalah yang akan dianalisis. Penelitian ini diangkat karena terdapat beberapa permasalahan pada proses pembuatan laporan
+
+BAB IV ANALISA SISTEM
+
+penjualan. Untuk mengidentifikasi masalah dilakukan dengan melakukan observasi di lapangan dan melakukan wawancara 2. Studi Literatur Sumber literatur dalam penelitian ini diperoleh dari beberapa penelitian terdahulu yang relevan, seperti penelitian Eko Susanto dan Budi Santoso tentang sistem penjualan motor berbasis Java yang menunjukkan efisiensi administrasi namun kurangnya integrasi lintas divisi. Penelitian Irfan Maulana dan Reni Yulianti yang membahas sistem informasi berbasis web untuk memantau penjualan kendaraan dengan dashboard visual juga menjadi referensi penting. Selain itu, penelitian Rahmat Hidayat dan Dita Sari mengembangkan sistem untuk penjualan motor bekas berbasis web yang mengedepankan otomatisasi laporan dan integrasi administrasi keuangan. Selain itu, literatur lain dari Google Scholar dan web publik mengenai sistem informasi dan otomatisasi laporan juga digunakan untuk memperluas pemahaman teori dan praktik terbaik dalam pengembangan sistem laporan penjualan. 3. Penyusunan Kuesioner Penyusunan kuesioner digunakan untuk menampung dan mengelola pertanyaan-pertanyaan yang akan menjadi data untuk mengetahui tingkat kepuasan pengguna terhadap proses bisnis yang sedang berjalan. Jumlah responden pada penelitian ini berjumlah 4 orang staf dan perseorangan. Penyusunan kuesioner dilakukan dengan membuat formulir di Google Formulir dengan 15 pertanyaan yang dapat dilihat pada lampiran. Skala pengukuran yang digunakan pada penelitian ini adalah skala likert seperti yang di bawah ini:
+Tabel IV. 2 Skala Likert
+
+Pilihan Jawaban
+
+Sangat tidak setuju
+
+Tidak Setuju
+
+Netral
+
+Setuju
+
+Sangat Setuju
+
+Singkatan STS
+
+TS
+
+N
+
+S
+
+SS
+
+BAB IV ANALISA SISTEM
+
+Skor
+
+1
+
+2
+
+3
+
+4
+
+5
+
+4. Pengumpulan Data Pengumpulan data penelitian dilakukan untuk memastikan bahwa data yang diperoleh bersifat valid dan reliabel. Data yang digunakan meliputi data primer, yang diperoleh melalui penyebaran kuesioner kepada staf di lingkungan PT Maju Global Motor, serta data sekunder yang diperoleh dari studi literatur, termasuk penelitian terdahulu dan sumber-sumber yang diakses melalui web publik
+5. Analisis data dan Evaluasi Tahap analisis data diperoleh dari jawaban 4 responden yang telah dihitung berdasarkan 6 aspek yang dimiliki oleh PIECES.
+Tabel IV. 3 Analisis dan Evaluasi
+
+PIECES
+
+Permasalahan
+
+1. Proses pembuatan laporan terkadang memakan
+
+Performance
+
+waktu lebih lama dari yang diharapkan, dan tidak selalu sesuai dengan kebutuhan. 2. Proses pembuatan laporan tidak sering mengalami keterlambatan, meskipun ada ketidakpastian
+
+mengenai hal tersebut.
+
+1. Data yang tercatat dalam laporan sudah
+
+lengkap dan bebas dari kesalahan, meskipun
+
+masih ada ketidakpastian terkait
+
+Information
+
+kelengkapannya. 2. Terdapat ketidaksesuaian data dalam beberapa
+
+laporan yang ditemukan, yang
+
+mengindikasikan adanya kesalahan atau
+
+ketidakakuratan.
+
+BAB IV ANALISA SISTEM
+
+Economics Control and Security
+Efficiency
+Service
+
+1. Proses pembuatan laporan tidak menghabiskan biaya yang signifikan, meskipun memakan waktu.
+2. Laporan digital lebih disukai oleh sebagian besar responden, karena lebih efisien dan mengurangi biaya dibandingkan laporan cetak.
+1. Proses pembuatan laporan sudah efisien, meskipun masih ada ruang untuk meningkatkan kecepatan pengolahan data.
+2. Laporan yang dihasilkan sesuai dengan kebutuhan manajerial, meskipun ada beberapa aspek yang masih perlu disesuaikan lebih lanjut.
+1. Visualisasi grafik atau KPI sangat dibutuhkan oleh semua responden, yang menunjukkan bahwa fitur visualisasi sangat diinginkan.
+2. Laporan sudah mencakup variabel yang dibutuhkan untuk analisis, meskipun ada beberapa variabel yang belum sepenuhnya tersedia.
+1. Fitur tambahan seperti filter untuk laporan berdasarkan jenis kendaraan atau wilayah dealer sangat dibutuhkan, yang memungkinkan laporan lebih relevan dan mudah dipahami.
+2. Akses laporan real-time sangat penting untuk pengambilan keputusan yang cepat dan lebih responsif.
+
+6. Hasil Penelitian Hasil penelitian merupakan tahap akhir dari penelitian. Setelah dilakukan analisis data, hasil dari penelitian yang telah dianalisis menggunakan Metode PIECES.
+
+BAB IV ANALISA SISTEM
+
+Tabel IV. 4 Hasil Kuesioner PIECES
+
+Variabel SS S Netral TS STS Total
+
+Performance 0 0 4
+
+00
+
+4
+
+Information 0 3 1
+
+00
+
+4
+
+Economics
+
+02 2
+
+00
+
+4
+
+Control and 0 2 2 0 0 4
+
+Security
+
+Efficiency
+
+03 1
+
+00
+
+4
+
+Service
+
+02 2
+
+00
+
+4
+
+Kesimpulan 3.0 (Netral) 3.75 (Puas) 3.0 (Netral) 3.5 (Puas)
+3.5 (Puas) 3.5 (Puas)
+
+Berdasarkan tabel di atas dapat disimpulkan bahwa dari 6 (enam) variabel PIECES didapatkan jawaban yang bervariasi di setiap variabelnya. Untuk melihat hasil pengolahan lebih lengkap dapat dilihat pada bagian lampiran di laporan ini.
+
+Berikut adalah tabel solusi dari permasalahan yang telah dianalisis: Tabel IV. 5 Permasalahan dan Solusi
+
+PIECES Performance
+
+Permasalahan
+1. Proses pembuatan laporan terkadang memakan waktu lebih lama dari yang diharapkan, dan tidak selalu sesuai dengan kebutuhan.
+2. Proses pembuatan laporan tidak sering
+
+Solusi
+
+Membangun sistem
+
+informasi yang lebih
+
+efisien
+
+untuk
+
+mempercepat proses
+
+pembuatan laporan
+
+dan memastikan
+
+bahwa laporan sesuai
+
+dengan kebutuhan.
+
+Meningkatkan
+
+BAB IV ANALISA SISTEM
+
+Information Economics
+
+mengalami
+
+kecepatan
+
+serta
+
+keterlambatan, meskipun ada ketidakpastian mengenai hal tersebut.
+
+mengurangi ketidakpastian dalam pembuatan laporan untuk meningkatkan
+
+ketepatan waktu
+
+penyelesaian.
+
+1. Data yang tercatat dalam laporan sudah lengkap dan bebas dari kesalahan, meskipun masih ada ketidakpastian terkait kelengkapannya.
+
+Memastikan sistem
+
+yang ada lebih
+
+konsisten dalam
+
+menjaga kelengkapan
+
+dan akurasi data yang
+
+tercatat
+
+dalam
+
+laporan.
+
+2. Terdapat
+
+Menambahkan fitur
+
+ketidaksesuaian data
+
+pengecekan dan
+
+dalam beberapa laporan yang ditemukan, yang mengindikasikan adanya kesalahan atau ketidakakuratan.
+
+validasi data untuk
+
+mengurangi
+
+kesalahan
+
+yang
+
+mungkin terjadi
+
+dalam laporan yang
+
+dihasilkan.
+
+1. Proses pembuatan
+
+Meningkatkan
+
+laporan tidak menghabiskan biaya yang signifikan, meskipun memakan waktu. 2. Laporan digital lebih disukai oleh sebagian besar responden, karena lebih efisien dan
+
+efisiensi waktu dalam
+
+pembuatan laporan
+
+tanpa meningkatkan
+
+biaya
+
+secara
+
+signifikan.
+
+Menyediakan sistem
+
+laporan digital yang
+
+lebih efisien untuk
+
+mengurangi biaya
+
+operasional yang
+
+mengurangi biaya
+
+terkait
+
+dengan
+
+BAB IV ANALISA SISTEM
+
+Control and Security
+Efficiency Service
+
+dibandingkan laporan cetak.
+
+penggunaan laporan cetak.
+
+1. Proses pembuatan
+
+Mengoptimalkan
+
+laporan sudah efisien, sistem
+
+untuk
+
+meskipun masih ada
+
+meningkatkan
+
+ruang untuk
+
+kecepatan dalam
+
+meningkatkan kecepatan pengolahan data. 2. Laporan yang dihasilkan
+
+proses pembuatan laporan, agar lebih efisien. Menyesuaikan sistem
+
+sesuai dengan kebutuhan agar lebih tepat dalam
+
+manajerial, meskipun ada memenuhi kebutuhan
+
+beberapa aspek yang
+
+manajerial yang
+
+masih perlu disesuaikan spesifik melalui
+
+lebih lanjut.
+
+laporan
+
+yang
+
+dihasilkan.
+
+1. Visualisasi grafik atau KPI sangat dibutuhkan oleh semua responden, yang menunjukkan bahwa fitur visualisasi sangat diinginkan.
+2. Laporan sudah mencakup variabel yang dibutuhkan untuk analisis, meskipun ada beberapa variabel yang
+
+Menambahkan fitur
+
+visualisasi grafik atau
+
+KPI dalam laporan
+
+untuk mempermudah
+
+pemahaman dan
+
+pengambilan
+
+keputusan.
+
+Memastikan bahwa
+
+laporan mencakup
+
+seluruh variabel yang
+
+relevan untuk analisis
+
+yang
+
+lebih
+
+belum sepenuhnya tersedia.
+
+menyeluruh dan mendalam.
+
+1. Fitur tambahan seperti filter untuk laporan berdasarkan jenis kendaraan atau wilayah
+
+Menambahkan fitur filter pada sistem untuk mempermudah pembuatan laporan
+
+BAB IV ANALISA SISTEM
+
+dealer sangat dibutuhkan, yang lebih relevan
+
+yang memungkinkan laporan lebih relevan dan mudah dipahami. 2. Akses laporan real-time sangat penting untuk pengambilan keputusan yang cepat dan lebih responsif.
+
+dan sesuai dengan
+
+kebutuhan pengguna.
+
+Meningkatkan sistem
+
+untuk
+
+memungkinkan akses
+
+laporan secara real-
+
+time
+
+guna
+
+mendukung
+
+pengambilan
+
+keputusan yang lebih
+
+cepat dan lebih
+
+responsif.
+
+4.2.8. Business Plan Berdasarkan hasil analisis yang telah dilakukan maka untuk perkembangan
+organisasi yang akan datang, akan dibuat suatu rencana bisnis, rencana-rencana tersebut yaitu sebagai berikut:
+a) Rencana Jangka Pendek Rencana bisnis jangka pendek yang akan dilakukan adalah dengan membuat perancangan sistem pengaduan masalah terpusat yang dapat menampung semua pelaporan masalah yang terjadi di dalam aplikasi.
+b) Rencana Jangka Menengah Rencana bisnis jangka menengah yang akan dilakukan adalah dengan mengembangkan sistem dengan cara mengPerancangankan perancangan sistem pengaduan masalah terpusat ini.
+c) Rencana Jangka Panjang Rencana bisnis jangka panjang yang akan dilakukan adalah dengan mengintegrasikan dan melakukan migrasi semua data dari aplikasi yang sudah dibuat sebelumnya sehingga nantinya pengaduan masalah dapat dilakukan pada satu platform saja.
+
+BAB IV ANALISA SISTEM
+
+Tabel 4. 4 Business Plan
+
+Evaluasi Saran
+
+Proses pembuatan laporan penjualan kendaraan saat ini sudah mengandalkan sistem otomatis, namun laporan yang dihasilkan masih dalam bentuk mentah dan memerlukan pengolahan manual untuk menyesuaikan dengan format yang diinginkan. Hal ini menyebabkan proses pembuatan laporan menjadi tidak efisien dan memakan waktu, serta rentan terhadap kesalahan manusia dalam merapikan dan menyusun laporan. Selain itu, laporan yang dihasilkan belum terintegrasi dengan baik, sehingga tim perlu melakukan perbaikan dan pengolahan lebih lanjut agar laporan tersebut dapat memenuhi kebutuhan analisis dan evaluasi manajerial. Diperlukan perancangan sistem yang lebih efektif untuk otomatisasi pembuatan laporan penjualan. Sistem ini harus mampu menghasilkan laporan yang lebih lengkap dan sesuai dengan format yang diinginkan, tanpa memerlukan pengolahan manual tambahan. Selain itu, perlu adanya standarisasi dalam proses pembuatan laporan untuk memastikan hasil yang lebih akurat dan efisien, serta mengurangi kemungkinan kesalahan. Dengan sistem yang lebih terintegrasi, laporan penjualan dapat langsung digunakan oleh manajemen untuk evaluasi tanpa proses tambahan yang memakan waktu.
+
+Solusi
+
+Solusi yang diusulkan adalah membangun sistem otomatis untuk pembuatan laporan penjualan kendaraan yang dapat menghasilkan laporan lengkap dan sesuai dengan format yang diinginkan, tanpa memerlukan pengolahan manual lebih lanjut. Sistem ini harus terintegrasi dengan setiap tahap transaksi penjualan dan mengelola data penjualan dengan efektif, sehingga laporan yang dihasilkan siap pakai dengan akurasi tinggi. Selain itu, sistem ini harus
+
+BAB IV ANALISA SISTEM
+mendukung fleksibilitas untuk berbagai jenis laporan (harian, mingguan, bulanan, dll.), serta memastikan bahwa seluruh data transaksi terorganisir dengan baik untuk tujuan analisis dan pengambilan keputusan yang cepat dan tepat.
+
+BAB V PEMBANGUNAN SISTEM
+
+BAB V PEMBANGUNAN SISTEM
+
+5.1.
+
+Analisa Kebutuhan Sistem
+
+Perancangan Sistem Terintegrasi untuk Pembuatan Laporan unit Kendaraan
+
+Bermotor Terpusat dirancang dengan menggunakan Metode Kano. Proses-proses
+
+yang dirancang pada perancangan sistem informasi ini yaitu:
+
+1. Login
+
+2. Manajemen Data Transaksi Penjualan
+
+3. Pembuatan Laporan Penjualan Otomatis
+
+4. Dashboard Ringkasan Penjualan
+
+5.1.1. Analisa Metode Kano 1. Tahapan Penelitian
+
+Gambar 5. 1 Tahapan Penelitian Metode Kano Berdasarkan gambar di atas, tahapan atau alur penelitian yang dilakukan adalah sebagai berikut:
+1. Identifikasi Ide atau Permintaan User Identifikasi masalah atau permintaan pengguna merupakan tahap awal dalam penelitian ini. Pada tahap ini, dilakukan identifikasi terhadap masalah atau kebutuhan yang muncul dari pengguna atau sistem yang sedang berjalan. Tujuan dari identifikasi ini adalah untuk memahami
+
+BAB V PEMBANGUNAN SISTEM
+permasalahan yang ada dan mengetahui area yang perlu diperbaiki dengan sistem yang lebih efisien. 2. Penyusunan Kuesioner Penyusunan kuesioner digunakan untuk mengumpulkan data terkait dengan tingkat kepuasan pengguna terhadap sistem laporan penjualan yang ada saat ini. Kuesioner ini bertujuan untuk menampung feedback dari para pengguna mengenai masalah yang mereka hadapi dan fitur-fitur yang mereka harapkan. Jumlah responden pada penelitian ini adalah 4 orang, yang terdiri dari staf atau pengguna individual yang terlibat dalam proses pembuatan laporan penjualan. Penyusunan kuesioner dilakukan melalui platform Google Formulir dengan 15 pertanyaan yang mencakup aspekaspek kritis yang perlu diperbaiki dalam sistem. 3. Pengumpulan Data Pengumpulan data penelitian dilakukan untuk memastikan bahwa data yang diperoleh valid dan reliabel. Data yang digunakan meliputi data primer yang diperoleh dari penyebaran kuesioner kepada staf atau individu yang terlibat langsung dalam proses pembuatan laporan penjualan di PT Maju Global Motor. Selain itu, data sekunder juga digunakan untuk memperkaya analisis, seperti data yang diperoleh dari studi literatur yang relevan dengan topik penelitian ini. 4. Analisis data dan Evaluasi Tahap analisis data diperoleh dari jawaban 4 responden yang telah dihitung berdasarkan aspek fungsional dan disfungsional yang dimiliki oleh Metode Kano.
+Gambar 5. 2 Evaluasi Kano Dari tabel evaluasi Kano terdapat beberapa customer requirements yang
+
+BAB V PEMBANGUNAN SISTEM
+
+dapat dijabarkan sebagai berikut : 1. M (Must-Be Requirements): Fungsi atau fitur yang disediakan oleh
+sebuah produk harus ada. Hal ini dapat diartikan jika fitur ada maka tidak meningkatkan kepuasan pengguna, tetapi jika tidak ada maka pengguna tidak puas. 2. O (One-Dimensional Requirements): Fungsi atau fitur yang disediakan oleh sebuah produk harus ada. Hal ini dapat diartikan jika fitur ada maka tidak meningkatkan kepuasan pengguna, tetapi jika tidak ada maka pengguna tidak puas. 3. A (Attractive Requirements): Merupakan kondisi yang terpenuhi jika kehadiran sebuah produk akan meningkatkan kepuasan konsumen tetapi ketidakhadiran sebuah produk tidak membuat konsumen tidak puas. 4. I (Indifferent Requirements): Merupakan kondisi yang terpenuhi jika fitur yang disediakan tidak dipedulikan kehadirannya oleh pengguna. 5. R (Reversal): Kondisi dimana sebuah fitur yang diperkirakan mendapat jawaban positif tetapi ternyata mendapatkan jawaban negative dari pengguna. 6. Q (Questionable Requirements): Kondisi terjadi jika pengguna menjawab kuesioner dengan jawaban yang sama pada pertanyaan yang berbanding terbalik.
+
+5. Hasil Penelitian Hasil penelitian merupakan tahap akhir dari penelitian. Setelah dilakukan analisis data, hasil dari penelitian yang telah dianalisis menggunakan Metode Kano.
+
+Tabel 5. 1 Hasil Kuesioner
+
+C.R A
+
+1
+
+0
+
+2
+
+0
+
+3
+
+0
+
+M
+
+R
+
+0
+
+4
+
+1
+
+3
+
+0
+
+1
+
+O
+
+Q
+
+I
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+3
+
+0
+
+0
+
+Total 4 4 4
+
+Grade O O O
+
+BAB V PEMBANGUNAN SISTEM
+
+4
+
+0
+
+0
+
+4
+
+0
+
+0
+
+0
+
+4
+
+O
+
+5
+
+0
+
+1
+
+2
+
+1
+
+0
+
+0
+
+4
+
+M, I
+
+6
+
+0
+
+0
+
+4
+
+0
+
+0
+
+0
+
+4
+
+O
+
+7
+
+0
+
+0
+
+4
+
+0
+
+0
+
+0
+
+4
+
+O
+
+8
+
+0
+
+1
+
+3
+
+0
+
+0
+
+0
+
+4
+
+O
+
+9
+
+0
+
+0
+
+4
+
+0
+
+0
+
+0
+
+4
+
+O
+
+10
+
+0
+
+1
+
+3
+
+0
+
+0
+
+0
+
+4
+
+O
+
+11
+
+0
+
+0
+
+4
+
+0
+
+0
+
+0
+
+4
+
+O
+
+12
+
+0
+
+0
+
+1
+
+3
+
+0
+
+0
+
+4
+
+O
+
+13
+
+0
+
+1
+
+3
+
+0
+
+0
+
+0
+
+4
+
+O
+
+14
+
+0
+
+1
+
+2
+
+0
+
+1
+
+0
+
+4
+
+M
+
+15
+
+0
+
+0
+
+4
+
+0
+
+0
+
+0
+
+4
+
+O
+
+Untuk melihat lebih jelas mengenai hasil pengolahan kuesioner dengan Metode Kano, dapat dilihat pada halaman lampiran laporan ini.
+
+5.2.
+
+Perancangan Sistem
+
+Perancangan ini menitikberatkan pada perancangan data yang ada pada
+
+aplikasi, tahap perancangan data pada perangkat lunak tersebut dipakai ke dalam
+
+permodelan yang umum yang digunakan yaitu menggunakan UML.
+
+5.2.1. Use Case Diagram
+
+Perancangan dengan menggunakan usecase merepresentasikan bagaimana
+
+aktor berinteraksi dengan sistem serta hak-hak aktor dalam mengelola sistem.
+
+Berikut adalah usecase diagram dari sistem yang akan dibangun:
+
+BAB V PEMBANGUNAN SISTEM
+
+uc Use Case Model Sales
+
+Login Kelola Data Transaksi
+
+Admin Sales
+
+Kelola Laporan Review Laporan
+
+Admin BPKB
+
+Logout
+
+ADH OM
+C- Level
+
+Gambar 5. 3 Use Case Diagram
+Pada use case diagram tersebut, aktor yang terlibat dalam perancangan sistem informasi pengelolaan transaksi dan laporan penjualan yaitu:
+1. Sales login ke dalam sistem, Sales berperan untuk Kelola Data Transaksi, memasukkan informasi transaksi penjualan ke dalam sistem.
+2. Admin Sales login ke dalam sistem, Admin Sales berperan untuk Verifikasi Data Transaksi, memastikan kelengkapan dan keakuratan data transaksi yang diinput oleh Sales, serta Kelola Laporan untuk menyusun laporan penjualan.
+3. Admin BPKB login ke dalam sistem, Admin BPKB berperan untuk Kelola Laporan terkait dokumen BPKB kendaraan yang telah terjual dan memastikan kelengkapan dokumen.
+4. ADH (Kepala Administrasi) login ke dalam sistem, ADH berperan untuk Validasi Laporan yang telah disusun oleh Admin Sales dan Admin BPKB, serta menyusun laporan final sesuai dengan format yang ditentukan.
+5. Operational Manager (OM) login ke dalam sistem, OM berperan untuk Evaluasi Laporan, memeriksa laporan yang telah divalidasi oleh ADH dan memberikan masukan atau revisi jika diperlukan.
+6. C-Level login ke dalam sistem, C-Level berperan untuk Analisis Strategis, menerima laporan akhir dan melakukan analisis strategis untuk pengambilan keputusan berbasis data.
+
+BAB V PEMBANGUNAN SISTEM
+
+5.2.2. Class Diagram Perancangan data digambarkan dengan Class Diagram yang menjelaskan
+tentang mengenai kelas yang digunakan dalam sistem beserta dengan metode dan operasinya.
+
+class Class Model
+Sistem Informasi Laporan Penjualan
+
+FormLogin
+
+LoginController
++ direct(): void + getDataUser(): void + loginAction(): void + tampilForm(): void + validasiForm(): void
+
+Dashboard
+
+Kelola User
+UserController
++ deleteUser(): void + editUser(): void + getIdLevel(): void + getIdUser(): void + requestDelete(): void + requestEdit(): void + requestSearch(): void + searchData(): void + tambahUser(): void + tampilDataPencarian(): void + tampilForm(): void + tampilMenu(): void + tampilPesan(): void + validasiForm(): void
+user
+- UserId: int - username: char - Password: char - role: char
+
+KelolaDataTransaksi
+
+KelolaLaporanPenjualan
+
+TransaksiController
++ inputTransaksi(): void + ubahTransaksi(): void + hapusTransaksi(): void + validasiTransaksi(): void
+
+LaporanController
++ buatLaporan(): void + distribusiLaporan(): void + arsipkanLaporan(): void
+
+Faktur - FakturID: int - TglFaktur: int - Harga: int - HargaTerbilang: char
+Leasing - LeasingID: int - NamaLeasing: char
+
+Pembayaran
+- PembayaranID: int - DPAmount: int - LeasingAmount: int - TanggalPembayaran: int
+
+Laporan
+- LaporanID: int - TanggalCetak: int - Periode: char - TotalPenjualan: double - TotalUnit: int - JenisLaporan: char
+
+Customer
+- CustomerID: int - NamaCustomer: char - Alamat: char - NoKTP: int - NoHP: int
+
+Kendaraan
+- KendaraanID: int - Merk: char - Type: char - IsiSilinder: char - Warna: char - NoRangka: int - NoMesin: int - BahanBakar: char - Harga: int
+
+Penjualan
+- PenjualanID: int - Tanggal: int - MetodePembayaran: char - Tenor: int - StatusDO: char
+
+Sales
+- SalesID: int - NamaSales: char - SPV: char
+
+Gambar 5. 4 Class Diagram 5.2.3. Perancangan Struktur Menu
+Berikut adalah perancangan struktur menu dari Sistem Informasi Pengaduan Masalah Terpusat yang akan dibangun:
+
+BAB V PEMBANGUNAN SISTEM
+
+Login
+
+Kelola User
+
+Kelola Produk
+
+Kelola Laporan Penjualan
+
+Dashboard
+
+Kelola Data Transaksi
+
+Ringkasan Penjualan
+
+Keterangan: Administration Head (ADH) Sales, Admin Sales, Admin BPKB Admin BPKB
+
+Operation Manager (OM) ADH, Admin BPKB Semua Business User
+
+Gambar 5. 5 Struktur Menu Sistem Informasi Laporan Penjualan
+
+Deskripsi struktur menu: a) Ketika aktor melakukan login, maka aktor dapat mengakses menu sesuai dengan hak aksesnya masing-masing. Akses tersebut ditentukan berdasarkan peran masing-masing pengguna seperti Administration Head (ADH), Admin BPKB, Admin Sales, Sales, dan Operation Manager (OM). b) Pada menu Kelola User, aktor yang berkaitan yaitu Administration Head (ADH) dapat menambahkan data user, mengubah data user, menghapus data user, dan melihat data user. c) Pada menu Kelola Produk, aktor yang berkaitan yaitu Admin BPKB dapat menambahkan data produk (kendaraan), mengubah data produk, menghapus data produk, dan melihat detail produk kendaraan. d) Pada menu Kelola Laporan Penjualan, aktor yang berkaitan yaitu ADH dan Admin BPKB dapat menghasilkan laporan penjualan, mengekspor laporan ke dalam format PDF, serta mengarsipkan laporan berdasarkan periode tertentu. e) Pada menu Dashboard, semua aktor (seluruh business user) dapat melihat ringkasan atau data overview sesuai dengan hak akses masing-masing, seperti jumlah penjualan, unit kendaraan terjual, serta informasi penting lainnya yang mendukung pengambilan keputusan. f) Pada menu Kelola Data Transaksi, aktor yang berkaitan yaitu Sales, Admin Sales, dan Admin BPKB dapat menginput data penjualan kendaraan, mengubah data transaksi, menghapus transaksi, serta melakukan validasi atas transaksi yang terjadi.
+
+BAB V PEMBANGUNAN SISTEM
+g) Pada menu Ringkasan Penjualan, semua aktor dapat melihat ringkasan data penjualan yang telah terjadi sebagai bagian dari monitoring dan evaluasi operasional. 5.2.4. Perancangan Antarmuka Berdasarkan rancangan yang telah dibuat untuk antarmuka yang berfungsi
+sebagai interface antara sistem informasi dan pengguna untuk mengolah dan mendapatkan informasi yang diinginkan. Berikut merupakan contoh rancangan antar muka Sistem Informasi Pengaduan Masalah Terpusat: V.2.4.1 Perancangan Antarmuka Login
+Gambar V. 1 Perancangan Antar Muka Login
+Keterangan: Berdasarkan gambar di atas, pengguna yang akan login harus mengisi form
+login terlebih dahulu dengan cara mengisi field Email dan Password agar dapat mengakses sistem sesuai hak akses. Jika pengguna memasukkan Email dan Password yang belum terdaftar pada database, maka akan muncul pesan error dan pengguna tidak dapat mengakses sistem.
+
+BAB V PEMBANGUNAN SISTEM V.2.4.2 Perancangan Antarmuka Detail Ticketing Pengaduan
+Gambar V. 2 Perancangan Antar Muka Detail Ticketing Pengaduan Keterangan:
+Berdasarkan gambar di atas, detail ticketing pengaduan akan terdiri dari beberapa elemen seperti Judul Pengaduan, Deskripsi Pengaduan, Status Prioritas, Status Pengaduan, Nama Pengadu, dll.
+
+BAB VI KESIMPULAN DAN SARAN
+
+5.1.
+
+Kesimpulan
+
+Kesimpulan dari Perancangan Sistem Terintegrasi untuk Pembuatan Laporan
+
+unit Kendaraan Bermotor yaitu sebagai berikut:
+
+1. Telah berhasil dirancang sebuah sistem informasi terintegrasi yang dapat
+
+mengotomatisasi pembuatan laporan penjualan kendaraan. Meskipun
+
+perusahaan sudah memiliki sistem informasi untuk pencatatan transaksi,
+
+laporan yang dihasilkan masih berupa data mentah yang memerlukan
+
+pengolahan manual lebih lanjut.
+
+2. Dengan diterapkannya sistem terintegrasi ini, perusahaan dapat
+
+meningkatkan efisiensi dalam penyusunan laporan, mengurangi kesalahan
+
+input, serta mendukung pengambilan keputusan yang lebih cepat dan
+
+berbasis data..
+
+5.2.
+
+Saran
+
+Berdasarkan pembahasan analisis dan perancangan yang ditulis pada laporan
+
+ini, maka didapatkan beberapa saran pengembangan, yaitu meskipun perusahaan
+
+sudah memiliki sistem informasi untuk pencatatan transaksi, laporan yang
+
+dihasilkan masih berupa data mentah yang memerlukan pengolahan manual lebih
+
+lanjut. Oleh karena itu, pengembangan sistem harus difokuskan pada otomatisasi
+
+pengolahan data laporan sehingga hasil laporan bisa langsung digunakan tanpa
+
+perlu manipulasi tambahan. Hal ini diharapkan dapat meningkatkan efisiensi,
+
+akurasi, dan kecepatan penyusunan laporan serta mendukung pengambilan
+
+keputusan yang lebih tepat waktu dan berbasis data.
+
+Manajemen Informatika Universitas Logistik dan Bisnis Internasional
+
+VI-1
+
+DAFTAR PUSTAKA
+[1] I. S. Arini and S. Informasi, "PERANCANGAN SISTEM INFORMASI PENJUALAN SEPEDA MOTOR PADA," vol. 12, no. 3, pp. 22­29.
+[2] H. Hermanto and R. M. Suri, "Sistem Informasi Penjualan Kendaraan Motor Pada CV. Yamaha Cupak Menggunakan Bahasa Pemrograman Visual Basic," J. Pengemb. Teknol. Inf. dan Komun., vol. 1, no. 1, pp. 1­7, 2023, doi: 10.52060/juptik.v1i1.1212.
+[3] B. A. B. Ii and L. Teori, "045C2016Sti-10.5.00093_Bab_Ii," pp. 8­19, 2012.
+[4] F. N. Agung, I. Junaedi, and A. B. Yulianto, "Perancangan Sistem Informasi Pelayanan Customer Dengan Platform Web," J. Manajamen Inform. Jayakarta, vol. 2, no. 4, p. 320, 2022, doi: 10.52362/jmijayakarta.v2i4.916.
+[5] N. A. B. Surianti, "Perancangan Sistem Informasi Laporan Capaian Kinerja Pada Kantor Wilayah Kementerian Agama Provinsi Papua Berbasis Website," J. Ilm. MATRIK, vol. 24, no. 3, pp. 270­270, 2022.
+[6] P. Sutopo, D. Cahyadi, and Z. Arifin, "Sistem Informasi Eksekutif Sebaran Penjualan Kendaraan Bermotor Roda 2 di Kalimantan Timur Berbasis Web," Inform. Mulawarman J. Ilm. Ilmu Komput., vol. 11, no. 1, p. 23, 2016, doi: 10.30872/jim.v11i1.199.
+[7] R. Juliarto, "Apa itu UML? Beserta Pengertian dan Contohnya - Dicoding Blog," May 12.
+[8] A. Singh, "The Kano Model: Driving customer experience improvement."
+[9] E. Didik, "Kano Model," 18 Dec 2018. [10] A. Dennis, B. Wixom, and D. Tergaden, Object-Oriented Systems Analysis
+and Design: An MDA Approach with UML. 2013. [11] Maraya, "METODE PROTOTYPE: Kelebihan, Kekurangan & Tahapan
+Model," Jun 28, 2021.
+
+[12] Hendrik, "Prototype Adalah: Pengertian, Manfaat, Tujuan, dan Contohnya."
+[13] N. Hal, M. Syahdan, A. H. Elyas, and B. S. Hasugian, "Sistem Informasi Pendaftaran Dan Pengaduan Pelanggan Indihome Berbasis Web Pada PT . Telekomunikasi Kota Medan Indihome ' s Web-Based Customer Information System for Registration and Complaints at PT . Telekomunikasi Medan city," J. Inf. Syst. Comput. Sci. dan Inf. Technol., vol. 2, no. 1, pp. 43­50, 2021.
+[14] D. Mediana and A. I. Nurhidayat, "Rancang Bangun Aplikasi Helpdesk (ADesk) Berbasis Web Mengunakan Framework Laravel (Studi Kasus Di PDAM Surya Sembada Kota Surabaya," J. Manaj. Inform., vol. 8, no. 2, pp. 75­81, 2018.
+[15] P. Pt and B. Mega, "Sistem Informasi Helpdesk Ticketing," Sist. Inf. Help. Ticket. PADA PT. BANK MEGA Tbk, vol. 22, no. 2, pp. 201­207, 2020.
+
+Lampiran I. Kuesioner Metode PIECES I. METODE PIECES
+
+I.1 Populasi
+
+Subjek penelitian ini adalah staf dan perseorangan di dalam lingkungan PT Maju Global Motor.
+
+Subjek
+
+Jumlah Populasi
+
+Staf dan Perseorangan
+
+10
+
+Jumlah Sampel
+
+10
+
+I.2 Variabel dan Indikator Penilaian
+
+Variabel
+Performance
+Information Economics Control and Security Efficiency
+Service
+
+Indikator
+Response Time
+Relevancy Benefit Realization Security and Authorization Resource Utilization
+User Satisfaction
+
+Definisi Operasional
+Cepat atau lambatnya waktu yang diperlukan dalam melakukan kegiatan Sesuai atau tidaknya informasi yang diperlukan Manfaat dan keuntungan yang diperoleh dari sistem Keamanan terhadap sistem dan kewenangan pengguna Pemanfaatan sumber daya secara optimal dan efisien Kepuasan pengguna terhadap system dan layanan
+
+I.3 Pertanyaan tiap variabel
+Performance
+Proses pengaduan masalah antar platform selalu tersedia sepanjang waktu yang Anda perlukan Sangat Setuju Setuju Ragu-Ragu Tidak Setuju
+TOTAL Proses pengaduan masalah yang dilakukan melalui Email atau WhatsApp dapat ditangani dengan cepat Sangat Setuju Setuju Ragu-Ragu Tidak Setuju Sangat Tidak Setuju
+TOTAL
+Information
+Informasi yang disajikan pada tiap platform pengaduan masalah sudah lengkap dan bebas dari kesalahan Setuju Ragu-Ragu Tidak Setuju Sangat Tidak Setuju
+TOTAL
+
+SKOR
+1 1 4 4 10
+SKOR
+1 2 2 4 1 10
+SKOR
+1 5 3 1 10
+
+Informasi yang disajikan pada tiap platform pengaduan masalah belum sesuai dengan kebutuhan Sangat Setuju Setuju Ragu-Ragu Tidak Setuju
+TOTAL
+Economics
+Proses pengaduan masalah melalui Email atau WhatsApp dapat menghemat biaya untuk perusahaan Setuju Ragu-Ragu
+TOTAL Anda mendapatkan manfaat dari platform pengaduan masalah baik melalui Email atau WhatsApp Sangat Setuju Setuju Ragu-Ragu Tidak Setuju Sangat Tidak Setuju
+TOTAL
+Control & Security
+Pengaduan masalah yang sudah dilaporkan dapat dipantau perkembangannya Sangat Setuju Setuju Ragu-Ragu Tidak Setuju Sangat Tidak Setuju
+
+SKOR 2 2 3 3 10
+SKOR 5 5 10
+SKOR 1 3 4 1 1 10
+SKOR 1 1 1 6 1
+
+TOTAL Proses pengaduan masalah yang digunakan pada platform sudah terjamin keamanannya Sangat Setuju Setuju Ragu-Ragu Tidak Setuju Sangat Tidak Setuju
+TOTAL
+
+10
+SKOR
+1 1 5 2 1 10
+
+Efficiency
+Proses pengaduan masalah pada tiap platform terbilang mudah karena dilakukan melalui Email atau WhatsApp Sangat Setuju Setuju Ragu-Ragu Tidak Setuju Sangat Tidak Setuju
+TOTAL Proses pengaduan masalah terbilang kurang efektif karena masih dilakukan pada masing-masing platform Sangat Setuju Setuju Ragu-Ragu Tidak Setuju Sangat Tidak Setuju
+TOTAL
+Services
+
+SKOR
+1 5 1 2 1 10
+SKOR
+4 1 2 2 1 10
+
+Proses pengaduan masalah mudah untuk dilakukan karena bisa melalui Email atau WhatsApp Sangat Setuju Setuju Ragu-Ragu Tidak Setuju Sangat Tidak Setuju
+TOTAL Anda terbantu terhadap hasil pengaduan masalah melalui Email atau WhatsApp Sangat Setuju Setuju Ragu-Ragu Tidak Setuju Sangat Tidak Setuju
+TOTAL
+
+SKOR
+3 2 2 2 1 10
+SKOR
+2 2 3 2 1 10
+
+I.4 Pengolahan Data
+
+Rumus
+
+RK
+
+=
+
+ 
+
+Keterangan:
+
+RK = Rata-rata kepuasan
+
+JSK = Jumlah Skor Kuesioner
+
+JK = Jumlah Kuesioner
+
+Performance Jawaban
+
+Performance
+
+SS
+
+S
+
+RG
+
+TS
+
+STS
+
+Skor
+
+5
+
+4
+
+3
+
+2
+
+1
+
+Total Jawaban
+
+2
+
+3
+
+6
+
+8
+
+1
+
+RK
+
+=
+
+(52)
+
++
+
+(43)
+
++
+
+(36) 20
+
++
+
+(28)
+
++
+
+(11)
+
+RK
+
+=
+
+10+12+18+16+1 20
+
+RK
+
+=
+
+57 20
+
+RK = 2.85
+
+Information
+
+Information
+
+Jawaban
+
+SS
+
+S
+
+RG
+
+TS
+
+STS
+
+Skor
+
+5
+
+4
+
+3
+
+2
+
+1
+
+Total Jawaban
+
+2
+
+3
+
+8
+
+6
+
+1
+
+RK
+
+=
+
+(52)
+
++
+
+(43)
+
++
+
+(38) 20
+
++
+
+(26)
+
++
+
+(11)
+
+RK = 10+12+24+12+1
+20
+
+RK
+
+=
+
+59 20
+
+RK = 2.95
+
+Economics
+
+Economics
+
+Jawaban
+
+SS
+
+S
+
+RG
+
+TS
+
+STS
+
+Skor
+
+5
+
+4
+
+3
+
+2
+
+1
+
+Total Jawaban
+
+1
+
+8
+
+9
+
+1
+
+1
+
+RK = (51) + (48) + (39) + (21) + (11)
+20
+RK = 5+32+27+2+1
+20
+RK = 67
+20
+RK = 3.35
+
+Control & Security
+
+Control & Security
+
+Jawaban
+
+SS
+
+S
+
+RG
+
+TS
+
+STS
+
+Skor
+
+5
+
+4
+
+3
+
+2
+
+1
+
+Total Jawaban
+
+2
+
+2
+
+6
+
+8
+
+2
+
+RK
+
+=
+
+(52)
+
++
+
+(42)
+
++
+
+(36) 20
+
++
+
+(28)
+
++
+
+(12)
+
+RK
+
+=
+
+10+8+18+16+2 20
+
+RK = 54
+20
+
+RK = 2.7
+
+Efficiency
+
+Efficiency
+
+Jawaban
+
+SS
+
+S
+
+RG
+
+TS
+
+STS
+
+Skor
+
+5
+
+4
+
+3
+
+2
+
+1
+
+Total Jawaban
+
+5
+
+6
+
+3
+
+4
+
+2
+
+RK
+
+=
+
+(55)
+
++
+
+(46)
+
++
+
+(33) 20
+
++
+
+(24)
+
++
+
+(12)
+
+RK
+
+=
+
+25+24+9+8+2 20
+
+RK
+
+=
+
+68 20
+
+RK = 3.4
+
+Service
+
+Jawaban
+
+Service
+
+SS
+
+S
+
+RG
+
+TS
+
+STS
+
+Skor
+
+5
+
+4
+
+3
+
+2
+
+1
+
+Total Jawaban
+
+5
+
+4
+
+5
+
+4
+
+3
+
+RK = (55) + (44) + (35) + (24) + (13)
+20
+
+RK
+
+=
+
+25+16+15+8+3 20
+
+RK
+
+=
+
+67 20
+
+RK = 3.35
+
+Tabel Tingkat Kepuasan
+Rentang 1 ­ 1.79 1.8 ­ 2.59 2.6 ­ 3.39 3.4 ­ 4.19 4.2 - 5
+
+Nilai Kategori Sangat Tidak Puas
+Tidak Puas Ragu-ragu
+Puas Sangat Puas
+
+Hasil Pengolahan Data
+
+Variabel SS S RG TS STS Total
+
+Performance 2 3 6 8 1 20
+
+Information 2 3 8 6 1 20
+
+Economics 1 8 9 1 1 20
+
+Control and 2 2 6 8 2 20
+Security
+
+Efficiency
+
+5 6 3 4 2 20
+
+Service
+
+5 4 5 4 3 20
+
+Kesimpulan 2.85 (Ragu-ragu) 2.95 (Ragu-ragu) 3.35 (Ragu-ragu) 2.7 (Ragu-ragu)
+3.4 (Puas) 3.5 (Puas)
+
+I.5 Kesimpulan
+Berdasarkan dengan hasil pengolahan data di atas, maka dapat disimpulkan hasil sebagai berikut:
+a. Dilihat dari sisi Performance, variabel ini memiliki tingkat kepuasan sebesar 2.85 yang termasuk ke dalam kategori ragu-ragu.
+b. Dilihat dari sisi Information, variabel ini memiliki tingkat kepuasan sebesar 2.95 yang termasuk ke dalam kategori ragu-ragu.
+c. Dilihat dari sisi Economics, variabel ini memiliki tingkat kepuasan sebesar 3.35 yang termasuk ke dalam kategori ragu-ragu.
+
+d. Dilihat dari sisi Control and Security, variabel ini memiliki tingkat kepuasan sebesar 2.7 yang termasuk ke dalam kategori ragu-ragu.
+e. Dilihat dari sisi Efficiency, variabel ini memiliki tingkat kepuasan sebesar 3.4 yang termasuk ke dalam kategori puas.
+f. Dilihat dari sisi Service, variabel ini memiliki tingkat kepuasan sebesar 3.5 yang termasuk ke dalam kategori puas.
+
+Lampiran II. Kuesioner Metode Kano
+
+II. METODE KANO
+
+II.1 Populasi
+
+Subjek penelitian ini adalah staf di dalam lingkungan PT Maju Global Motor. dan perseorangan di lingkungan masyarakat.
+
+Subjek
+
+Jumlah Populasi
+
+Staf dan Perseorangan
+
+10
+
+Jumlah Sampel
+
+10
+
+II.2 Pertanyaan Fungsional dan Disfungsional
+
+II.2.1 Fungsional
+
+No.
+
+Pertanyaan
+
+No. Urut
+
+1. Bagaimana perasaan Anda jika fitur Login berjalan 1
+dengan lancar?
+
+2. Bagaimana perasaan Anda jika fitur Register berjalan 3
+dengan lancar?
+
+3. Bagaimana perasaan Anda jika fitur Pengaduan Masalah 5
+berjalan dengan lancar?
+
+4. Bagaimana perasaan Anda jika fitur Kelola Pengaduan 7
+Masalah berjalan dengan lancar?
+
+5. Bagaimana perasaan Anda jika fitur Rekapitulasi 9
+Pengaduan Masalah berjalan dengan lancar?
+
+II.2.2 Disfungsional
+
+No.
+
+Pertanyaan
+
+No. Urut
+
+1. Bagaimana perasaan Anda jika fitur Login tidak berjalan 2
+dengan lancar?
+
+2. Bagaimana perasaan Anda jika fitur Register tidak 4
+berjalan dengan lancar?
+
+3. Bagaimana perasaan Anda jika fitur Pengaduan Masalah 6
+tidak berjalan dengan lancar?
+
+4. Bagaimana perasaan Anda jika fitur Kelola Pengaduan 8
+Masalah tidak berjalan dengan lancar?
+
+5. Bagaimana perasaan Anda jika fitur Rekapitulasi 10
+Pengaduan Masalah tidak berjalan dengan lancar?
+
+II.3 Pengolahan Data
+
+a. Login
+
+Customer Requirements
+
+Disfunctional
+
+1
+
+2345
+
+1
+
+0
+
+0017
+
+2
+
+0
+
+1000
+
+Functional
+
+3
+
+0
+
+0000
+
+4
+
+0
+
+0000
+
+5
+
+0
+
+0001
+
+A
+
+M
+
+R
+
+1
+
+0
+
+0
+
+O
+
+Q
+
+I
+
+7
+
+1
+
+1
+
+b. Register Customer Requirements 1
+Functional 2
+
+Disfunctional
+
+1
+
+2345
+
+0
+
+0005
+
+0
+
+0023
+
+A
+
+M
+
+0
+
+3
+
+3
+
+0
+
+0000
+
+4
+
+0
+
+0000
+
+5
+
+0
+
+0000
+
+R
+
+O
+
+Q
+
+I
+
+0
+
+5
+
+0
+
+2
+
+c. Pengaduan Masalah
+
+Customer Requirements
+
+1
+
+2
+
+Functional
+
+3
+
+4
+
+5
+
+A
+
+M
+
+R
+
+0
+
+1
+
+0
+
+Disfunctional
+
+1
+
+2345
+
+0
+
+0006
+
+0
+
+2011
+
+0
+
+0000
+
+0
+
+0000
+
+0
+
+0000
+
+O
+
+Q
+
+I
+
+6
+
+0
+
+3
+
+d. Kelola Pengaduan Masalah (Ticketing)
+
+Customer Requirements 1
+
+1
+
+0
+
+2
+
+0
+
+Functional
+
+3
+
+0
+
+4
+
+0
+
+5
+
+0
+
+Disfunctional 2345 1015 I 002 0000 0000 0000
+
+A
+
+M
+
+R
+
+O
+
+Q
+
+I
+
+2
+
+2
+
+0
+
+5
+
+0
+
+1
+
+e. Pelaporan Pengaduan Masalah
+
+Customer Requirements
+
+1
+
+2
+
+Functional
+
+3
+
+4
+
+5
+
+A
+
+M
+
+R
+
+0
+
+3
+
+1
+
+Disfunctional
+
+1
+
+2 3 45
+
+0
+
+0
+
+0
+
+02
+
+1
+
+1
+
+0
+
+22
+
+0
+
+0
+
+0
+
+01
+
+0
+
+0
+
+0
+
+00
+
+0
+
+0
+
+0
+
+01
+
+O
+
+Q
+
+I
+
+2
+
+1
+
+3
+
+II.4 Kesimpulan
+
+C.R
+
+A M R O Q I Total Grade
+
+1.
+
+100711
+
+10
+
+O
+
+2.
+
+030502
+
+10
+
+O
+
+3.
+
+010603
+
+10
+
+O
+
+4.
+
+220501
+
+10
+
+O
+
+5.
+
+031213
+
+10
+
+M, I
+
+Berdasarkan hasil kuesioner terhadap responden dapat diambil kesimpulan bahwa fitur dapat disimpulkan sebagai berikut:
+1. Fitur Login mendapatkan hasil One-Dimensional (O) sebesar 70% yang menunjukkan bahwa fitur login dalam produk harus ada.
+2. Fitur Register mendapatkan hasil One-Dimensional (O) sebesar 50% yang menunjukkan bahwa fitur register dalam produk harus ada.
+3. Fitur Pengaduan Masalah mendapatkan hasil One-Dimensional (O) sebesar 60% yang menunjukkan bahwa fitur pengaduan masalah dalam produk harus ada.
+
+4. Fitur Kelola Ticketing Pengaduan Masalah mendapatkan hasil OneDimensional (O) sebesar 50% yang menunjukkan bahwa fitur Kelola ticketing pengaduan masalah dalam produk harus ada.
+5. Fitur Pelaporan Pengaduan Masalah mendapatkan hasil Must-Be (M) sebesar 30% dan Indifferent (I) sebesar 30%, hal ini menunjukkan bahwa fitur pelaporan pengaduan masalah dalam produk harus ada dan tidak dipedulikan juga kehadirannya oleh pengguna.
+
+
